@@ -1,4 +1,5 @@
 # HashiCorp Vault Cheatsheet
+# Note: Vault 1.15.1 is the latest version as of April 2025
 
 ## Basic Commands
 ```bash

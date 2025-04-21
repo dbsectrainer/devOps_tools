@@ -56,12 +56,12 @@ jobs:
       JOB_VAR: value    # Job-level environment variable
     
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     
     - name: Setup Node.js
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v4
       with:
-        node-version: '14'
+        node-version: '22'
         
     - name: Install dependencies
       run: npm ci
@@ -77,11 +77,11 @@ jobs:
   test:
     strategy:
       matrix:
-        node: [12, 14, 16]
-        os: [ubuntu-latest, windows-latest]
+        node: [18, 20, 22]
+        os: [ubuntu-latest, windows-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
 
@@ -109,6 +109,23 @@ on:
     secrets:
       deploy_key:
         required: true
+
+# Environment Deployments
+jobs:
+  deploy:
+    name: Deploy to ${{ matrix.environment }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        environment: [development, staging, production]
+    environment:
+      name: ${{ matrix.environment }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy
+        run: ./deploy.sh
+        env:
+          ENVIRONMENT: ${{ matrix.environment }}
 ```
 
 ## GitHub Security Features
@@ -139,11 +156,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
     - name: Initialize CodeQL
-      uses: github/codeql-action/init@v1
+      uses: github/codeql-action/init@v2
     - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v1
+      uses: github/codeql-action/analyze@v2
 ```
 
 ## GitHub CLI Commands

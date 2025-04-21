@@ -208,12 +208,12 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     
     - name: Setup Node.js
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v4
       with:
-        node-version: '14'
+        node-version: '22'
         
     - name: Install dependencies
       run: npm ci
@@ -234,11 +234,11 @@ ${{ secrets.SECRET_NAME }}
 # Matrix Strategy
 strategy:
   matrix:
-    node-version: [12.x, 14.x, 16.x]
+    node-version: [18.x, 20.x, 22.x]
     os: [ubuntu-latest, windows-latest]
 
 # Artifacts
-- uses: actions/upload-artifact@v2
+- uses: actions/upload-artifact@v4
   with:
     name: my-artifact
     path: path/to/artifact

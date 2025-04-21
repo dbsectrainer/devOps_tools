@@ -168,7 +168,7 @@ Resources:
     Type: AWS::EC2::Instance
     Properties:
       InstanceType: !Ref InstanceType
-      ImageId: ami-12345678
+      ImageId: ami-xxxxxxxxxxxxxxxxx
       SecurityGroups:
         - !Ref MySG
 

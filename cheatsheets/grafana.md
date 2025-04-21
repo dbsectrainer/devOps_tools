@@ -1,4 +1,5 @@
 # Grafana Cheatsheet
+# Note: Grafana 11 is the latest version as of April 2025
 
 ## Basic Configuration
 ```ini

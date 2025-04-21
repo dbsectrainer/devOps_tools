@@ -1,4 +1,5 @@
 # Azure Cheatsheet
+# Note: Azure CLI 2.71.0 is the latest version as of April 2025
 
 ## Azure CLI Configuration
 ```bash

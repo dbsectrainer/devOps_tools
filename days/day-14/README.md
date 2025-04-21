@@ -178,17 +178,17 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Set up Node.js
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v4
       with:
-        node-version: '14'
+        node-version: '22'
     - name: Install dependencies
       run: npm ci
     - name: Run tests
       run: npm test
     - name: Upload coverage
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: coverage
         path: coverage/
@@ -197,7 +197,7 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Build container
       run: docker build -t myapp:${{ github.sha }} .
     - name: Push to registry

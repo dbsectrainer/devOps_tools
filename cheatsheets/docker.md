@@ -39,18 +39,43 @@ RUN apt-get update && apt-get install -y nodejs
 EXPOSE 3000
 CMD ["npm", "start"]
 
-# Multi-stage Build
-FROM node:14 AS builder
+# Multi-stage Build with Optimization
+FROM node:22-alpine AS builder
 WORKDIR /app
+# Copy only package files first to leverage cache
 COPY package*.json ./
-RUN npm install
+RUN npm ci --only=production
+# Copy source code and build
 COPY . .
 RUN npm run build
 
-FROM nginx:alpine
-COPY --from=builder /app/dist /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+# Use distroless for minimal attack surface
+FROM gcr.io/distroless/nodejs:22
+WORKDIR /app
+# Copy only production dependencies
+COPY --from=builder /app/node_modules /app/node_modules
+# Copy only build artifacts
+COPY --from=builder /app/dist /app/dist
+# Set non-root user
+USER nonroot
+EXPOSE 3000
+CMD ["dist/main.js"]
+
+# Multi-stage Build for Go Application
+FROM golang:1.22-alpine AS builder
+WORKDIR /app
+# Cache dependencies
+COPY go.mod go.sum ./
+RUN go mod download
+# Copy source and build
+COPY . .
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .
+
+# Use scratch for minimal image
+FROM scratch
+COPY --from=builder /app/app /app
+EXPOSE 8080
+ENTRYPOINT ["/app"]
 ```
 
 ## Docker Compose
@@ -155,7 +180,7 @@ docker push registry/app:v1            # Push to registry
 1. **Image Building**
    ```dockerfile
    # Use specific base image versions
-   FROM node:14-alpine
+   FROM node:22-alpine
 
    # Minimize layers
    RUN apt-get update && apt-get install -y \

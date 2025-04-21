@@ -1,4 +1,5 @@
 # Kubernetes Cheatsheet
+# Note: Istio 1.25.2, Flux v2.2.0, and Prometheus 3.0 are the latest versions as of April 2025
 
 ## Basic Commands
 ```bash
@@ -35,7 +36,7 @@ metadata:
 spec:
   containers:
   - name: nginx
-    image: nginx:1.14.2
+    image: nginx:latest
     ports:
     - containerPort: 80
 
@@ -56,7 +57,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:1.14.2
+        image: nginx:latest
         ports:
         - containerPort: 80
 
@@ -230,31 +231,13 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: read-pods
-subjects:
-- kind: User
-  name: jane
-  apiGroup: rbac.authorization.k8s.io
-roleRef:
-  kind: Role
-  name: pod-reader
-  apiGroup: rbac.authorization.k8s.io
-
-# Pod Security Context
 apiVersion: v1
-kind: Pod
+kind: Namespace
 metadata:
-  name: security-context-demo
-spec:
-  securityContext:
-    runAsUser: 1000
-    runAsGroup: 3000
-    fsGroup: 2000
-  containers:
-  - name: sec-ctx-demo
-    image: busybox
-    command: [ "sh", "-c", "sleep 1h" ]
-    securityContext:
-      allowPrivilegeEscalation: false
+  name: psp-example
+  labels:
+    pod-security.kubernetes.io/enforce: restricted
+    pod-security.kubernetes.io/warn: baseline
 ```
 
 ## Advanced Features
@@ -308,7 +291,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:1.14.2
+        image: nginx:latest
         ports:
         - containerPort: 80
 ```
@@ -388,3 +371,34 @@ kubectl get events --sort-by=.metadata.creationTimestamp  # Sorted events
      runAsUser: 1000
      readOnlyRootFilesystem: true
      allowPrivilegeEscalation: false
+
+# Pod Security Standards
+apiVersion: v1
+kind: Namespace
+metadata:
+ name: restricted-namespace
+ labels:
+   pod-security.kubernetes.io/enforce: restricted
+   pod-security.kubernetes.io/audit: restricted
+   pod-security.kubernetes.io/warn: restricted
+
+# Pod Security Context with Standards
+apiVersion: v1
+kind: Pod
+metadata:
+ name: security-standards-pod
+spec:
+ securityContext:
+   runAsNonRoot: true
+   seccompProfile:
+     type: RuntimeDefault
+ containers:
+ - name: restricted-container
+   image: nginx:1.25.0
+   securityContext:
+     allowPrivilegeEscalation: false
+     capabilities:
+       drop:
+       - ALL
+     runAsUser: 1000
+     readOnlyRootFilesystem: true

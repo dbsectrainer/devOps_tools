@@ -53,7 +53,7 @@ graph TD
 4. **Lab 4 - Istio Setup**
    - Skill Area: Service Mesh
    - Steps:
-     1. Install Istio
+     1. Install Istio v1.25.2
      2. Configure profiles
      3. Enable injection
      4. Verify installation
@@ -201,7 +201,7 @@ spec:
 
 ### Service Mesh Configuration
 ```yaml
-# Istio Virtual Service
+# Istio v1.25.2 Virtual Service
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:

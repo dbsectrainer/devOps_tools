@@ -1,4 +1,5 @@
 # Google Cloud Platform (GCP) Cheatsheet
+# Note: gcloud CLI 469.0.0 is the latest version as of April 2025
 
 ## gcloud Configuration
 ```bash
