@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Tools</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <a href="#" class="home-link">
+                <h1>DevOps Tools</h1>
+                <span class="home-hint">Click to return home</span>
+            </a>
+        </div>
+        <div class="nav-section">
+            <h2>Cheatsheets</h2>
+            <ul id="cheatsheets-list">
+                <!-- Will be populated by JavaScript -->
+            </ul>
+        </div>
+        <div class="nav-section">
+            <h2>Daily Progress</h2>
+            <ul id="days-list">
+                <!-- Will be populated by JavaScript -->
+            </ul>
+        </div>
+    </nav>
+    <main class="content">
+        <div id="content-area">
+            <div class="welcome-section">
+                <h2>Welcome to DevOps Tools</h2>
+                <p class="subtitle">Your comprehensive guide to DevOps tools and practices</p>
+                
+                <div class="quick-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">9</div>
+                        <div class="stat-label">Cheatsheets</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">14</div>
+                        <div class="stat-label">Daily Lessons</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">100+</div>
+                        <div class="stat-label">Commands</div>
+                    </div>
+                </div>
+
+                <div class="featured-sections">
+                    <h3>Popular Tools</h3>
+                    <div class="tools-grid">
+                        <a href="#" class="tool-card" data-tool="kubernetes">
+                            <h4>Kubernetes</h4>
+                            <p>Container orchestration platform</p>
+                        </a>
+                        <a href="#" class="tool-card" data-tool="docker">
+                            <h4>Docker</h4>
+                            <p>Containerization platform</p>
+                        </a>
+                        <a href="#" class="tool-card" data-tool="terraform">
+                            <h4>Terraform</h4>
+                            <p>Infrastructure as Code</p>
+                        </a>
+                        <a href="#" class="tool-card" data-tool="aws">
+                            <h4>AWS</h4>
+                            <p>Cloud platform services</p>
+                        </a>
+                    </div>
+
+                    <h3>Getting Started</h3>
+                    <div class="getting-started-grid">
+                        <a href="#" class="getting-started-card" data-day="01">
+                            <h4>Day 1: Introduction</h4>
+                            <p>Start your DevOps journey</p>
+                        </a>
+                        <a href="#" class="getting-started-card" data-day="02">
+                            <h4>Day 2: Basic Tools</h4>
+                            <p>Essential DevOps tools</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            securityLevel: 'loose'
+        });
+    </script>
+    <script src="js/main.js"></script>
+</body>
+</html>

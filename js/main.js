@@ -1,0 +1,155 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const cheatsheets = [
+        'aws', 'azure', 'docker', 'gcp', 'github',
+        'grafana', 'kubernetes', 'terraform', 'vault'
+    ];
+
+    const totalDays = 14;
+    const cheatsheetsListEl = document.getElementById('cheatsheets-list');
+    const daysListEl = document.getElementById('days-list');
+    const contentArea = document.getElementById('content-area');
+    const welcomeContent = contentArea.innerHTML; // Store initial welcome content
+
+    // Handle home link click
+    document.querySelector('.home-link').addEventListener('click', (e) => {
+        e.preventDefault();
+        contentArea.innerHTML = welcomeContent;
+    });
+
+    // Populate cheatsheets navigation
+    cheatsheets.forEach(sheet => {
+        const li = document.createElement('li');
+        const link = document.createElement('a');
+        link.href = `#cheatsheet-${sheet}`;
+        link.textContent = sheet.charAt(0).toUpperCase() + sheet.slice(1);
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            loadContent(`cheatsheets/${sheet}.md`);
+        });
+        li.appendChild(link);
+        cheatsheetsListEl.appendChild(li);
+    });
+
+    // Populate days navigation
+    for (let i = 1; i <= totalDays; i++) {
+        const li = document.createElement('li');
+        const link = document.createElement('a');
+        const dayNum = String(i).padStart(2, '0');
+        link.href = `#day-${dayNum}`;
+        link.textContent = `Day ${dayNum}`;
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            loadContent(`days/day-${dayNum}/README.md`);
+        });
+        li.appendChild(link);
+        daysListEl.appendChild(li);
+    }
+
+    // Handle tool card clicks
+    document.querySelectorAll('.tool-card').forEach(card => {
+        card.addEventListener('click', (e) => {
+            e.preventDefault();
+            const tool = card.getAttribute('data-tool');
+            loadContent(`cheatsheets/${tool}.md`);
+        });
+    });
+
+    // Handle getting started card clicks
+    document.querySelectorAll('.getting-started-card').forEach(card => {
+        card.addEventListener('click', (e) => {
+            e.preventDefault();
+            const day = card.getAttribute('data-day');
+            loadContent(`days/day-${day}/README.md`);
+        });
+    });
+
+    function loadContent(path) {
+        // Show loading state
+        contentArea.innerHTML = '<div class="loading">Loading content...</div>';
+
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', path, true);
+
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                const content = xhr.responseText;
+                const htmlContent = convertMarkdownToHTML(content);
+                contentArea.innerHTML = `
+                    <div class="content-header">
+                        <h2>${path.split('/').pop().replace('.md', '')}</h2>
+                    </div>
+                    <div class="markdown-content">
+                        ${htmlContent}
+                    </div>
+                `;
+                // Initialize any mermaid diagrams in the new content
+                mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+            } else {
+                showError();
+            }
+        };
+
+        xhr.onerror = showError;
+        xhr.send();
+    }
+
+    function showError() {
+        contentArea.innerHTML = `
+            <div class="error-message">
+                <h2>Error Loading Content</h2>
+                <p>Unable to load the requested content. Please try again later.</p>
+                <p class="error-note">Note: This frontend works best when served through a web server.</p>
+            </div>
+        `;
+    }
+
+    function convertMarkdownToHTML(markdown) {
+        let html = markdown;
+        
+        // Store mermaid diagrams to prevent them from being processed by other rules
+        const mermaidDiagrams = [];
+        html = html.replace(/```mermaid([\s\S]*?)```/g, (match, code) => {
+            const id = `mermaid-${mermaidDiagrams.length}`;
+            mermaidDiagrams.push({ id, code: code.trim() });
+            return `MERMAID_PLACEHOLDER_${id}`;
+        });
+
+        // Process regular markdown
+        html = html
+            // Headers
+            .replace(/^# (.*$)/gm, '<h1>$1</h1>')
+            .replace(/^## (.*$)/gm, '<h2>$1</h2>')
+            .replace(/^### (.*$)/gm, '<h3>$1</h3>')
+            // Bold
+            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+            // Italic
+            .replace(/\*(.*?)\*/g, '<em>$1</em>')
+            // Regular code blocks
+            .replace(/```([^m][\s\S]*?)```/g, '<pre><code>$1</code></pre>')
+            // Inline code
+            .replace(/`(.*?)`/g, '<code>$1</code>')
+            // Lists
+            .replace(/^\s*[-*+]\s+(.*)/gm, '<li>$1</li>')
+            // Links
+            .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2">$1</a>')
+            // Paragraphs
+            .replace(/^\s*(\n)?(.+)/gm, function(m) {
+                return /\<(\/)?(h\d|ul|ol|li|blockquote|pre|img)/.test(m) ? m : '<p>'+m+'</p>';
+            });
+
+        // Restore mermaid diagrams
+        mermaidDiagrams.forEach(({ id, code }) => {
+            html = html.replace(
+                `MERMAID_PLACEHOLDER_${id}`,
+                `<pre class="mermaid">${code}</pre>`
+            );
+        });
+
+        // Wrap lists
+        html = html.replace(/(<li>.*<\/li>)/g, '<ul>$1</ul>');
+        // Remove empty lines
+        html = html.replace(/^\s*[\r\n]/gm, '');
+        
+        return html;
+    }
+});
