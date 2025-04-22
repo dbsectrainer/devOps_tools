@@ -24,14 +24,24 @@ graph TD
     C --> D[Kubernetes]
     D --> E[Grafana]
     E --> F[Vault]
+    
+    %% Cloud section
     F --> G[Cloud Providers]
     G --> H1[AWS]
     G --> H2[Azure]
     G --> H3[GCP]
-    H3 --> I[Ansible]
-    I --> J[DevSecOps Tools]
-    J --> K[Service Mesh]
-    K --> L[Compliance & Chaos]
+    
+    %% Configuration Management
+    F --> I[Ansible]
+    
+    %% Security section
+    F --> J[DevSecOps Tools]
+    
+    %% Advanced networking
+    F --> K[Service Mesh]
+    
+    %% Governance section
+    F --> L[Compliance & Chaos]
 
     style A fill:#f9f,stroke:#333,stroke-width:2px
     style B fill:#bbf,stroke:#333,stroke-width:2px
@@ -40,6 +50,9 @@ graph TD
     style E fill:#ffd,stroke:#333,stroke-width:2px
     style F fill:#dfd,stroke:#333,stroke-width:2px
     style G fill:#fdd,stroke:#333,stroke-width:2px
+    style H1 fill:#ddf,stroke:#333,stroke-width:2px
+    style H2 fill:#ddf,stroke:#333,stroke-width:2px
+    style H3 fill:#ddf,stroke:#333,stroke-width:2px
     style I fill:#f9f,stroke:#333,stroke-width:2px
     style J fill:#bbf,stroke:#333,stroke-width:2px
     style K fill:#dff,stroke:#333,stroke-width:2px
