@@ -1,14 +1,37 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize collapsible sections
+    initCollapsibleSections();
+    
     const cheatsheets = [
         'aws', 'azure', 'docker', 'gcp', 'github',
-        'grafana', 'kubernetes', 'terraform', 'vault'
+        'grafana', 'kubernetes', 'terraform', 'vault',
+        'ansible', 'devsecops', 'service-mesh', 'compliance-chaos'
     ];
 
-    const totalDays = 14;
+    const totalDays = 18;
     const cheatsheetsListEl = document.getElementById('cheatsheets-list');
     const daysListEl = document.getElementById('days-list');
     const contentArea = document.getElementById('content-area');
     const welcomeContent = contentArea.innerHTML; // Store initial welcome content
+
+    // Function to initialize collapsible sections
+    function initCollapsibleSections() {
+        const collapsibles = document.querySelectorAll('.collapsible');
+        
+        collapsibles.forEach(section => {
+            const header = section.querySelector('.section-header');
+            
+            header.addEventListener('click', () => {
+                section.classList.toggle('collapsed');
+            });
+            
+            // Optionally, start with Daily Progress collapsed by default
+            // since it's the longest section
+            if (header.textContent.trim().startsWith('Daily Progress')) {
+                section.classList.add('collapsed');
+            }
+        });
+    }
 
     // Handle home link click
     document.querySelector('.home-link').addEventListener('click', (e) => {
@@ -61,6 +84,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const day = card.getAttribute('data-day');
             loadContent(`days/day-${day}/README.md`);
         });
+    });
+
+    // Handle glossary link click
+    document.getElementById('glossary-link').addEventListener('click', (e) => {
+        e.preventDefault();
+        loadContent('cheatsheets/devops_glossary.md');
     });
 
     function loadContent(path) {

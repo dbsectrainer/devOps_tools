@@ -78,6 +78,41 @@ body {
     color: rgba(255, 255, 255, 0.7);
 }
 
+/* Collapsible section styles */
+.collapsible .section-header {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: calc(var(--spacing-unit) / 2);
+    border-radius: 4px;
+    transition: background-color 0.2s;
+    margin-bottom: 0;
+}
+
+.collapsible .section-header:hover {
+    background-color: var(--secondary-color);
+}
+
+.collapsible .toggle-icon {
+    transition: transform 0.3s ease;
+    font-size: 0.8rem;
+}
+
+.collapsible.collapsed .toggle-icon {
+    transform: rotate(-90deg);
+}
+
+.collapsible .section-content {
+    max-height: 1000px;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.collapsible.collapsed .section-content {
+    max-height: 0;
+}
+
 .nav-section ul {
     list-style: none;
 }

@@ -1,15 +1,17 @@
-# Day 5 - Advanced Kubernetes Concepts
+# Day 5 - Advanced Kubernetes & AWS Introduction
+
+[← Previous Day](../day-04/README.md) | [Next Day →](../day-06/README.md)
 
 ## Overview
-Today we'll dive deep into advanced Kubernetes concepts, focusing on networking, storage, and workload management. We'll explore how to build robust and scalable applications in Kubernetes.
+Today we'll explore advanced Kubernetes concepts and begin our journey into AWS. We'll bridge the gap between container orchestration and cloud infrastructure.
 
 ```mermaid
 graph TD
-    A[Advanced Kubernetes] --> B[Networking]
-    B --> C[Storage]
-    C --> D[Workload Management]
-    D --> E[Resource Control]
-    E --> F[Advanced Scheduling]
+    A[Advanced Kubernetes] --> B[StatefulSets]
+    B --> C[Ingress Controllers]
+    C --> D[AWS Basics]
+    D --> E[IAM]
+    E --> F[EC2 Management]
 
     style A fill:#f9f,stroke:#333,stroke-width:2px
     style B fill:#bbf,stroke:#333,stroke-width:2px
@@ -21,220 +23,154 @@ graph TD
 
 ## Labs
 
-### Kubernetes Networking
-1. **Lab 1 - Network Policies**
+### Advanced Kubernetes
+1. **Lab 1 - StatefulSets**
+   - Skill Area: Kubernetes Advanced
+   - Steps:
+     1. Create StatefulSet manifest
+     2. Deploy stateful application
+     3. Scale StatefulSet
+     4. Handle persistent storage
+     5. Manage pod identity
+
+2. **Lab 2 - Ingress Controllers**
+   - Skill Area: Kubernetes Advanced
+   - Steps:
+     1. Install Ingress controller
+     2. Configure Ingress rules
+     3. Set up TLS termination
+     4. Implement path routing
+     5. Configure load balancing
+
+3. **Lab 3 - Storage Management**
+   - Skill Area: Kubernetes Advanced
+   - Steps:
+     1. Create PersistentVolume
+     2. Define PersistentVolumeClaim
+     3. Configure storage classes
+     4. Implement dynamic provisioning
+     5. Monitor storage usage
+
+### Kubernetes Security
+4. **Lab 4 - RBAC Configuration**
+   - Skill Area: Kubernetes Advanced
+   - Steps:
+     1. Create service accounts
+     2. Define roles and cluster roles
+     3. Configure role bindings
+     4. Test access permissions
+     5. Audit RBAC policies
+
+5. **Lab 5 - Network Policies**
    - Skill Area: Kubernetes Advanced
    - Steps:
      1. Create network policy
      2. Define ingress rules
-     3. Define egress rules
+     3. Configure egress rules
      4. Test policy enforcement
      5. Monitor network traffic
 
-2. **Lab 2 - Service Discovery**
-   - Skill Area: Kubernetes Advanced
+### AWS Basics
+6. **Lab 6 - AWS Account Setup**
+   - Skill Area: AWS
    - Steps:
-     1. Implement DNS resolution
-     2. Configure CoreDNS
-     3. Test service discovery
-     4. Debug DNS issues
-     5. Monitor DNS performance
+     1. Create AWS account
+     2. Configure MFA
+     3. Set up billing alerts
+     4. Install AWS CLI
+     5. Configure AWS credentials
 
-3. **Lab 3 - Ingress Controllers**
-   - Skill Area: Kubernetes Advanced
+7. **Lab 7 - IAM Basics**
+   - Skill Area: AWS
    - Steps:
-     1. Install Ingress controller
-     2. Configure Ingress resource
-     3. Set up TLS termination
-     4. Implement path-based routing
-     5. Configure load balancing
+     1. Create IAM users
+     2. Configure user groups
+     3. Assign policies
+     4. Generate access keys
+     5. Implement password policy
 
-### Storage Management
-4. **Lab 4 - Persistent Volumes**
-   - Skill Area: Kubernetes Advanced
+### EC2 Management
+8. **Lab 8 - EC2 Instances**
+   - Skill Area: AWS
    - Steps:
-     1. Create PersistentVolume
-     2. Define storage class
-     3. Create PVC
-     4. Mount volume to pod
-     5. Manage volume lifecycle
+     1. Launch EC2 instance
+     2. Configure security groups
+     3. Connect to instance
+     4. Install software
+     5. Monitor instance
 
-5. **Lab 5 - Storage Classes**
-   - Skill Area: Kubernetes Advanced
+9. **Lab 9 - EC2 Storage**
+   - Skill Area: AWS
    - Steps:
-     1. Define storage class
-     2. Configure provisioner
-     3. Set volume parameters
-     4. Test dynamic provisioning
-     5. Monitor storage usage
+     1. Create EBS volume
+     2. Attach volume
+     3. Format and mount
+     4. Configure snapshots
+     5. Implement backup strategy
 
-### Advanced Workloads
-6. **Lab 6 - StatefulSets**
-   - Skill Area: Kubernetes Advanced
-   - Steps:
-     1. Create StatefulSet
-     2. Configure persistent storage
-     3. Manage pod identity
-     4. Handle scaling operations
-     5. Implement updates
-
-7. **Lab 7 - DaemonSets**
-   - Skill Area: Kubernetes Advanced
-   - Steps:
-     1. Create DaemonSet
-     2. Configure node selection
-     3. Manage updates
-     4. Monitor pod placement
-     5. Handle node maintenance
-
-### Resource Management
-8. **Lab 8 - Resource Quotas**
-   - Skill Area: Kubernetes Advanced
-   - Steps:
-     1. Define resource quota
-     2. Set CPU limits
-     3. Set memory limits
-     4. Configure storage quotas
-     5. Monitor usage
-
-9. **Lab 9 - Limit Ranges**
-   - Skill Area: Kubernetes Advanced
-   - Steps:
-     1. Create LimitRange
-     2. Set default limits
-     3. Configure request/limit ratio
-     4. Test pod creation
-     5. Monitor resource usage
-
-10. **Lab 10 - Horizontal Pod Autoscaling**
-    - Skill Area: Kubernetes Advanced
+10. **Lab 10 - Auto Scaling**
+    - Skill Area: AWS
     - Steps:
-      1. Configure HPA
-      2. Set scaling metrics
-      3. Test autoscaling
-      4. Monitor scaling events
-      5. Fine-tune scaling parameters
+      1. Create launch template
+      2. Configure Auto Scaling group
+      3. Set scaling policies
+      4. Test scaling events
+      5. Monitor scaling activities
 
-### Advanced Scheduling
-11. **Lab 11 - Node Affinity**
-    - Skill Area: Kubernetes Advanced
+### Networking
+11. **Lab 11 - VPC Setup**
+    - Skill Area: AWS
     - Steps:
-      1. Configure node affinity
-      2. Set node selectors
-      3. Use node anti-affinity
-      4. Test pod scheduling
-      5. Monitor pod placement
+      1. Create VPC
+      2. Configure subnets
+      3. Set up routing
+      4. Configure internet gateway
+      5. Implement NAT gateway
 
-12. **Lab 12 - Pod Affinity**
-    - Skill Area: Kubernetes Advanced
+12. **Lab 12 - Load Balancing**
+    - Skill Area: AWS
     - Steps:
-      1. Configure pod affinity
-      2. Set pod anti-affinity
-      3. Use topology spread
-      4. Test co-location
-      5. Monitor pod distribution
+      1. Create Application Load Balancer
+      2. Configure target groups
+      3. Set up health checks
+      4. Implement SSL/TLS
+      5. Monitor load balancer
 
-13. **Lab 13 - Taints and Tolerations**
-    - Skill Area: Kubernetes Advanced
+### Security & Monitoring
+13. **Lab 13 - Security Groups**
+    - Skill Area: AWS
     - Steps:
-      1. Add node taints
-      2. Configure tolerations
-      3. Test pod scheduling
-      4. Handle node maintenance
-      5. Monitor taint effects
+      1. Create security groups
+      2. Configure inbound rules
+      3. Set up outbound rules
+      4. Implement best practices
+      5. Monitor security events
 
-14. **Lab 14 - Priority and Preemption**
-    - Skill Area: Kubernetes Advanced
+14. **Lab 14 - CloudWatch**
+    - Skill Area: AWS
     - Steps:
-      1. Create PriorityClass
-      2. Set pod priority
-      3. Configure preemption
-      4. Test scheduling order
-      5. Monitor preemption events
+      1. Create dashboards
+      2. Configure alarms
+      3. Set up logs
+      4. Create metrics
+      5. Configure notifications
 
-15. **Lab 15 - Custom Schedulers**
-    - Skill Area: Kubernetes Advanced
+15. **Lab 15 - AWS CLI**
+    - Skill Area: AWS
     - Steps:
-      1. Create custom scheduler
-      2. Define scheduling logic
-      3. Deploy scheduler
-      4. Test pod scheduling
-      5. Monitor scheduler performance
+      1. Configure profiles
+      2. Use basic commands
+      3. Create scripts
+      4. Implement automation
+      5. Handle errors
+
+*For more Kubernetes commands and configurations, see the [Kubernetes Cheatsheet](../../cheatsheets/kubernetes.md).*
+*For more AWS commands and configurations, see the [AWS Cheatsheet](../../cheatsheets/aws.md).*
 
 ## Daily Cheatsheet
 
-### Networking Commands
-```bash
-# Network Policies
-kubectl get networkpolicies
-kubectl describe networkpolicy <name>
-
-# DNS
-kubectl get pods -n kube-system -l k8s-app=kube-dns
-kubectl logs -n kube-system -l k8s-app=kube-dns
-
-# Ingress
-kubectl get ingress
-kubectl describe ingress <name>
-```
-
-### Storage Commands
-```bash
-# Persistent Volumes
-kubectl get pv
-kubectl get pvc
-kubectl describe pv <name>
-kubectl describe pvc <name>
-
-# Storage Classes
-kubectl get sc
-kubectl describe sc <name>
-```
-
-### Advanced Workload Commands
-```bash
-# StatefulSets
-kubectl get statefulset
-kubectl scale statefulset <name> --replicas=5
-kubectl rollout status statefulset/<name>
-
-# DaemonSets
-kubectl get daemonset
-kubectl rollout status daemonset/<name>
-kubectl rollout history daemonset/<name>
-```
-
-### Resource Management
-```bash
-# Resource Quotas
-kubectl get resourcequota
-kubectl describe resourcequota <name>
-
-# HPA
-kubectl get hpa
-kubectl describe hpa <name>
-```
-
-### YAML Examples
+### Kubernetes Advanced
 ```yaml
-# Network Policy
-apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
-metadata:
-  name: test-network-policy
-spec:
-  podSelector:
-    matchLabels:
-      role: db
-  policyTypes:
-  - Ingress
-  - Egress
-  ingress:
-  - from:
-    - podSelector:
-        matchLabels:
-          role: frontend
-
 # StatefulSet
 apiVersion: apps/v1
 kind: StatefulSet
@@ -256,23 +192,91 @@ spec:
         image: nginx:1.14.2
         ports:
         - containerPort: 80
+        volumeMounts:
+        - name: www
+          mountPath: /usr/share/nginx/html
+  volumeClaimTemplates:
+  - metadata:
+      name: www
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi
 
-# HPA
-apiVersion: autoscaling/v2
-kind: HorizontalPodAutoscaler
+# Ingress
+apiVersion: networking.k8s.io/v1
+kind: Ingress
 metadata:
-  name: php-apache
+  name: minimal-ingress
 spec:
-  scaleTargetRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: php-apache
-  minReplicas: 1
-  maxReplicas: 10
-  metrics:
-  - type: Resource
-    resource:
-      name: cpu
-      target:
-        type: Utilization
-        averageUtilization: 50
+  rules:
+  - http:
+      paths:
+      - path: /testpath
+        pathType: Prefix
+        backend:
+          service:
+            name: test
+            port:
+              number: 80
+```
+
+### AWS CLI Commands
+```bash
+# EC2 Management
+aws ec2 run-instances --image-id ami-12345678 --instance-type t2.micro
+aws ec2 describe-instances
+aws ec2 start-instances --instance-ids i-1234567890abcdef0
+aws ec2 stop-instances --instance-ids i-1234567890abcdef0
+
+# IAM Management
+aws iam create-user --user-name bob
+aws iam create-group --group-name developers
+aws iam add-user-to-group --user-name bob --group-name developers
+aws iam attach-user-policy --user-name bob --policy-arn arn:aws:iam::aws:policy/ReadOnlyAccess
+
+# VPC Management
+aws ec2 create-vpc --cidr-block 10.0.0.0/16
+aws ec2 create-subnet --vpc-id vpc-123456 --cidr-block 10.0.1.0/24
+aws ec2 create-internet-gateway
+aws ec2 attach-internet-gateway --vpc-id vpc-123456 --internet-gateway-id igw-123456
+
+# CloudWatch
+aws cloudwatch put-metric-alarm --alarm-name cpu-mon --metric-name CPUUtilization
+aws cloudwatch get-metric-statistics --namespace AWS/EC2 --metric-name CPUUtilization
+```
+
+### Kubernetes Commands
+```bash
+# StatefulSet Management
+kubectl get statefulset
+kubectl scale statefulset web --replicas=5
+kubectl delete statefulset web --cascade=false
+
+# Storage Management
+kubectl get pv
+kubectl get pvc
+kubectl describe storageclass
+kubectl get sc
+
+# RBAC
+kubectl create serviceaccount jenkins
+kubectl create role jenkins --verb=get,list,watch --resource=pods
+kubectl create rolebinding jenkins --role=jenkins --serviceaccount=default:jenkins
+
+# Network Policies
+kubectl get networkpolicies
+kubectl describe networkpolicy my-network-policy
+```
+
+## Additional Resources
+
+- [Kubernetes StatefulSets](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/)
+- [AWS Documentation](https://docs.aws.amazon.com/)
+- [AWS Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/)
+- [Kubernetes Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/)
+- [AWS Security Best Practices](https://aws.amazon.com/architecture/security-identity-compliance/)
+- [DevOps Glossary](../../cheatsheets/devops_glossary.md)
+
+[← Previous Day](../day-04/README.md) | [Next Day →](../day-06/README.md)

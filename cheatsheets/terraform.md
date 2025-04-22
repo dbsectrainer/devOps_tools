@@ -1,5 +1,7 @@
 # Terraform Cheatsheet
 
+*This cheatsheet covers topics from [Day 2 - Terraform Introduction](../days/day-02/README.md).*
+
 ## Basic Commands
 ```bash
 # Initialization and Setup
@@ -237,3 +239,12 @@ resource "aws_security_group" "example" {
     }
   }
 }
+```
+
+## Additional Resources
+
+- [Terraform Documentation](https://www.terraform.io/docs)
+- [HashiCorp Learn - Terraform](https://learn.hashicorp.com/terraform)
+- [Terraform Registry](https://registry.terraform.io/) - Find providers and modules
+- [Terraform Best Practices](https://www.terraform-best-practices.com/)
+- [Terraform Cloud](https://cloud.hashicorp.com/products/terraform) - Managed service for Terraform

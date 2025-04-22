@@ -1,5 +1,7 @@
 # AWS Cheatsheet
 
+*This cheatsheet provides a reference for AWS CLI commands and services.*
+
 ## AWS CLI Configuration
 ```bash
 # Configure AWS CLI
@@ -310,3 +312,12 @@ aws logs start-query \
     --start-time 1620000000 \
     --end-time 1620086400 \
     --query-string 'fields @timestamp, @message | sort @timestamp desc'
+```
+
+## Additional Resources
+
+- [AWS CLI Documentation](https://docs.aws.amazon.com/cli/latest/reference/)
+- [AWS SDK Documentation](https://docs.aws.amazon.com/sdk-for-javascript/index.html)
+- [AWS Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/)
+- [AWS Architecture Center](https://aws.amazon.com/architecture/)
+- [AWS Glossary](../cheatsheets/devops_glossary.md)

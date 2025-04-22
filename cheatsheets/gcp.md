@@ -1,5 +1,8 @@
 # Google Cloud Platform (GCP) Cheatsheet
-# Note: gcloud CLI 469.0.0 is the latest version as of April 2025
+
+*This cheatsheet provides a reference for Google Cloud Platform (GCP) commands and services.*
+
+*Note: gcloud CLI 469.0.0 is the latest version as of April 2025*
 
 ## gcloud Configuration
 ```bash
@@ -257,3 +260,13 @@ gcloud scheduler jobs create http my-job \
     --schedule="0 * * * *" \
     --uri="https://example.com/task" \
     --http-method=POST
+```
+
+## Additional Resources
+
+- [Google Cloud Documentation](https://cloud.google.com/docs)
+- [Google Cloud Console](https://console.cloud.google.com/)
+- [Google Cloud Architecture Center](https://cloud.google.com/architecture)
+- [Google Cloud SDK Documentation](https://cloud.google.com/sdk/docs)
+- [Google Cloud Pricing Calculator](https://cloud.google.com/products/calculator)
+- [DevOps Glossary](../cheatsheets/devops_glossary.md)

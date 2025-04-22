@@ -1,15 +1,17 @@
-# Day 11 - Google Cloud Platform Services & Infrastructure
+# Day 11 - Advanced Prometheus & ELK Stack Introduction
+
+[← Previous Day](../day-10/README.md) | [Next Day →](../day-12/README.md)
 
 ## Overview
-Today we'll explore Google Cloud Platform services and infrastructure management. We'll cover essential services like Compute Engine, Cloud Storage, IAM, and best practices for cloud infrastructure deployment.
+Today we'll explore advanced Prometheus features and begin our journey into the ELK Stack (Elasticsearch, Logstash, Kibana). We'll bridge the gap between metrics and log management.
 
 ```mermaid
 graph TD
-    A[GCP Basics] --> B[Identity & IAM]
-    B --> C[Compute Services]
-    C --> D[Storage Solutions]
-    D --> E[Networking]
-    E --> F[Monitoring]
+    A[Advanced Prometheus] --> B[Remote Storage]
+    B --> C[High Availability]
+    C --> D[ELK Basics]
+    D --> E[Elasticsearch]
+    E --> F[Kibana]
 
     style A fill:#f9f,stroke:#333,stroke-width:2px
     style B fill:#bbf,stroke:#333,stroke-width:2px
@@ -21,245 +23,273 @@ graph TD
 
 ## Labs
 
-### GCP Basics
-1. **Lab 1 - gcloud CLI Setup**
-   - Skill Area: GCP
+### Advanced Prometheus
+1. **Lab 1 - Remote Storage**
+   - Skill Area: Prometheus Advanced
    - Steps:
-     1. Install gcloud CLI
-     2. Initialize configuration
-     3. Set default project
-     4. Configure default region
-     5. Verify authentication
+     1. Configure remote write
+     2. Set up remote read
+     3. Implement retention
+     4. Monitor performance
+     5. Test failover
 
-2. **Lab 2 - Project Management**
-   - Skill Area: GCP
+2. **Lab 2 - High Availability**
+   - Skill Area: Prometheus Advanced
    - Steps:
-     1. Create project
-     2. Configure billing
-     3. Enable APIs
-     4. Set up organization
-     5. Configure resource hierarchy
+     1. Set up multiple instances
+     2. Configure federation
+     3. Implement load balancing
+     4. Test failover
+     5. Monitor cluster health
 
-3. **Lab 3 - Cloud Console**
-   - Skill Area: GCP
+3. **Lab 3 - Custom Exporters**
+   - Skill Area: Prometheus Advanced
    - Steps:
-     1. Navigate console interface
-     2. Use Cloud Shell
-     3. Configure dashboard
-     4. Access documentation
-     5. Monitor activity
+     1. Create exporter
+     2. Define metrics
+     3. Implement collection
+     4. Add documentation
+     5. Test functionality
 
-### Identity & IAM
-4. **Lab 4 - IAM Basics**
-   - Skill Area: GCP Security
+### Advanced Alerting
+4. **Lab 4 - Complex Alert Rules**
+   - Skill Area: Prometheus Advanced
    - Steps:
-     1. Create service accounts
-     2. Manage roles
-     3. Configure permissions
-     4. Set up custom roles
-     5. Monitor access
+     1. Create alert expressions
+     2. Configure thresholds
+     3. Implement grouping
+     4. Set up routing
+     5. Test scenarios
 
-5. **Lab 5 - Organization Policies**
-   - Skill Area: GCP Security
+5. **Lab 5 - Alert Routing**
+   - Skill Area: Prometheus Advanced
    - Steps:
-     1. Configure constraints
-     2. Set up hierarchy
-     3. Create custom policies
-     4. Test enforcement
-     5. Monitor compliance
+     1. Configure routes
+     2. Set up receivers
+     3. Implement templates
+     4. Test notifications
+     5. Monitor delivery
 
-### Compute Services
-6. **Lab 6 - Compute Engine**
-   - Skill Area: GCP Compute
+### ELK Stack Basics
+6. **Lab 6 - Elasticsearch Installation**
+   - Skill Area: ELK Stack
    - Steps:
-     1. Create VM instance
-     2. Configure networking
-     3. Attach disks
-     4. Set up firewalls
-     5. Monitor performance
+     1. Install Elasticsearch
+     2. Configure nodes
+     3. Set up security
+     4. Configure networking
+     5. Test cluster
 
-7. **Lab 7 - Cloud Run**
-   - Skill Area: GCP Compute
+7. **Lab 7 - Basic Operations**
+   - Skill Area: ELK Stack
    - Steps:
-     1. Create service
-     2. Deploy container
-     3. Configure scaling
-     4. Set up domain
-     5. Monitor requests
+     1. Create indices
+     2. Configure mappings
+     3. Implement sharding
+     4. Set up replication
+     5. Monitor health
 
-### Storage Solutions
-8. **Lab 8 - Cloud Storage**
-   - Skill Area: GCP Storage
+### Elasticsearch Management
+8. **Lab 8 - Index Management**
+   - Skill Area: ELK Stack
    - Steps:
-     1. Create bucket
-     2. Configure access
-     3. Set up lifecycle rules
-     4. Enable versioning
-     5. Monitor usage
+     1. Create templates
+     2. Configure lifecycle
+     3. Implement rollover
+     4. Set up aliases
+     5. Monitor indices
 
-9. **Lab 9 - Persistent Disks**
-   - Skill Area: GCP Storage
+9. **Lab 9 - Search Operations**
+   - Skill Area: ELK Stack
    - Steps:
-     1. Create disk
-     2. Attach to instance
-     3. Configure snapshots
-     4. Set up backups
-     5. Monitor performance
+     1. Write queries
+     2. Use aggregations
+     3. Implement filtering
+     4. Configure scoring
+     5. Test performance
 
-10. **Lab 10 - Cloud SQL**
-    - Skill Area: GCP Database
+10. **Lab 10 - Cluster Management**
+    - Skill Area: ELK Stack
     - Steps:
-      1. Create instance
-      2. Configure networking
-      3. Set up backups
-      4. Configure replication
-      5. Monitor performance
+      1. Add nodes
+      2. Configure roles
+      3. Manage shards
+      4. Monitor cluster
+      5. Handle recovery
 
-### Networking
-11. **Lab 11 - VPC Networks**
-    - Skill Area: GCP Networking
+### Logstash Configuration
+11. **Lab 11 - Input Plugins**
+    - Skill Area: ELK Stack
     - Steps:
-      1. Create VPC
-      2. Configure subnets
-      3. Set up firewall rules
-      4. Configure routes
-      5. Test connectivity
+      1. Configure file input
+      2. Set up beats input
+      3. Implement syslog
+      4. Add HTTP endpoint
+      5. Test inputs
 
-12. **Lab 12 - Load Balancing**
-    - Skill Area: GCP Networking
+12. **Lab 12 - Filters**
+    - Skill Area: ELK Stack
     - Steps:
-      1. Create load balancer
-      2. Configure backend
-      3. Set up health checks
-      4. Configure SSL
-      5. Monitor traffic
+      1. Parse logs
+      2. Transform data
+      3. Enrich events
+      4. Handle errors
+      5. Test pipeline
 
-13. **Lab 13 - Cloud DNS**
-    - Skill Area: GCP Networking
+### Kibana Setup
+13. **Lab 13 - Basic Configuration**
+    - Skill Area: ELK Stack
     - Steps:
-      1. Create zone
-      2. Configure records
-      3. Set up policies
-      4. Configure DNSSEC
-      5. Monitor resolution
+      1. Install Kibana
+      2. Configure security
+      3. Set up indices
+      4. Create visualizations
+      5. Build dashboard
 
-### Monitoring & Management
-14. **Lab 14 - Cloud Monitoring**
-    - Skill Area: GCP Monitoring
+14. **Lab 14 - Advanced Visualizations**
+    - Skill Area: ELK Stack
     - Steps:
-      1. Configure workspace
-      2. Create dashboards
+      1. Create custom visuals
+      2. Use aggregations
+      3. Implement drilldowns
+      4. Add annotations
+      5. Share dashboards
+
+15. **Lab 15 - Monitoring Setup**
+    - Skill Area: ELK Stack
+    - Steps:
+      1. Enable monitoring
+      2. Configure metrics
       3. Set up alerts
-      4. Configure uptime checks
-      5. Monitor metrics
-
-15. **Lab 15 - Cloud Logging**
-    - Skill Area: GCP Monitoring
-    - Steps:
-      1. Configure log sinks
-      2. Create metrics
-      3. Set up exports
-      4. Configure alerts
-      5. Analyze logs
+      4. Create reports
+      5. Monitor performance
 
 ## Daily Cheatsheet
 
-### gcloud Commands
+### Prometheus Remote Storage
+```yaml
+# prometheus.yml
+remote_write:
+  - url: "http://remote-storage:9201/write"
+    remote_timeout: 30s
+    queue_config:
+      capacity: 10000
+      max_shards: 50
+      max_samples_per_send: 500
+
+remote_read:
+  - url: "http://remote-storage:9201/read"
+    read_recent: true
+```
+
+### Elasticsearch Configuration
+```yaml
+# elasticsearch.yml
+cluster.name: my-cluster
+node.name: node-1
+network.host: 0.0.0.0
+discovery.seed_hosts: ["host1", "host2"]
+cluster.initial_master_nodes: ["node-1"]
+xpack.security.enabled: true
+xpack.monitoring.collection.enabled: true
+```
+
+### Logstash Pipeline
+```ruby
+# logstash.conf
+input {
+  beats {
+    port => 5044
+  }
+  file {
+    path => "/var/log/*.log"
+    type => "syslog"
+  }
+}
+
+filter {
+  grok {
+    match => { "message" => "%{COMBINEDAPACHELOG}" }
+  }
+  date {
+    match => [ "timestamp", "dd/MMM/yyyy:HH:mm:ss Z" ]
+  }
+}
+
+output {
+  elasticsearch {
+    hosts => ["localhost:9200"]
+    index => "logstash-%{+YYYY.MM.dd}"
+  }
+}
+```
+
+### Kibana Configuration
+```yaml
+# kibana.yml
+server.host: "0.0.0.0"
+elasticsearch.hosts: ["http://localhost:9200"]
+elasticsearch.username: "kibana_system"
+elasticsearch.password: "password"
+xpack.security.enabled: true
+xpack.reporting.enabled: true
+```
+
+### Elasticsearch Commands
 ```bash
-# Project Management
-gcloud projects create my-project
-gcloud config set project my-project
-gcloud services enable compute.googleapis.com
+# Index Management
+curl -X PUT "localhost:9200/my-index-000001" -H 'Content-Type: application/json' -d'
+{
+  "settings": {
+    "number_of_shards": 3,
+    "number_of_replicas": 2
+  }
+}'
 
-# Compute Engine
-gcloud compute instances create my-instance \
-    --machine-type=e2-medium \
-    --zone=us-central1-a \
-    --image-family=debian-10 \
-    --image-project=debian-cloud
+# Search
+curl -X GET "localhost:9200/my-index-000001/_search" -H 'Content-Type: application/json' -d'
+{
+  "query": {
+    "match": {
+      "message": "error"
+    }
+  }
+}'
 
-# Storage
-gsutil mb gs://my-bucket
-gsutil cp file.txt gs://my-bucket/
-gsutil ls gs://my-bucket
-
-# IAM
-gcloud iam service-accounts create my-service-account \
-    --display-name "My Service Account"
-gcloud projects add-iam-policy-binding my-project \
-    --member="serviceAccount:my-service-account@my-project.iam.gserviceaccount.com" \
-    --role="roles/editor"
+# Cluster Health
+curl -X GET "localhost:9200/_cluster/health?pretty"
 ```
 
-### Deployment Manager Template
+### Prometheus HA Configuration
 ```yaml
-resources:
-- name: vm-instance
-  type: compute.v1.instance
-  properties:
-    zone: us-central1-a
-    machineType: zones/us-central1-a/machineTypes/e2-medium
-    disks:
-    - deviceName: boot
-      type: PERSISTENT
-      boot: true
-      autoDelete: true
-      initializeParams:
-        sourceImage: projects/debian-cloud/global/images/debian-10
-    networkInterfaces:
-    - network: global/networks/default
-      accessConfigs:
-      - name: External NAT
-        type: ONE_TO_ONE_NAT
+# prometheus-ha.yml
+global:
+  external_labels:
+    replica: replica-1
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  - job_name: 'federate'
+    honor_labels: true
+    metrics_path: '/federate'
+    params:
+      'match[]':
+        - '{job="prometheus"}'
+    static_configs:
+      - targets:
+        - 'prometheus-2:9090'
 ```
 
-### Cloud Build Config
-```yaml
-steps:
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/$PROJECT_ID/app', '.']
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/$PROJECT_ID/app']
-- name: 'gcr.io/cloud-builders/gke-deploy'
-  args:
-  - run
-  - --filename=kubernetes.yaml
-  - --location=us-central1-a
-  - --cluster=my-cluster
-```
+## Additional Resources
 
-### Monitoring Configuration
-```yaml
-# Alerting Policy
-combiner: OR
-conditions:
-- conditionThreshold:
-    aggregations:
-    - alignmentPeriod: 60s
-      crossSeriesReducer: REDUCE_MEAN
-      perSeriesAligner: ALIGN_MEAN
-    comparison: COMPARISON_GT
-    duration: 300s
-    filter: metric.type="compute.googleapis.com/instance/cpu/utilization"
-    thresholdValue: 0.8
-displayName: High CPU Usage
-```
+- [Prometheus Remote Storage](https://prometheus.io/docs/operating/integrations/#remote-endpoints-and-storage)
+- [Elasticsearch Guide](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html)
+- [Logstash Documentation](https://www.elastic.co/guide/en/logstash/current/index.html)
+- [Kibana User Guide](https://www.elastic.co/guide/en/kibana/current/index.html)
+- [ELK Stack Security](https://www.elastic.co/guide/en/elasticsearch/reference/current/secure-cluster.html)
+- [DevOps Glossary](../../cheatsheets/devops_glossary.md)
 
-### Network Configuration
-```bash
-# VPC Creation
-gcloud compute networks create my-network \
-    --subnet-mode=custom
-
-# Subnet Creation
-gcloud compute networks subnets create my-subnet \
-    --network=my-network \
-    --range=10.0.0.0/24 \
-    --region=us-central1
-
-# Firewall Rules
-gcloud compute firewall-rules create allow-http \
-    --network=my-network \
-    --allow=tcp:80 \
-    --source-ranges=0.0.0.0/0 \
-    --target-tags=http-server
+[← Previous Day](../day-10/README.md) | [Next Day →](../day-12/README.md)

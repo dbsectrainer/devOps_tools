@@ -1,5 +1,7 @@
 # GitHub & GitHub Actions Cheatsheet
 
+*This cheatsheet covers topics from [Day 1 - GitHub Fundamentals](../days/day-01/README.md) and [Day 2 - Advanced GitHub Actions](../days/day-02/README.md).*
+
 ## Git Basic Commands
 ```bash
 # Repository Operations
@@ -219,3 +221,11 @@ gh run list                       # List workflow runs
    - Use conditional steps
    - Optimize Docker layers
    - Implement proper timeout values
+
+## Additional Resources
+
+- [Official GitHub Documentation](https://docs.github.com/en)
+- [GitHub Actions Documentation](https://docs.github.com/en/actions)
+- [GitHub CLI Documentation](https://cli.github.com/manual/)
+- [GitHub REST API Documentation](https://docs.github.com/en/rest)
+- [GitHub GraphQL API Documentation](https://docs.github.com/en/graphql)

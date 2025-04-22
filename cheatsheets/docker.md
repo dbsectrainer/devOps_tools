@@ -1,5 +1,7 @@
 # Docker Cheatsheet
 
+*This cheatsheet provides a reference for Docker commands, Dockerfile syntax, and best practices.*
+
 ## Basic Commands
 ```bash
 # Container Management
@@ -276,3 +278,13 @@ docker inspect --format='{{.State.Status}}' <container>  # Get container status
 docker system prune                         # Remove unused data
 docker system prune -a                      # Remove all unused data
 docker system df                            # View disk usage
+```
+
+## Additional Resources
+
+- [Docker Documentation](https://docs.docker.com/)
+- [Docker Hub](https://hub.docker.com/) - Official Docker image registry
+- [Docker Compose Documentation](https://docs.docker.com/compose/)
+- [Docker Best Practices](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
+- [Docker Security Best Practices](https://docs.docker.com/engine/security/security/)
+- [DevOps Glossary](../cheatsheets/devops_glossary.md)

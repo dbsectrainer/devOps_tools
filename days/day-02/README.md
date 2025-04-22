@@ -1,5 +1,7 @@
 # Day 2 - Advanced GitHub Actions & Terraform Introduction
 
+[← Previous Day](../day-01/README.md) | [Next Day →](../day-03/README.md)
+
 ## Overview
 Today we'll dive deeper into GitHub Actions and begin our journey with Terraform. We'll cover advanced CI/CD concepts and infrastructure as code basics.
 
@@ -162,6 +164,9 @@ graph TD
       4. Use dynamic values
       5. Handle sensitive variables
 
+*For more GitHub Actions information, see the [GitHub Cheatsheet](../../cheatsheets/github.md).*
+*For more Terraform commands and configurations, see the [Terraform Cheatsheet](../../cheatsheets/terraform.md).*
+
 ## Daily Cheatsheet
 
 ### Advanced GitHub Actions
@@ -256,3 +261,14 @@ gh workflow run
 gh workflow view
 gh release create
 gh release upload
+```
+
+## Additional Resources
+
+- [GitHub Actions Documentation](https://docs.github.com/en/actions)
+- [Terraform Documentation](https://www.terraform.io/docs)
+- [HashiCorp Learn - Terraform](https://learn.hashicorp.com/terraform)
+- [Terraform Registry](https://registry.terraform.io/) - Find providers and modules
+- [GitHub Actions Marketplace](https://github.com/marketplace?type=actions) - Find reusable actions
+
+[← Previous Day](../day-01/README.md) | [Next Day →](../day-03/README.md)

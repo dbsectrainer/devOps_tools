@@ -1,15 +1,17 @@
-# Day 8 - HashiCorp Vault Secrets Management
+# Day 8 - Advanced GCP & HashiCorp Vault Introduction
+
+[← Previous Day](../day-07/README.md) | [Next Day →](../day-09/README.md)
 
 ## Overview
-Today we'll explore HashiCorp Vault for secure secrets management. We'll cover installation, configuration, and advanced features for managing sensitive data in modern infrastructure.
+Today we'll explore advanced Google Cloud Platform services and begin our journey into HashiCorp Vault. We'll bridge the gap between cloud infrastructure and secrets management.
 
 ```mermaid
 graph TD
-    A[Vault Basics] --> B[Authentication]
-    B --> C[Secret Engines]
-    C --> D[Policies]
-    D --> E[Dynamic Secrets]
-    E --> F[Encryption]
+    A[Advanced GCP] --> B[Cloud Functions]
+    B --> C[Kubernetes Engine]
+    C --> D[Vault Basics]
+    D --> E[Secret Management]
+    E --> F[Authentication]
 
     style A fill:#f9f,stroke:#333,stroke-width:2px
     style B fill:#bbf,stroke:#333,stroke-width:2px
@@ -21,148 +23,175 @@ graph TD
 
 ## Labs
 
+### Advanced GCP Services
+1. **Lab 1 - Cloud Functions**
+   - Skill Area: GCP Advanced
+   - Steps:
+     1. Create function
+     2. Configure triggers
+     3. Set up environment
+     4. Implement logging
+     5. Monitor performance
+
+2. **Lab 2 - Cloud Run**
+   - Skill Area: GCP Advanced
+   - Steps:
+     1. Create service
+     2. Deploy container
+     3. Configure scaling
+     4. Set up domain mapping
+     5. Monitor requests
+
+3. **Lab 3 - Cloud Build**
+   - Skill Area: GCP Advanced
+   - Steps:
+     1. Configure triggers
+     2. Create build steps
+     3. Set up artifacts
+     4. Implement testing
+     5. Monitor builds
+
+### GCP Kubernetes Engine
+4. **Lab 4 - GKE Cluster**
+   - Skill Area: GCP Advanced
+   - Steps:
+     1. Create cluster
+     2. Configure node pools
+     3. Set up networking
+     4. Implement monitoring
+     5. Configure logging
+
+5. **Lab 5 - GKE Workloads**
+   - Skill Area: GCP Advanced
+   - Steps:
+     1. Deploy applications
+     2. Configure auto scaling
+     3. Set up load balancing
+     4. Implement health checks
+     5. Monitor performance
+
+### GCP Security
+6. **Lab 6 - IAM Advanced**
+   - Skill Area: GCP Advanced
+   - Steps:
+     1. Configure custom roles
+     2. Set up service accounts
+     3. Manage permissions
+     4. Implement best practices
+     5. Audit access
+
+7. **Lab 7 - Security Command Center**
+   - Skill Area: GCP Advanced
+   - Steps:
+     1. Enable service
+     2. Configure settings
+     3. Set up notifications
+     4. Review findings
+     5. Implement recommendations
+
 ### Vault Basics
-1. **Lab 1 - Installation & Setup**
-   - Skill Area: Vault
+8. **Lab 8 - Vault Installation**
+   - Skill Area: HashiCorp Vault
    - Steps:
      1. Install Vault
-     2. Initialize Vault server
-     3. Unseal Vault
-     4. Configure storage backend
-     5. Test basic operations
+     2. Configure server
+     3. Initialize vault
+     4. Manage keys
+     5. Test setup
 
-2. **Lab 2 - Server Configuration**
-   - Skill Area: Vault
+9. **Lab 9 - Basic Operations**
+   - Skill Area: HashiCorp Vault
    - Steps:
-     1. Configure listener
-     2. Set up storage
-     3. Enable audit devices
-     4. Configure TLS
-     5. Test configuration
+     1. Start server
+     2. Unseal vault
+     3. Configure CLI
+     4. Write secrets
+     5. Read secrets
 
-3. **Lab 3 - Basic Operations**
-   - Skill Area: Vault
-   - Steps:
-     1. Write secrets
-     2. Read secrets
-     3. Delete secrets
-     4. List secrets
-     5. Handle versioning
+10. **Lab 10 - Authentication**
+    - Skill Area: HashiCorp Vault
+    - Steps:
+      1. Configure methods
+      2. Set up users
+      3. Create policies
+      4. Test access
+      5. Audit authentication
 
-### Authentication Methods
-4. **Lab 4 - Token Authentication**
-   - Skill Area: Vault
-   - Steps:
-     1. Create tokens
-     2. Configure token policies
-     3. Manage token lifecycle
-     4. Set token roles
-     5. Revoke tokens
+### Secret Management
+11. **Lab 11 - Secret Engines**
+    - Skill Area: HashiCorp Vault
+    - Steps:
+      1. Enable engines
+      2. Configure paths
+      3. Write secrets
+      4. Rotate secrets
+      5. Monitor access
 
-5. **Lab 5 - AppRole Authentication**
-   - Skill Area: Vault
-   - Steps:
-     1. Enable AppRole auth
-     2. Create role
-     3. Generate credentials
-     4. Configure policies
-     5. Test authentication
-
-### Secret Engines
-6. **Lab 6 - KV Secret Engine**
-   - Skill Area: Vault
-   - Steps:
-     1. Enable KV engine
-     2. Write key-value pairs
-     3. Configure versioning
-     4. Manage metadata
-     5. Handle secret rotation
-
-7. **Lab 7 - Dynamic Secrets**
-   - Skill Area: Vault
-   - Steps:
-     1. Enable database secrets
-     2. Configure connection
-     3. Create role
-     4. Generate credentials
-     5. Manage leases
+12. **Lab 12 - Dynamic Secrets**
+    - Skill Area: HashiCorp Vault
+    - Steps:
+      1. Configure database
+      2. Set up roles
+      3. Generate credentials
+      4. Manage leases
+      5. Revoke access
 
 ### Access Control
-8. **Lab 8 - Policy Management**
-   - Skill Area: Vault
-   - Steps:
-     1. Create policies
-     2. Define permissions
-     3. Assign policies
-     4. Test access control
-     5. Audit policy usage
-
-9. **Lab 9 - Response Wrapping**
-   - Skill Area: Vault
-   - Steps:
-     1. Enable response wrapping
-     2. Create wrapped tokens
-     3. Unwrap secrets
-     4. Configure TTL
-     5. Handle wrapping errors
-
-10. **Lab 10 - Identity Management**
-    - Skill Area: Vault
+13. **Lab 13 - Policies**
+    - Skill Area: HashiCorp Vault
     - Steps:
-      1. Create entities
-      2. Configure aliases
-      3. Create groups
-      4. Assign policies
-      5. Test access
+      1. Create policies
+      2. Define permissions
+      3. Assign policies
+      4. Test access
+      5. Audit policy usage
 
-### Advanced Features
-11. **Lab 11 - Transit Engine**
-    - Skill Area: Vault
+14. **Lab 14 - Response Wrapping**
+    - Skill Area: HashiCorp Vault
     - Steps:
-      1. Enable transit engine
-      2. Create encryption keys
-      3. Encrypt data
-      4. Rotate keys
-      5. Manage key versions
+      1. Enable wrapping
+      2. Create tokens
+      3. Unwrap secrets
+      4. Configure TTL
+      5. Monitor usage
 
-12. **Lab 12 - PKI Engine**
-    - Skill Area: Vault
+15. **Lab 15 - Audit Logging**
+    - Skill Area: HashiCorp Vault
     - Steps:
-      1. Enable PKI engine
-      2. Configure CA
-      3. Create roles
-      4. Issue certificates
-      5. Handle revocation
+      1. Enable audit devices
+      2. Configure logging
+      3. Monitor events
+      4. Analyze logs
+      5. Implement retention
 
-13. **Lab 13 - Lease Management**
-    - Skill Area: Vault
-    - Steps:
-      1. Configure lease duration
-      2. Renew leases
-      3. Revoke leases
-      4. Handle lease expiration
-      5. Monitor lease usage
-
-### Integration
-14. **Lab 14 - API Integration**
-    - Skill Area: Vault
-    - Steps:
-      1. Use REST API
-      2. Implement SDK
-      3. Handle authentication
-      4. Manage errors
-      5. Test integration
-
-15. **Lab 15 - Kubernetes Integration**
-    - Skill Area: Vault
-    - Steps:
-      1. Deploy Vault on K8s
-      2. Configure service account
-      3. Enable K8s auth
-      4. Inject secrets
-      5. Rotate credentials
+*For more GCP commands and configurations, see the [GCP Cheatsheet](../../cheatsheets/gcp.md).*
+*For more Vault commands and configurations, see the [Vault Cheatsheet](../../cheatsheets/vault.md).*
 
 ## Daily Cheatsheet
+
+### GCP Advanced Commands
+```bash
+# Cloud Functions
+gcloud functions deploy my-function \
+  --runtime nodejs14 \
+  --trigger-http \
+  --entry-point helloWorld
+
+# Cloud Run
+gcloud run deploy my-service \
+  --image gcr.io/my-project/my-image \
+  --platform managed \
+  --region us-central1
+
+# GKE
+gcloud container clusters create my-cluster \
+  --zone us-central1-a \
+  --num-nodes 3 \
+  --machine-type e2-medium
+
+gcloud container clusters get-credentials my-cluster \
+  --zone us-central1-a
+```
 
 ### Vault Commands
 ```bash
@@ -173,39 +202,33 @@ vault operator unseal
 vault status
 
 # Secret Management
-vault kv put secret/app key=value
-vault kv get secret/app
-vault kv list secret/
-vault kv delete secret/app
+vault secrets enable -path=secret kv
+vault kv put secret/hello foo=bar
+vault kv get secret/hello
+vault kv delete secret/hello
 
 # Authentication
-vault login -method=userpass username=admin
-vault token create -policy=app-policy
-vault write auth/approle/role/my-role
-```
+vault auth enable userpass
+vault write auth/userpass/users/demo \
+  password=demo \
+  policies=demo-policy
 
-### Policy Syntax
-```hcl
-# Example Policy
-path "secret/data/app/*" {
+# Policy Management
+vault policy write demo-policy - <<EOF
+path "secret/data/*" {
   capabilities = ["create", "read", "update", "delete", "list"]
 }
+EOF
 
-path "auth/token/create" {
-  capabilities = ["create", "update"]
-}
-
-# Path-based Policy
-path "sys/auth/*" {
-  capabilities = ["create", "read", "update", "delete", "sudo"]
-}
+# Audit
+vault audit enable file file_path=/var/log/vault_audit.log
 ```
 
-### Configuration Files
+### Vault Configuration Example
 ```hcl
 # config.hcl
 storage "file" {
-  path = "/vault/data"
+  path = "/opt/vault/data"
 }
 
 listener "tcp" {
@@ -216,67 +239,59 @@ listener "tcp" {
 api_addr = "http://127.0.0.1:8200"
 ```
 
-### API Examples
-```bash
-# REST API Calls
-curl \
-  -H "X-Vault-Token: $VAULT_TOKEN" \
-  -X GET \
-  http://127.0.0.1:8200/v1/secret/data/app
+### Vault Policy Example
+```hcl
+# admin-policy.hcl
+path "secret/*" {
+  capabilities = ["create", "read", "update", "delete", "list"]
+}
 
-# Write Secret
-curl \
-  -H "X-Vault-Token: $VAULT_TOKEN" \
-  -X POST \
-  -d '{"data": {"password": "secret"}}' \
-  http://127.0.0.1:8200/v1/secret/data/app
+path "auth/*" {
+  capabilities = ["create", "read", "update", "delete", "list"]
+}
+
+path "sys/*" {
+  capabilities = ["create", "read", "update", "delete", "list"]
+}
 ```
 
-### Kubernetes Integration
+### GKE Deployment Example
 ```yaml
-# Vault Agent Config
-pid_file = "./pidfile"
-
-auto_auth {
-  method "kubernetes" {
-    mount_path = "auth/kubernetes"
-    config = {
-      role = "app"
-    }
-  }
-}
-
-template {
-  source      = "/etc/secrets/template.ctmpl"
-  destination = "/etc/secrets/config.json"
-}
-
-# Kubernetes Manifest
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: app
+  name: my-app
 spec:
-  serviceAccountName: app
-  containers:
-  - name: app
-    image: app:latest
-    volumeMounts:
-    - name: secrets
-      mountPath: /etc/secrets
-  volumes:
-  - name: secrets
-    emptyDir: {}
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - name: my-app
+        image: gcr.io/my-project/my-app:latest
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
 ```
 
-### Environment Variables
-```bash
-# Vault Environment
-export VAULT_ADDR='http://127.0.0.1:8200'
-export VAULT_TOKEN='s.duHrQAtzfFBpHK4FIJ8v2mln'
-export VAULT_NAMESPACE='admin'
+## Additional Resources
 
-# SSL Configuration
-export VAULT_CACERT='/etc/vault/ca.pem'
-export VAULT_CLIENT_CERT='/etc/vault/cert.pem'
-export VAULT_CLIENT_KEY='/etc/vault/key.pem'
+- [Google Cloud Functions Documentation](https://cloud.google.com/functions/docs)
+- [Google Kubernetes Engine Documentation](https://cloud.google.com/kubernetes-engine/docs)
+- [HashiCorp Vault Documentation](https://www.vaultproject.io/docs)
+- [Vault Architecture Guide](https://learn.hashicorp.com/tutorials/vault/architecture)
+- [GCP Security Best Practices](https://cloud.google.com/security/best-practices)
+- [DevOps Glossary](../../cheatsheets/devops_glossary.md)
+
+[← Previous Day](../day-07/README.md) | [Next Day →](../day-09/README.md)

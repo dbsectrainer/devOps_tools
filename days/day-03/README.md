@@ -1,5 +1,7 @@
 # Day 3 - Advanced Terraform & Docker Introduction
 
+[← Previous Day](../day-02/README.md) | [Next Day →](../day-04/README.md)
+
 ## Overview
 Today we'll explore advanced Terraform concepts and begin our Docker journey. We'll bridge the gap between infrastructure as code and containerization.
 
@@ -161,6 +163,9 @@ graph TD
       4. Backup volume data
       5. Remove volume
 
+*For more Terraform commands and configurations, see the [Terraform Cheatsheet](../../cheatsheets/terraform.md).*
+*For more Docker commands and configurations, see the [Docker Cheatsheet](../../cheatsheets/docker.md).*
+
 ## Daily Cheatsheet
 
 ### Terraform Advanced
@@ -261,3 +266,14 @@ networks:
 volumes:
   data:
     driver: local
+```
+
+## Additional Resources
+
+- [Terraform Registry](https://registry.terraform.io/) - Find modules and providers
+- [Docker Hub](https://hub.docker.com/) - Official Docker image registry
+- [Terraform Best Practices](https://www.terraform-best-practices.com/)
+- [Docker Documentation](https://docs.docker.com/)
+- [DevOps Glossary](../../cheatsheets/devops_glossary.md)
+
+[← Previous Day](../day-02/README.md) | [Next Day →](../day-04/README.md)

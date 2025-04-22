@@ -1,5 +1,8 @@
 # HashiCorp Vault Cheatsheet
-# Note: Vault 1.15.1 is the latest version as of April 2025
+
+*This cheatsheet provides a reference for HashiCorp Vault commands, configuration, and best practices.*
+
+*Note: Vault 1.15.1 is the latest version as of April 2025*
 
 ## Basic Commands
 ```bash
@@ -281,3 +284,13 @@ vault write pki/roles/example-dot-com \
 vault write aws/roles/my-role \
     credential_type=iam_user \
     policy_document=@policy.json
+```
+
+## Additional Resources
+
+- [HashiCorp Vault Documentation](https://www.vaultproject.io/docs)
+- [Vault API Documentation](https://www.vaultproject.io/api-docs)
+- [Vault Tutorials](https://learn.hashicorp.com/vault)
+- [Vault Reference Architecture](https://learn.hashicorp.com/tutorials/vault/reference-architecture)
+- [Vault Best Practices](https://learn.hashicorp.com/tutorials/vault/production-hardening)
+- [DevOps Glossary](../cheatsheets/devops_glossary.md)

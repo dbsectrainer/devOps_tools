@@ -1,5 +1,8 @@
 # Kubernetes Cheatsheet
-# Note: Istio 1.25.2, Flux v2.2.0, and Prometheus 3.0 are the latest versions as of April 2025
+
+*This cheatsheet provides a reference for Kubernetes commands, resource definitions, and best practices.*
+
+*Note: Istio 1.25.2, Flux v2.2.0, and Prometheus 3.0 are the latest versions as of April 2025*
 
 ## Basic Commands
 ```bash
@@ -231,6 +234,16 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: read-pods
+subjects:
+- kind: User
+  name: jane
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: pod-reader
+  apiGroup: rbac.authorization.k8s.io
+
+# Pod Security Standards
 apiVersion: v1
 kind: Namespace
 metadata:
@@ -371,8 +384,10 @@ kubectl get events --sort-by=.metadata.creationTimestamp  # Sorted events
      runAsUser: 1000
      readOnlyRootFilesystem: true
      allowPrivilegeEscalation: false
+   ```
 
-# Pod Security Standards
+## Pod Security Standards
+```yaml
 apiVersion: v1
 kind: Namespace
 metadata:
@@ -402,3 +417,13 @@ spec:
        - ALL
      runAsUser: 1000
      readOnlyRootFilesystem: true
+```
+
+## Additional Resources
+
+- [Kubernetes Documentation](https://kubernetes.io/docs/home/)
+- [Kubernetes Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
+- [Kubernetes Best Practices](https://kubernetes.io/docs/concepts/configuration/overview/)
+- [Kubernetes Patterns](https://k8spatterns.io/)
+- [CNCF Landscape](https://landscape.cncf.io/) - Cloud Native ecosystem
+- [DevOps Glossary](../cheatsheets/devops_glossary.md)

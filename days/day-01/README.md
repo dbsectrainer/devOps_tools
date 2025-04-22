@@ -1,5 +1,7 @@
 # Day 1 - GitHub Fundamentals and Actions
 
+[Next Day →](../day-02/README.md)
+
 ## Overview
 Today's focus is on GitHub fundamentals and introduction to GitHub Actions. We'll cover basic Git operations, repository management, and creating simple CI/CD pipelines.
 
@@ -161,6 +163,8 @@ graph TD
       4. Test custom action
       5. Publish to marketplace
 
+*For more GitHub commands and actions, see the [GitHub Cheatsheet](../../cheatsheets/github.md).*
+
 ## Daily Cheatsheet
 
 ### Git Commands
@@ -254,3 +258,13 @@ inputs:
 outputs:
   time:
     description: 'The time we greeted you'
+```
+
+## Additional Resources
+
+- [Official GitHub Documentation](https://docs.github.com/en)
+- [GitHub Actions Documentation](https://docs.github.com/en/actions)
+- [GitHub Skills](https://skills.github.com/) - Interactive learning paths
+- [GitHub Learning Lab](https://lab.github.com/) - Hands-on tutorials
+
+[Next Day →](../day-02/README.md)

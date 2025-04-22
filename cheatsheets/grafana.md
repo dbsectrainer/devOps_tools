@@ -1,5 +1,8 @@
 # Grafana Cheatsheet
-# Note: Grafana 11 is the latest version as of April 2025
+
+*This cheatsheet provides a reference for Grafana configuration, queries, and best practices.*
+
+*Note: Grafana 11 is the latest version as of April 2025*
 
 ## Basic Configuration
 ```ini
@@ -289,3 +292,13 @@ Panels:
   - Database Connections
   - Cache Hit Ratio
   - Queue Length
+```
+
+## Additional Resources
+
+- [Grafana Documentation](https://grafana.com/docs/)
+- [Grafana Tutorials](https://grafana.com/tutorials/)
+- [Grafana Community](https://community.grafana.com/)
+- [Prometheus Documentation](https://prometheus.io/docs/introduction/overview/)
+- [PromQL Cheat Sheet](https://promlabs.com/promql-cheat-sheet/)
+- [DevOps Glossary](../cheatsheets/devops_glossary.md)

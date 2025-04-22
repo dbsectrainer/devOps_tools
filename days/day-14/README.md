@@ -1,15 +1,17 @@
-# Day 14 - DevOps Automation & CI/CD Pipelines
+# Day 14 - Advanced GitLab & ArgoCD Introduction
+
+[← Previous Day](../day-13/README.md) | [Next Day →](../day-15/README.md)
 
 ## Overview
-Today we'll explore advanced DevOps automation and CI/CD pipeline implementations. We'll cover automated testing, deployment strategies, and comprehensive pipeline configurations across multiple platforms.
+Today we'll explore advanced GitLab features and begin our journey into ArgoCD. We'll bridge the gap between DevOps platform and GitOps practices.
 
 ```mermaid
 graph TD
-    A[CI/CD Basics] --> B[Pipeline Design]
-    B --> C[Testing Automation]
-    C --> D[Deployment Automation]
-    D --> E[Quality Gates]
-    E --> F[Monitoring]
+    A[Advanced GitLab] --> B[Value Stream]
+    B --> C[Security Features]
+    C --> D[ArgoCD Basics]
+    D --> E[Application Setup]
+    E --> F[Sync Strategies]
 
     style A fill:#f9f,stroke:#333,stroke-width:2px
     style B fill:#bbf,stroke:#333,stroke-width:2px
@@ -21,348 +23,275 @@ graph TD
 
 ## Labs
 
-### CI/CD Fundamentals
-1. **Lab 1 - Pipeline Design**
-   - Skill Area: CI/CD
+### Advanced GitLab Features
+1. **Lab 1 - Value Stream Analytics**
+   - Skill Area: GitLab Advanced
    - Steps:
-     1. Design pipeline stages
-     2. Configure workflows
+     1. Configure metrics
+     2. Set up stages
+     3. Track cycle time
+     4. Analyze bottlenecks
+     5. Generate reports
+
+2. **Lab 2 - Code Quality**
+   - Skill Area: GitLab Advanced
+   - Steps:
+     1. Configure analyzers
+     2. Set up rules
+     3. Monitor trends
+     4. Review reports
+     5. Implement fixes
+
+3. **Lab 3 - Auto DevOps**
+   - Skill Area: GitLab Advanced
+   - Steps:
+     1. Enable Auto DevOps
+     2. Configure templates
      3. Set up environments
-     4. Define triggers
-     5. Implement notifications
+     4. Monitor pipelines
+     5. Test deployment
 
-2. **Lab 2 - Source Control Integration**
-   - Skill Area: CI/CD
+### Security Features
+4. **Lab 4 - Security Dashboard**
+   - Skill Area: GitLab Advanced
    - Steps:
-     1. Configure branch policies
-     2. Set up webhooks
-     3. Implement PR checks
-     4. Configure merge rules
-     5. Set up automation
+     1. Configure scanners
+     2. Set up policies
+     3. Review findings
+     4. Track remediation
+     5. Generate reports
 
-3. **Lab 3 - Multi-Platform CI/CD**
-   - Skill Area: CI/CD
+5. **Lab 5 - Compliance**
+   - Skill Area: GitLab Advanced
    - Steps:
-     1. Set up GitHub Actions
-     2. Configure GitLab CI
-     3. Implement Jenkins pipeline
-     4. Set up Azure DevOps
-     5. Test integrations
+     1. Configure frameworks
+     2. Set up audit events
+     3. Monitor compliance
+     4. Generate reports
+     5. Review findings
 
-### Testing Automation
-4. **Lab 4 - Unit Testing**
-   - Skill Area: Testing
+### Advanced CI/CD
+6. **Lab 6 - Multi-Project Pipelines**
+   - Skill Area: GitLab Advanced
    - Steps:
-     1. Configure test runners
-     2. Set up code coverage
-     3. Implement test reports
-     4. Configure caching
-     5. Monitor performance
+     1. Configure triggers
+     2. Set up dependencies
+     3. Manage artifacts
+     4. Monitor execution
+     5. Test workflow
 
-5. **Lab 5 - Integration Testing**
-   - Skill Area: Testing
+7. **Lab 7 - Review Apps**
+   - Skill Area: GitLab Advanced
    - Steps:
-     1. Set up test environment
-     2. Configure service mocks
-     3. Implement API tests
-     4. Set up data fixtures
-     5. Monitor results
+     1. Configure environments
+     2. Set up dynamic apps
+     3. Manage cleanup
+     4. Monitor usage
+     5. Test functionality
 
-### Quality Gates
-6. **Lab 6 - Code Quality**
-   - Skill Area: Quality
+### ArgoCD Basics
+8. **Lab 8 - ArgoCD Installation**
+   - Skill Area: ArgoCD
    - Steps:
-     1. Configure SonarQube
-     2. Set up linting
-     3. Implement security scans
-     4. Configure quality gates
-     5. Monitor metrics
+     1. Install ArgoCD
+     2. Configure server
+     3. Set up CLI
+     4. Configure RBAC
+     5. Test access
 
-7. **Lab 7 - Security Scanning**
-   - Skill Area: Security
+9. **Lab 9 - Basic Operations**
+   - Skill Area: ArgoCD
    - Steps:
-     1. Set up SAST
-     2. Configure DAST
-     3. Implement dependency scanning
-     4. Configure container scanning
-     5. Monitor vulnerabilities
+     1. Create application
+     2. Configure sync
+     3. Monitor health
+     4. Manage rollbacks
+     5. Test workflow
 
-### Deployment Automation
-8. **Lab 8 - Infrastructure as Code**
-   - Skill Area: IaC
-   - Steps:
-     1. Create Terraform configs
-     2. Set up state management
-     3. Implement modules
-     4. Configure backends
-     5. Test deployments
-
-9. **Lab 9 - Container Builds**
-   - Skill Area: Containers
-   - Steps:
-     1. Create Dockerfiles
-     2. Configure multi-stage builds
-     3. Implement caching
-     4. Set up registry
-     5. Test builds
-
-10. **Lab 10 - Kubernetes Deployments**
-    - Skill Area: Kubernetes
+10. **Lab 10 - Repository Setup**
+    - Skill Area: ArgoCD
     - Steps:
-      1. Create manifests
-      2. Configure Helm charts
-      3. Set up Kustomize
-      4. Implement rollouts
-      5. Monitor deployments
+      1. Configure repositories
+      2. Set up credentials
+      3. Manage access
+      4. Monitor status
+      5. Test connectivity
 
-### Advanced Automation
-11. **Lab 11 - Pipeline Templates**
-    - Skill Area: CI/CD
+### Application Management
+11. **Lab 11 - Application Sets**
+    - Skill Area: ArgoCD
     - Steps:
-      1. Create reusable templates
-      2. Configure parameters
-      3. Implement conditions
-      4. Set up matrix builds
-      5. Test variations
+      1. Create ApplicationSet
+      2. Configure generators
+      3. Set up templates
+      4. Monitor deployment
+      5. Test scaling
 
-12. **Lab 12 - Release Management**
-    - Skill Area: CI/CD
+12. **Lab 12 - Sync Strategies**
+    - Skill Area: ArgoCD
     - Steps:
-      1. Configure versioning
-      2. Set up changelogs
-      3. Implement release notes
-      4. Configure artifacts
-      5. Test distribution
+      1. Configure auto-sync
+      2. Set up pruning
+      3. Manage force sync
+      4. Configure retry
+      5. Test scenarios
 
-13. **Lab 13 - Environment Management**
-    - Skill Area: CI/CD
+### Advanced Features
+13. **Lab 13 - Resource Hooks**
+    - Skill Area: ArgoCD
     - Steps:
-      1. Configure environments
-      2. Set up approvals
-      3. Implement promotions
-      4. Configure secrets
-      5. Test isolation
+      1. Configure PreSync
+      2. Set up PostSync
+      3. Implement SyncFail
+      4. Test execution
+      5. Monitor results
 
-### Monitoring & Feedback
-14. **Lab 14 - Pipeline Analytics**
-    - Skill Area: Monitoring
+14. **Lab 14 - SSO Integration**
+    - Skill Area: ArgoCD
+    - Steps:
+      1. Configure OIDC
+      2. Set up groups
+      3. Manage roles
+      4. Test authentication
+      5. Monitor access
+
+15. **Lab 15 - Monitoring Setup**
+    - Skill Area: ArgoCD
     - Steps:
       1. Configure metrics
       2. Set up dashboards
       3. Implement alerts
-      4. Monitor trends
-      5. Optimize performance
-
-15. **Lab 15 - Feedback Loops**
-    - Skill Area: DevOps
-    - Steps:
-      1. Configure notifications
-      2. Set up reporting
-      3. Implement feedback
-      4. Monitor effectiveness
-      5. Optimize processes
+      4. Monitor health
+      5. Test notifications
 
 ## Daily Cheatsheet
 
-### GitHub Actions Workflow
+### GitLab Advanced Configuration
 ```yaml
-name: CI/CD Pipeline
+# .gitlab-ci.yml with Code Quality
+include:
+  - template: Code-Quality.gitlab-ci.yml
+  - template: Security/SAST.gitlab-ci.yml
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - name: Set up Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '22'
-    - name: Install dependencies
-      run: npm ci
-    - name: Run tests
-      run: npm test
-    - name: Upload coverage
-      uses: actions/upload-artifact@v4
-      with:
-        name: coverage
-        path: coverage/
-
-  build:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - name: Build container
-      run: docker build -t myapp:${{ github.sha }} .
-    - name: Push to registry
-      run: |
-        docker tag myapp:${{ github.sha }} registry/myapp:${{ github.sha }}
-        docker push registry/myapp:${{ github.sha }}
-```
-
-### GitLab CI Pipeline
-```yaml
-stages:
-  - test
-  - build
-  - deploy
-
-test:
-  stage: test
-  image: node:14
-  script:
-    - npm ci
-    - npm test
+code_quality:
   artifacts:
     reports:
-      coverage: coverage/lcov.info
+      codequality: gl-code-quality-report.json
 
-build:
-  stage: build
-  image: docker:latest
-  services:
-    - docker:dind
+# Auto DevOps configuration
+variables:
+  AUTO_DEVOPS_DOMAIN: example.com
+  POSTGRES_ENABLED: "false"
+  AUTO_DEVOPS_BUILD_IMAGE_CNB_ENABLED: "true"
+```
+
+### GitLab Review Apps
+```yaml
+# .gitlab-ci.yml
+review:
+  stage: review
   script:
-    - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA .
-    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+    - echo "Deploy review app"
+  environment:
+    name: review/$CI_COMMIT_REF_NAME
+    url: https://$CI_ENVIRONMENT_SLUG.example.com
+    on_stop: stop_review
+  only:
+    - merge_requests
 
-deploy:
-  stage: deploy
-  image: bitnami/kubectl:latest
+stop_review:
+  stage: review
   script:
-    - kubectl apply -f k8s/
+    - echo "Remove review app"
+  environment:
+    name: review/$CI_COMMIT_REF_NAME
+    action: stop
+  when: manual
+  only:
+    - merge_requests
 ```
 
-### Jenkins Pipeline
-```groovy
-pipeline {
-    agent any
-    
-    stages {
-        stage('Build') {
-            steps {
-                sh 'npm ci'
-                sh 'npm run build'
-            }
-        }
-        
-        stage('Test') {
-            steps {
-                sh 'npm test'
-            }
-            post {
-                always {
-                    junit 'test-results/*.xml'
-                }
-            }
-        }
-        
-        stage('Deploy') {
-            steps {
-                sh 'kubectl apply -f k8s/'
-            }
-        }
-    }
-    
-    post {
-        success {
-            slackSend channel: '#devops',
-                      color: 'good',
-                      message: "Pipeline succeeded: ${env.JOB_NAME} ${env.BUILD_NUMBER}"
-        }
-    }
-}
-```
-
-### Azure DevOps Pipeline
+### ArgoCD Application
 ```yaml
-trigger:
-- main
-
-pool:
-  vmImage: 'ubuntu-latest'
-
-stages:
-- stage: Build
-  jobs:
-  - job: Build
-    steps:
-    - task: NodeTool@0
-      inputs:
-        versionSpec: '14.x'
-    - script: |
-        npm ci
-        npm run build
-    - task: Docker@2
-      inputs:
-        command: 'buildAndPush'
-        Dockerfile: '**/Dockerfile'
-        tags: '$(Build.BuildId)'
-
-- stage: Deploy
-  jobs:
-  - deployment: Deploy
-    environment: 'production'
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - task: KubernetesManifest@0
-            inputs:
-              action: 'deploy'
-              manifests: |
-                k8s/deployment.yml
-                k8s/service.yml
+# application.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: myapp
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/argoproj/argocd-example-apps.git
+    targetRevision: HEAD
+    path: guestbook
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: myapp
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
 ```
 
-### Quality Gates Configuration
+### ArgoCD ApplicationSet
 ```yaml
-# SonarQube Quality Gate
-sonar.projectKey=my-project
-sonar.sources=src
-sonar.tests=test
-sonar.coverage.exclusions=**/*.test.js
-sonar.javascript.lcov.reportPaths=coverage/lcov.info
-
-quality_gates:
-  - metric: new_coverage
-    op: LT
-    error: 80
-  - metric: new_duplicated_lines_density
-    op: GT
-    error: 3
+# applicationset.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: cluster-addons
+spec:
+  generators:
+  - list:
+      elements:
+      - cluster: production
+        url: https://kubernetes.default.svc
+      - cluster: staging
+        url: https://staging-cluster:6443
+  template:
+    metadata:
+      name: '{{cluster}}-addons'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/argoproj/argocd-example-apps.git
+        targetRevision: HEAD
+        path: addons
+      destination:
+        server: '{{url}}'
+        namespace: addons
 ```
 
-### Deployment Configuration
+### ArgoCD Resource Hooks
 ```yaml
-# Helm Values
-image:
-  repository: registry/myapp
-  tag: latest
-  pullPolicy: Always
+# hook.yaml
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: backup-job
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+spec:
+  template:
+    spec:
+      containers:
+      - name: backup
+        image: backup-tool
+        command: ["backup", "--target", "database"]
+      restartPolicy: Never
+```
 
-resources:
-  limits:
-    cpu: 100m
-    memory: 128Mi
-  requests:
-    cpu: 50m
-    memory: 64Mi
+## Additional Resources
 
-# Kustomize Overlay
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-resources:
-- ../base
-patchesStrategicMerge:
-- deployment-patch.yaml
-images:
-- name: myapp
-  newName: registry/myapp
-  newTag: latest
+- [GitLab Value Stream Analytics](https://docs.gitlab.com/ee/user/analytics/value_stream_analytics.html)
+- [GitLab Auto DevOps](https://docs.gitlab.com/ee/topics/autodevops/)
+- [ArgoCD Documentation](https://argo-cd.readthedocs.io/)
+- [ArgoCD Best Practices](https://argo-cd.readthedocs.io/en/stable/user-guide/best_practices/)
+- [GitOps with ArgoCD](https://www.gitops.tech/)
+- [DevOps Glossary](../../cheatsheets/devops_glossary.md)
+
+[← Previous Day](../day-13/README.md) | [Next Day →](../day-15/README.md)

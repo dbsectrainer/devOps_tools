@@ -1,15 +1,17 @@
-# Day 13 - Cloud-Native Application Deployment & Management
+# Day 13 - Advanced Jenkins & GitLab Introduction
+
+[← Previous Day](../day-12/README.md) | [Next Day →](../day-14/README.md)
 
 ## Overview
-Today we'll explore advanced cloud-native application deployment and management strategies. We'll cover modern deployment patterns, service mesh implementations, and observability solutions.
+Today we'll explore advanced Jenkins features and begin our journey into GitLab. We'll bridge the gap between continuous integration and complete DevOps lifecycle management.
 
 ```mermaid
 graph TD
-    A[Deployment Strategies] --> B[Service Mesh]
-    B --> C[Observability]
-    C --> D[Configuration]
-    D --> E[Scaling]
-    E --> F[Resilience]
+    A[Advanced Jenkins] --> B[Shared Libraries]
+    B --> C[Distributed Builds]
+    C --> D[GitLab Basics]
+    D --> E[CI/CD Setup]
+    E --> F[Container Registry]
 
     style A fill:#f9f,stroke:#333,stroke-width:2px
     style B fill:#bbf,stroke:#333,stroke-width:2px
@@ -21,310 +23,276 @@ graph TD
 
 ## Labs
 
-### Deployment Strategies
-1. **Lab 1 - Blue-Green Deployment**
-   - Skill Area: Deployment
+### Advanced Jenkins Pipeline
+1. **Lab 1 - Shared Libraries**
+   - Skill Area: Jenkins Advanced
    - Steps:
-     1. Create blue environment
-     2. Deploy green version
-     3. Configure routing
-     4. Test new version
-     5. Switch traffic
+     1. Create library structure
+     2. Implement shared steps
+     3. Configure global vars
+     4. Version control
+     5. Test integration
 
-2. **Lab 2 - Canary Releases**
-   - Skill Area: Deployment
+2. **Lab 2 - Pipeline Templates**
+   - Skill Area: Jenkins Advanced
    - Steps:
-     1. Set up traffic splitting
-     2. Configure gradual rollout
-     3. Monitor metrics
-     4. Adjust weights
-     5. Complete migration
+     1. Create templates
+     2. Define parameters
+     3. Implement inheritance
+     4. Configure defaults
+     5. Test reusability
 
-3. **Lab 3 - Rolling Updates**
-   - Skill Area: Deployment
+3. **Lab 3 - Advanced Scripting**
+   - Skill Area: Jenkins Advanced
    - Steps:
-     1. Configure update strategy
-     2. Set resource constraints
-     3. Implement health checks
-     4. Monitor rollout
-     5. Handle rollbacks
-
-### Service Mesh
-4. **Lab 4 - Istio Setup**
-   - Skill Area: Service Mesh
-   - Steps:
-     1. Install Istio v1.25.2
-     2. Configure profiles
-     3. Enable injection
-     4. Verify installation
+     1. Write custom steps
+     2. Implement error handling
+     3. Create utilities
+     4. Add documentation
      5. Test functionality
 
-5. **Lab 5 - Traffic Management**
-   - Skill Area: Service Mesh
+### Distributed Builds
+4. **Lab 4 - Agent Management**
+   - Skill Area: Jenkins Advanced
    - Steps:
-     1. Configure routing rules
-     2. Set up load balancing
-     3. Implement circuit breaking
-     4. Configure timeouts
-     5. Test resilience
+     1. Configure cloud agents
+     2. Set up Docker agents
+     3. Implement auto-scaling
+     4. Monitor usage
+     5. Test distribution
 
-### Observability
-6. **Lab 6 - Distributed Tracing**
-   - Skill Area: Observability
+5. **Lab 5 - Build Optimization**
+   - Skill Area: Jenkins Advanced
    - Steps:
-     1. Set up Jaeger
-     2. Instrument applications
-     3. Configure sampling
-     4. Analyze traces
-     5. Optimize performance
+     1. Configure caching
+     2. Implement artifacts
+     3. Optimize resources
+     4. Monitor performance
+     5. Test efficiency
 
-7. **Lab 7 - Metrics Collection**
-   - Skill Area: Observability
+### Advanced Features
+6. **Lab 6 - Configuration as Code**
+   - Skill Area: Jenkins Advanced
    - Steps:
-     1. Deploy Prometheus
-     2. Configure scraping
-     3. Set up alerting
-     4. Create dashboards
-     5. Monitor SLOs
+     1. Configure JCasC
+     2. Define system config
+     3. Manage credentials
+     4. Version control
+     5. Test deployment
 
-### Configuration Management
-8. **Lab 8 - GitOps Workflow**
-   - Skill Area: Configuration
+7. **Lab 7 - Blue Ocean**
+   - Skill Area: Jenkins Advanced
    - Steps:
-     1. Set up Flux/ArgoCD
-     2. Configure repositories
-     3. Implement sync policies
-     4. Manage secrets
-     5. Monitor reconciliation
+     1. Configure interface
+     2. Customize views
+     3. Implement features
+     4. Set up dashboards
+     5. Test visualization
 
-9. **Lab 9 - Config Management**
-   - Skill Area: Configuration
+### GitLab Basics
+8. **Lab 8 - GitLab Installation**
+   - Skill Area: GitLab
    - Steps:
-     1. Implement ConfigMaps
-     2. Manage secrets
-     3. Use external config
-     4. Handle updates
-     5. Monitor changes
+     1. Install GitLab
+     2. Configure settings
+     3. Set up users
+     4. Configure security
+     5. Test access
 
-10. **Lab 10 - Policy Management**
-    - Skill Area: Configuration
+9. **Lab 9 - Project Management**
+   - Skill Area: GitLab
+   - Steps:
+     1. Create projects
+     2. Configure visibility
+     3. Set up branches
+     4. Manage permissions
+     5. Test workflow
+
+10. **Lab 10 - Issue Tracking**
+    - Skill Area: GitLab
     - Steps:
-      1. Configure OPA/Gatekeeper
-      2. Define policies
-      3. Implement validation
-      4. Test enforcement
-      5. Monitor violations
+      1. Create issues
+      2. Configure labels
+      3. Set up boards
+      4. Implement milestones
+      5. Test tracking
 
-### Scaling & Performance
-11. **Lab 11 - Autoscaling**
-    - Skill Area: Scaling
+### GitLab CI/CD
+11. **Lab 11 - Pipeline Setup**
+    - Skill Area: GitLab
     - Steps:
-      1. Configure HPA
-      2. Set up VPA
-      3. Implement cluster autoscaling
-      4. Test scaling
+      1. Create .gitlab-ci.yml
+      2. Define stages
+      3. Configure runners
+      4. Set up caching
+      5. Test execution
+
+12. **Lab 12 - Runner Management**
+    - Skill Area: GitLab
+    - Steps:
+      1. Install runners
+      2. Configure executors
+      3. Set up auto-scaling
+      4. Manage tags
       5. Monitor performance
 
-12. **Lab 12 - Load Testing**
-    - Skill Area: Performance
+### Container Registry
+13. **Lab 13 - Registry Setup**
+    - Skill Area: GitLab
     - Steps:
-      1. Set up test environment
-      2. Configure test scenarios
-      3. Run performance tests
-      4. Analyze results
-      5. Optimize resources
+      1. Configure registry
+      2. Set up storage
+      3. Manage access
+      4. Configure cleanup
+      5. Test functionality
 
-13. **Lab 13 - Resource Management**
-    - Skill Area: Performance
+14. **Lab 14 - Image Management**
+    - Skill Area: GitLab
     - Steps:
-      1. Configure resource limits
-      2. Set up quotas
-      3. Implement QoS
-      4. Monitor usage
-      5. Optimize allocation
+      1. Push images
+      2. Configure tags
+      3. Implement scanning
+      4. Manage cleanup
+      5. Test workflow
 
-### Resilience
-14. **Lab 14 - Chaos Engineering**
-    - Skill Area: Resilience
+15. **Lab 15 - Security Scanning**
+    - Skill Area: GitLab
     - Steps:
-      1. Set up chaos mesh
-      2. Define experiments
-      3. Run chaos tests
-      4. Analyze results
-      5. Implement improvements
-
-15. **Lab 15 - Disaster Recovery**
-    - Skill Area: Resilience
-    - Steps:
-      1. Configure backups
-      2. Set up DR environment
-      3. Test recovery
-      4. Document procedures
-      5. Monitor recovery metrics
+      1. Configure SAST
+      2. Set up container scanning
+      3. Implement dependency scanning
+      4. Configure reports
+      5. Monitor findings
 
 ## Daily Cheatsheet
 
-### Deployment Configurations
-```yaml
-# Blue-Green Deployment
-apiVersion: v1
-kind: Service
-metadata:
-  name: my-app
-spec:
-  selector:
-    app: my-app
-    version: blue
-  ports:
-  - port: 80
+### Jenkins Shared Library
+```groovy
+// vars/buildMaven.groovy
+def call(Map config) {
+    pipeline {
+        agent any
+        stages {
+            stage('Build') {
+                steps {
+                    sh "mvn -B -DskipTests clean package"
+                }
+            }
+            stage('Test') {
+                steps {
+                    sh "mvn test"
+                }
+                post {
+                    always {
+                        junit '**/target/surefire-reports/*.xml'
+                    }
+                }
+            }
+        }
+    }
+}
 
----
-# Canary Deployment
-apiVersion: networking.istio.io/v1alpha3
-kind: VirtualService
-metadata:
-  name: my-app
-spec:
-  hosts:
-  - my-app
-  http:
-  - route:
-    - destination:
-        host: my-app
-        subset: v1
-      weight: 90
-    - destination:
-        host: my-app
-        subset: v2
-      weight: 10
+// Jenkinsfile
+@Library('my-shared-library') _
+buildMaven()
 ```
 
-### Service Mesh Configuration
+### Jenkins Configuration as Code
 ```yaml
-# Istio v1.25.2 Virtual Service
-apiVersion: networking.istio.io/v1alpha3
-kind: VirtualService
-metadata:
-  name: reviews
-spec:
-  hosts:
-  - reviews
-  http:
-  - match:
-    - headers:
-        end-user:
-          exact: jason
-    route:
-    - destination:
-        host: reviews
-        subset: v2
-  - route:
-    - destination:
-        host: reviews
-        subset: v1
-
-# Circuit Breaker
-apiVersion: networking.istio.io/v1alpha3
-kind: DestinationRule
-metadata:
-  name: reviews
-spec:
-  host: reviews
-  trafficPolicy:
-    outlierDetection:
-      consecutiveErrors: 3
-      interval: 30s
-      baseEjectionTime: 30s
+jenkins:
+  systemMessage: "Jenkins configured automatically by Jenkins Configuration as Code"
+  securityRealm:
+    ldap:
+      configurations:
+        - server: "ldap.example.com"
+          rootDN: "dc=example,dc=com"
+          managerDN: "cn=admin,dc=example,dc=com"
+          managerPasswordSecret: "${LDAP_PASSWORD}"
+  authorizationStrategy:
+    projectMatrix:
+      permissions:
+        - "Overall/Administer:admin"
+        - "Overall/Read:authenticated"
 ```
 
-### Observability Configuration
+### GitLab CI/CD Pipeline
 ```yaml
-# Prometheus Rules
-groups:
-- name: example
-  rules:
-  - alert: HighErrorRate
-    expr: rate(http_requests_total{status=~"5.."}[5m]) > 1
-    for: 10m
-    labels:
-      severity: page
-    annotations:
-      summary: High error rate detected
+# .gitlab-ci.yml
+image: node:latest
 
-# Jaeger Configuration
-apiVersion: jaegertracing.io/v1
-kind: Jaeger
-metadata:
-  name: jaeger
-spec:
-  strategy: production
-  storage:
-    type: elasticsearch
-    options:
-      es:
-        server-urls: http://elasticsearch:9200
+stages:
+  - build
+  - test
+  - deploy
+
+cache:
+  paths:
+    - node_modules/
+
+build:
+  stage: build
+  script:
+    - npm install
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+
+test:
+  stage: test
+  script:
+    - npm run test
+  coverage: '/Coverage: \d+.\d+%/'
+
+deploy:
+  stage: deploy
+  script:
+    - npm run deploy
+  environment:
+    name: production
+  only:
+    - main
 ```
 
-### GitOps Configuration
-```yaml
-# Flux Source
-apiVersion: source.toolkit.fluxcd.io/v1beta1
-kind: GitRepository
-metadata:
-  name: app-repo
-spec:
-  interval: 1m
-  url: https://github.com/org/repo
-  ref:
-    branch: main
+### GitLab Container Registry
+```bash
+# Login to registry
+docker login registry.gitlab.com
 
-# ArgoCD Application
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: my-app
-spec:
-  project: default
-  source:
-    repoURL: https://github.com/org/repo
-    targetRevision: HEAD
-    path: k8s
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: default
+# Build and tag image
+docker build -t registry.gitlab.com/group/project .
+docker push registry.gitlab.com/group/project
+
+# Configure in .gitlab-ci.yml
+build:
+  image: docker:latest
+  services:
+    - docker:dind
+  script:
+    - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA .
+    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
 ```
 
-### Scaling Configuration
+### GitLab Security Scanning
 ```yaml
-# Horizontal Pod Autoscaler
-apiVersion: autoscaling/v2
-kind: HorizontalPodAutoscaler
-metadata:
-  name: my-app
-spec:
-  scaleTargetRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: my-app
-  minReplicas: 1
-  maxReplicas: 10
-  metrics:
-  - type: Resource
-    resource:
-      name: cpu
-      target:
-        type: Utilization
-        averageUtilization: 50
+# .gitlab-ci.yml
+include:
+  - template: Security/SAST.gitlab-ci.yml
+  - template: Security/Container-Scanning.gitlab-ci.yml
+  - template: Security/Dependency-Scanning.gitlab-ci.yml
 
-# Vertical Pod Autoscaler
-apiVersion: autoscaling.k8s.io/v1
-kind: VerticalPodAutoscaler
-metadata:
-  name: my-app
-spec:
-  targetRef:
-    apiVersion: "apps/v1"
-    kind: Deployment
-    name: my-app
-  updatePolicy:
-    updateMode: "Auto"
+variables:
+  SAST_EXCLUDED_PATHS: "spec, test, tests, tmp"
+  SCAN_KUBERNETES_MANIFESTS: "true"
+```
+
+## Additional Resources
+
+- [Jenkins Shared Libraries](https://www.jenkins.io/doc/book/pipeline/shared-libraries/)
+- [Jenkins Configuration as Code](https://www.jenkins.io/projects/jcasc/)
+- [GitLab Documentation](https://docs.gitlab.com/)
+- [GitLab CI/CD](https://docs.gitlab.com/ee/ci/)
+- [GitLab Container Registry](https://docs.gitlab.com/ee/user/packages/container_registry/)
+- [DevOps Glossary](../../cheatsheets/devops_glossary.md)
+
+[← Previous Day](../day-12/README.md) | [Next Day →](../day-14/README.md)

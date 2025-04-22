@@ -1,15 +1,17 @@
-# Day 7 - Grafana Observability & Monitoring
+# Day 7 - Advanced Azure & GCP Introduction
+
+[← Previous Day](../day-06/README.md) | [Next Day →](../day-08/README.md)
 
 ## Overview
-Today we'll dive deep into Grafana observability and monitoring concepts. We'll learn how to set up comprehensive monitoring solutions, create effective dashboards, and implement alerting systems.
+Today we'll explore advanced Azure services and begin our journey into Google Cloud Platform (GCP). We'll bridge the gap between multiple cloud providers and understand multi-cloud strategies.
 
 ```mermaid
 graph TD
-    A[Grafana Basics] --> B[Data Sources]
-    B --> C[Dashboard Creation]
-    C --> D[Alerting]
-    D --> E[Advanced Visualization]
-    E --> F[Best Practices]
+    A[Advanced Azure] --> B[App Services]
+    B --> C[Azure Functions]
+    C --> D[GCP Basics]
+    D --> E[Project Setup]
+    E --> F[Compute Engine]
 
     style A fill:#f9f,stroke:#333,stroke-width:2px
     style B fill:#bbf,stroke:#333,stroke-width:2px
@@ -21,253 +23,288 @@ graph TD
 
 ## Labs
 
-### Grafana Basics
-1. **Lab 1 - Installation & Setup**
-   - Skill Area: Grafana
+### Advanced Azure Services
+1. **Lab 1 - App Service Basics**
+   - Skill Area: Azure Advanced
    - Steps:
-     1. Install Grafana
-     2. Configure basic settings
-     3. Set up authentication
-     4. Configure plugins
-     5. Test installation
+     1. Create App Service plan
+     2. Deploy web application
+     3. Configure custom domain
+     4. Set up SSL certificates
+     5. Implement auto scaling
 
-2. **Lab 2 - Data Source Configuration**
-   - Skill Area: Grafana
+2. **Lab 2 - App Service Advanced**
+   - Skill Area: Azure Advanced
    - Steps:
-     1. Add Prometheus data source
-     2. Configure InfluxDB connection
-     3. Set up Elasticsearch
-     4. Test data source connections
-     5. Troubleshoot connectivity issues
+     1. Configure deployment slots
+     2. Set up staging environments
+     3. Implement continuous deployment
+     4. Configure application settings
+     5. Monitor performance
 
-3. **Lab 3 - User Management**
-   - Skill Area: Grafana
+3. **Lab 3 - Azure Functions**
+   - Skill Area: Azure Advanced
    - Steps:
-     1. Create user roles
-     2. Configure permissions
-     3. Set up teams
-     4. Manage access control
-     5. Test user access
+     1. Create function app
+     2. Implement triggers
+     3. Configure bindings
+     4. Set up monitoring
+     5. Handle errors
 
-### Dashboard Creation
-4. **Lab 4 - Basic Dashboards**
-   - Skill Area: Grafana
+### Azure Security
+4. **Lab 4 - Key Vault**
+   - Skill Area: Azure Advanced
    - Steps:
-     1. Create new dashboard
-     2. Add basic panels
-     3. Configure time range
-     4. Set refresh intervals
-     5. Save and share dashboard
+     1. Create Key Vault
+     2. Store secrets
+     3. Manage certificates
+     4. Configure access policies
+     5. Implement rotation
 
-5. **Lab 5 - Panel Types**
-   - Skill Area: Grafana
+5. **Lab 5 - Azure AD**
+   - Skill Area: Azure Advanced
    - Steps:
-     1. Create time series panel
-     2. Build gauge panel
-     3. Configure stat panel
-     4. Create table panel
-     5. Add bar gauge panel
+     1. Configure users
+     2. Set up groups
+     3. Implement RBAC
+     4. Configure MFA
+     5. Manage applications
 
-### Query Building
-6. **Lab 6 - PromQL Basics**
-   - Skill Area: Grafana
+### Azure DevOps
+6. **Lab 6 - Azure DevOps Setup**
+   - Skill Area: Azure Advanced
    - Steps:
-     1. Write basic queries
-     2. Use aggregation operators
-     3. Apply rate functions
-     4. Create recording rules
-     5. Test query performance
+     1. Create organization
+     2. Set up project
+     3. Configure repositories
+     4. Set up boards
+     5. Manage permissions
 
-7. **Lab 7 - Advanced Queries**
-   - Skill Area: Grafana
+7. **Lab 7 - Azure Pipelines**
+   - Skill Area: Azure Advanced
    - Steps:
-     1. Use regex selectors
-     2. Implement subqueries
-     3. Create compound queries
-     4. Use template variables
-     5. Optimize query performance
+     1. Create build pipeline
+     2. Configure release pipeline
+     3. Set up environments
+     4. Implement approvals
+     5. Monitor deployments
 
-### Alerting
-8. **Lab 8 - Alert Rules**
-   - Skill Area: Grafana
+### GCP Basics
+8. **Lab 8 - GCP Account Setup**
+   - Skill Area: GCP
    - Steps:
-     1. Create alert rule
-     2. Configure conditions
-     3. Set up notifications
-     4. Test alert triggers
-     5. Monitor alert status
+     1. Create GCP account
+     2. Set up billing
+     3. Install Cloud SDK
+     4. Configure credentials
+     5. Create project
 
-9. **Lab 9 - Notification Channels**
-   - Skill Area: Grafana
+9. **Lab 9 - Project Management**
+   - Skill Area: GCP
    - Steps:
-     1. Configure email notifications
-     2. Set up Slack integration
-     3. Add webhook notifications
-     4. Create notification policies
-     5. Test notification delivery
+     1. Create project
+     2. Configure IAM roles
+     3. Set up billing
+     4. Enable APIs
+     5. Configure quotas
 
-10. **Lab 10 - Alert Management**
-    - Skill Area: Grafana
+10. **Lab 10 - VPC Network**
+    - Skill Area: GCP
     - Steps:
-      1. Create alert groups
-      2. Configure silencing rules
-      3. Set up escalations
-      4. Manage alert states
-      5. Handle alert incidents
+      1. Create VPC
+      2. Configure subnets
+      3. Set up firewall rules
+      4. Configure routes
+      5. Implement VPC peering
 
-### Advanced Features
-11. **Lab 11 - Variables & Templates**
-    - Skill Area: Grafana
+### GCP Compute
+11. **Lab 11 - Compute Engine**
+    - Skill Area: GCP
     - Steps:
-      1. Create dashboard variables
-      2. Use template queries
-      3. Configure variable options
-      4. Apply variable dependencies
-      5. Test variable functionality
+      1. Create instance
+      2. Configure networking
+      3. Set up storage
+      4. Implement monitoring
+      5. Configure backups
 
-12. **Lab 12 - Annotations**
-    - Skill Area: Grafana
+12. **Lab 12 - Instance Groups**
+    - Skill Area: GCP
     - Steps:
-      1. Add manual annotations
-      2. Configure query annotations
-      3. Set up annotation tags
-      4. Create annotation rules
-      5. Display annotation data
+      1. Create instance template
+      2. Set up managed group
+      3. Configure auto scaling
+      4. Implement health checks
+      5. Monitor performance
 
-13. **Lab 13 - Dashboard Plugins**
-    - Skill Area: Grafana
+### GCP Storage
+13. **Lab 13 - Cloud Storage**
+    - Skill Area: GCP
     - Steps:
-      1. Install custom plugins
-      2. Configure plugin settings
-      3. Use plugin features
-      4. Update plugins
-      5. Troubleshoot plugin issues
+      1. Create bucket
+      2. Configure access control
+      3. Set up lifecycle rules
+      4. Enable versioning
+      5. Configure replication
 
-### Best Practices
-14. **Lab 14 - Performance Optimization**
-    - Skill Area: Grafana
+14. **Lab 14 - Cloud SQL**
+    - Skill Area: GCP
     - Steps:
-      1. Optimize queries
-      2. Configure caching
-      3. Manage dashboard loading
-      4. Monitor Grafana metrics
-      5. Implement best practices
+      1. Create instance
+      2. Configure backups
+      3. Set up replication
+      4. Implement monitoring
+      5. Manage users
 
-15. **Lab 15 - Dashboard Organization**
-    - Skill Area: Grafana
+15. **Lab 15 - Cloud Monitoring**
+    - Skill Area: GCP
     - Steps:
-      1. Create folder structure
-      2. Implement naming conventions
-      3. Set up dashboard links
-      4. Configure dashboard versions
-      5. Manage permissions
+      1. Set up workspace
+      2. Configure alerts
+      3. Create dashboards
+      4. Implement logging
+      5. Configure uptime checks
+
+*For more Azure commands and configurations, see the [Azure Cheatsheet](../../cheatsheets/azure.md).*
+*For more GCP commands and configurations, see the [GCP Cheatsheet](../../cheatsheets/gcp.md).*
 
 ## Daily Cheatsheet
 
-### Grafana Configuration
-```ini
-# grafana.ini
-[server]
-http_port = 3000
-domain = localhost
-
-[security]
-admin_user = admin
-admin_password = admin
-
-[auth]
-disable_login_form = false
-
-[smtp]
-enabled = true
-host = smtp.gmail.com:587
-user = your-email@gmail.com
-password = your-password
-```
-
-### PromQL Examples
-```sql
-# Basic Queries
-rate(http_requests_total[5m])
-sum by (status_code) (http_requests_total)
-
-# Advanced Queries
-sum(rate(container_cpu_usage_seconds_total{container!=""}[5m])) by (pod)
-histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket[5m])) by (le))
-```
-
-### Dashboard JSON
-```json
-{
-  "dashboard": {
-    "id": null,
-    "title": "My Dashboard",
-    "tags": ["production", "metrics"],
-    "timezone": "browser",
-    "panels": [
-      {
-        "type": "graph",
-        "title": "HTTP Requests",
-        "gridPos": {
-          "h": 8,
-          "w": 12,
-          "x": 0,
-          "y": 0
-        }
-      }
-    ],
-    "time": {
-      "from": "now-6h",
-      "to": "now"
-    },
-    "refresh": "5s"
-  }
-}
-```
-
-### Alert Rule Example
-```yaml
-groups:
-- name: example
-  rules:
-  - alert: HighRequestLatency
-    expr: job:request_latency_seconds:mean5m{job="myjob"} > 0.5
-    for: 10m
-    labels:
-      severity: page
-    annotations:
-      summary: High request latency on {{ $labels.instance }}
-      description: Request latency is above 500ms (current value is {{ $value }})
-```
-
-### Grafana API Calls
+### Azure App Service Commands
 ```bash
-# API Examples
-curl -H "Authorization: Bearer YOUR_API_KEY" http://localhost:3000/api/dashboards/home
+# App Service Management
+az webapp create \
+  --resource-group myResourceGroup \
+  --plan myAppServicePlan \
+  --name myWebApp \
+  --runtime "NODE|14-lts"
 
-# Create Dashboard
-curl -X POST -H "Content-Type: application/json" \
-  -H "Authorization: Bearer YOUR_API_KEY" \
-  http://localhost:3000/api/dashboards/db \
-  -d @dashboard.json
+az webapp deployment slot create \
+  --resource-group myResourceGroup \
+  --name myWebApp \
+  --slot staging
 
-# Get Data Source
-curl -H "Authorization: Bearer YOUR_API_KEY" \
-  http://localhost:3000/api/datasources/name/prometheus
+az webapp log tail \
+  --resource-group myResourceGroup \
+  --name myWebApp
+
+# Azure Functions
+az functionapp create \
+  --resource-group myResourceGroup \
+  --consumption-plan-location eastus \
+  --runtime node \
+  --functions-version 4 \
+  --name myFunctionApp \
+  --storage-account myStorageAccount
 ```
 
-### Variable Templates
+### Azure DevOps Commands
+```bash
+# Azure DevOps
+az devops project create \
+  --name myProject \
+  --organization https://dev.azure.com/myorg
+
+az pipelines create \
+  --name myPipeline \
+  --repository myRepo \
+  --branch main \
+  --yml-path azure-pipelines.yml
+
+# Azure Key Vault
+az keyvault create \
+  --name myKeyVault \
+  --resource-group myResourceGroup \
+  --location eastus
+
+az keyvault secret set \
+  --vault-name myKeyVault \
+  --name mySecret \
+  --value mySecretValue
 ```
-# Dashboard Variables
-$__interval
-${__from}
-${__to}
 
-# Custom Variables
-$datacenter
-${environment:raw}
-${host:csv}
+### GCP Commands
+```bash
+# Project Management
+gcloud projects create my-project
+gcloud config set project my-project
+gcloud services enable compute.googleapis.com
 
-# Query Variables
-label_values(node_cpu_seconds_total, instance)
-query_result(sum(rate(http_requests_total[5m])))
+# Compute Engine
+gcloud compute instances create my-instance \
+  --zone=us-central1-a \
+  --machine-type=e2-medium \
+  --image-family=debian-10 \
+  --image-project=debian-cloud
+
+# Cloud Storage
+gsutil mb gs://my-bucket
+gsutil cp local-file.txt gs://my-bucket/
+gsutil ls gs://my-bucket
+gsutil rm gs://my-bucket/file.txt
+
+# Cloud SQL
+gcloud sql instances create my-instance \
+  --database-version=MYSQL_8_0 \
+  --tier=db-f1-micro \
+  --region=us-central1
+
+gcloud sql users create my-user \
+  --instance=my-instance \
+  --password=my-password
+```
+
+### Azure Pipeline YAML Example
+```yaml
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '14.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm install
+    npm run build
+  displayName: 'npm install and build'
+
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'Azure subscription'
+    appName: 'myWebApp'
+    package: '$(System.DefaultWorkingDirectory)/dist'
+```
+
+### GCP Deployment Manager Example
+```yaml
+resources:
+- name: my-instance
+  type: compute.v1.instance
+  properties:
+    zone: us-central1-a
+    machineType: zones/us-central1-a/machineTypes/e2-medium
+    disks:
+    - deviceName: boot
+      type: PERSISTENT
+      boot: true
+      autoDelete: true
+      initializeParams:
+        sourceImage: projects/debian-cloud/global/images/debian-10
+    networkInterfaces:
+    - network: global/networks/default
+```
+
+## Additional Resources
+
+- [Azure App Service Documentation](https://docs.microsoft.com/azure/app-service/)
+- [Azure Functions Documentation](https://docs.microsoft.com/azure/azure-functions/)
+- [Azure DevOps Documentation](https://docs.microsoft.com/azure/devops/)
+- [Google Cloud Documentation](https://cloud.google.com/docs)
+- [GCP Architecture Center](https://cloud.google.com/architecture)
+- [DevOps Glossary](../../cheatsheets/devops_glossary.md)
+
+[← Previous Day](../day-06/README.md) | [Next Day →](../day-08/README.md)

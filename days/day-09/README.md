@@ -1,15 +1,17 @@
-# Day 9 - AWS Services & Infrastructure
+# Day 9 - Advanced Vault & Grafana Introduction
+
+[← Previous Day](../day-08/README.md) | [Next Day →](../day-10/README.md)
 
 ## Overview
-Today we'll explore AWS services and infrastructure management. We'll cover essential services like EC2, S3, IAM, and best practices for cloud infrastructure deployment.
+Today we'll explore advanced HashiCorp Vault features and begin our journey into Grafana. We'll bridge the gap between secrets management and monitoring visualization.
 
 ```mermaid
 graph TD
-    A[AWS Basics] --> B[IAM & Security]
-    B --> C[Compute Services]
-    C --> D[Storage Solutions]
-    D --> E[Networking]
-    E --> F[Monitoring]
+    A[Advanced Vault] --> B[High Availability]
+    B --> C[Enterprise Features]
+    C --> D[Grafana Basics]
+    D --> E[Data Sources]
+    E --> F[Dashboards]
 
     style A fill:#f9f,stroke:#333,stroke-width:2px
     style B fill:#bbf,stroke:#333,stroke-width:2px
@@ -21,256 +23,268 @@ graph TD
 
 ## Labs
 
-### AWS Basics
-1. **Lab 1 - AWS CLI Setup**
-   - Skill Area: AWS
+### Advanced Vault Configuration
+1. **Lab 1 - High Availability Setup**
+   - Skill Area: Vault Advanced
    - Steps:
-     1. Install AWS CLI
-     2. Configure credentials
-     3. Test connection
-     4. Set up profiles
-     5. Verify access
+     1. Configure storage backend
+     2. Set up multiple nodes
+     3. Configure leader election
+     4. Test failover
+     5. Monitor cluster status
 
-2. **Lab 2 - Account Management**
-   - Skill Area: AWS
+2. **Lab 2 - Auto Unsealing**
+   - Skill Area: Vault Advanced
    - Steps:
-     1. Create IAM users
-     2. Set up MFA
-     3. Configure billing alerts
-     4. Set up organizations
-     5. Implement best practices
+     1. Configure cloud KMS
+     2. Set up auto-unseal
+     3. Test unsealing
+     4. Monitor unsealing
+     5. Implement backup procedures
 
-3. **Lab 3 - Resource Tags**
-   - Skill Area: AWS
+3. **Lab 3 - Performance Tuning**
+   - Skill Area: Vault Advanced
    - Steps:
-     1. Create tagging strategy
-     2. Apply resource tags
-     3. Use tag policies
-     4. Monitor tag compliance
-     5. Automate tagging
+     1. Configure resources
+     2. Optimize storage
+     3. Tune networking
+     4. Monitor metrics
+     5. Implement caching
 
-### IAM & Security
-4. **Lab 4 - IAM Users & Groups**
-   - Skill Area: AWS Security
+### Advanced Secret Management
+4. **Lab 4 - PKI Secrets Engine**
+   - Skill Area: Vault Advanced
    - Steps:
-     1. Create IAM users
-     2. Set up groups
-     3. Assign permissions
-     4. Manage access keys
-     5. Review security status
+     1. Configure root CA
+     2. Create intermediate CA
+     3. Define roles
+     4. Issue certificates
+     5. Implement rotation
 
-5. **Lab 5 - IAM Roles**
-   - Skill Area: AWS Security
+5. **Lab 5 - Transit Secrets Engine**
+   - Skill Area: Vault Advanced
    - Steps:
-     1. Create service roles
-     2. Configure trust relationships
-     3. Attach policies
-     4. Test role assumption
-     5. Monitor role usage
+     1. Enable transit engine
+     2. Configure encryption keys
+     3. Implement key rotation
+     4. Manage rewrapping
+     5. Monitor key usage
 
-### Compute Services
-6. **Lab 6 - EC2 Basics**
-   - Skill Area: AWS Compute
+### Enterprise Features
+6. **Lab 6 - Namespaces**
+   - Skill Area: Vault Advanced
    - Steps:
-     1. Launch EC2 instance
-     2. Configure security groups
-     3. Manage key pairs
-     4. Connect to instance
-     5. Monitor performance
+     1. Create namespaces
+     2. Configure policies
+     3. Manage access
+     4. Implement isolation
+     5. Monitor usage
 
-7. **Lab 7 - Auto Scaling**
-   - Skill Area: AWS Compute
+7. **Lab 7 - Replication**
+   - Skill Area: Vault Advanced
    - Steps:
-     1. Create launch template
-     2. Configure ASG
-     3. Set scaling policies
-     4. Test scaling
-     5. Monitor scaling events
+     1. Set up performance replication
+     2. Configure disaster recovery
+     3. Test failover
+     4. Monitor replication
+     5. Handle conflicts
 
-### Storage Solutions
-8. **Lab 8 - S3 Management**
-   - Skill Area: AWS Storage
+### Grafana Basics
+8. **Lab 8 - Grafana Installation**
+   - Skill Area: Grafana
    - Steps:
-     1. Create buckets
-     2. Configure permissions
-     3. Set up lifecycle rules
-     4. Enable versioning
-     5. Configure encryption
+     1. Install Grafana
+     2. Configure server
+     3. Set up users
+     4. Configure security
+     5. Test access
 
-9. **Lab 9 - EBS Volumes**
-   - Skill Area: AWS Storage
+9. **Lab 9 - Data Sources**
+   - Skill Area: Grafana
    - Steps:
-     1. Create volumes
-     2. Attach to instances
-     3. Create snapshots
-     4. Restore from snapshots
-     5. Manage volume performance
+     1. Add Prometheus
+     2. Configure InfluxDB
+     3. Set up Elasticsearch
+     4. Test connections
+     5. Manage permissions
 
-10. **Lab 10 - RDS Setup**
-    - Skill Area: AWS Database
+10. **Lab 10 - Basic Dashboards**
+    - Skill Area: Grafana
     - Steps:
-      1. Launch RDS instance
-      2. Configure security
-      3. Set up backups
-      4. Create read replicas
+      1. Create dashboard
+      2. Add panels
+      3. Configure visualizations
+      4. Set up variables
+      5. Implement sharing
+
+### Dashboard Creation
+11. **Lab 11 - Advanced Panels**
+    - Skill Area: Grafana
+    - Steps:
+      1. Create graphs
+      2. Configure alerts
+      3. Add annotations
+      4. Use transformations
+      5. Implement thresholds
+
+12. **Lab 12 - Dashboard Variables**
+    - Skill Area: Grafana
+    - Steps:
+      1. Create variables
+      2. Configure templating
+      3. Use expressions
+      4. Implement filters
+      5. Test dynamic content
+
+### Grafana Administration
+13. **Lab 13 - User Management**
+    - Skill Area: Grafana
+    - Steps:
+      1. Configure authentication
+      2. Set up roles
+      3. Manage permissions
+      4. Implement LDAP
+      5. Monitor access
+
+14. **Lab 14 - Alerting**
+    - Skill Area: Grafana
+    - Steps:
+      1. Create alert rules
+      2. Configure notifications
+      3. Set up channels
+      4. Test alerts
+      5. Monitor alert history
+
+15. **Lab 15 - Plugin Management**
+    - Skill Area: Grafana
+    - Steps:
+      1. Install plugins
+      2. Configure settings
+      3. Update plugins
+      4. Test functionality
       5. Monitor performance
 
-### Networking
-11. **Lab 11 - VPC Setup**
-    - Skill Area: AWS Networking
-    - Steps:
-      1. Create VPC
-      2. Configure subnets
-      3. Set up routing
-      4. Configure NACL
-      5. Test connectivity
-
-12. **Lab 12 - Load Balancing**
-    - Skill Area: AWS Networking
-    - Steps:
-      1. Create ALB
-      2. Configure target groups
-      3. Set up SSL
-      4. Configure routing
-      5. Monitor health
-
-13. **Lab 13 - Route 53**
-    - Skill Area: AWS Networking
-    - Steps:
-      1. Register domain
-      2. Configure DNS
-      3. Set up routing policies
-      4. Configure health checks
-      5. Monitor DNS performance
-
-### Monitoring & Logging
-14. **Lab 14 - CloudWatch**
-    - Skill Area: AWS Monitoring
-    - Steps:
-      1. Create dashboards
-      2. Set up alarms
-      3. Configure logs
-      4. Create metrics
-      5. Set up notifications
-
-15. **Lab 15 - CloudTrail**
-    - Skill Area: AWS Monitoring
-    - Steps:
-      1. Enable CloudTrail
-      2. Configure trails
-      3. Set up log analysis
-      4. Create alerts
-      5. Monitor API activity
+*For more Vault commands and configurations, see the [Vault Cheatsheet](../../cheatsheets/vault.md).*
+*For more Grafana configurations, see the [Grafana Cheatsheet](../../cheatsheets/grafana.md).*
 
 ## Daily Cheatsheet
 
-### AWS CLI Commands
-```bash
-# EC2 Management
-aws ec2 run-instances --image-id ami-12345678 --instance-type t2.micro
-aws ec2 describe-instances
-aws ec2 start-instances --instance-ids i-1234567890abcdef0
-aws ec2 stop-instances --instance-ids i-1234567890abcdef0
+### Vault HA Configuration
+```hcl
+# ha-config.hcl
+storage "consul" {
+  address = "127.0.0.1:8500"
+  path    = "vault/"
+}
 
-# S3 Operations
-aws s3 mb s3://my-bucket
-aws s3 cp file.txt s3://my-bucket/
-aws s3 sync . s3://my-bucket
-aws s3 ls s3://my-bucket
+listener "tcp" {
+  address     = "0.0.0.0:8200"
+  tls_disable = 1
+}
 
-# IAM Management
-aws iam create-user --user-name john
-aws iam create-group --group-name developers
-aws iam add-user-to-group --user-name john --group-name developers
-```
+api_addr = "http://127.0.0.1:8200"
+cluster_addr = "https://127.0.0.1:8201"
 
-### CloudFormation Template
-```yaml
-AWSTemplateFormatVersion: '2010-09-09'
-Description: 'Basic Infrastructure Stack'
-
-Resources:
-  VPC:
-    Type: AWS::EC2::VPC
-    Properties:
-      CidrBlock: 10.0.0.0/16
-      EnableDnsHostnames: true
-      EnableDnsSupport: true
-      Tags:
-        - Key: Name
-          Value: MainVPC
-
-  WebServerInstance:
-    Type: AWS::EC2::Instance
-    Properties:
-      InstanceType: t2.micro
-      ImageId: ami-12345678
-      SecurityGroups:
-        - !Ref WebServerSecurityGroup
-      UserData:
-        Fn::Base64: !Sub |
-          #!/bin/bash
-          yum update -y
-          yum install -y httpd
-          systemctl start httpd
-          systemctl enable httpd
-```
-
-### IAM Policy Examples
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "s3:GetObject",
-        "s3:PutObject"
-      ],
-      "Resource": "arn:aws:s3:::my-bucket/*"
-    }
-  ]
+# Auto-unseal using AWS KMS
+seal "awskms" {
+  region     = "us-east-1"
+  kms_key_id = "alias/vault-unseal-key"
 }
 ```
 
-### Security Group Rules
+### Vault Advanced Commands
 ```bash
-# Inbound Rules
-aws ec2 authorize-security-group-ingress \
-    --group-id sg-1234567890abcdef0 \
-    --protocol tcp \
-    --port 80 \
-    --cidr 0.0.0.0/0
+# PKI Operations
+vault secrets enable pki
+vault write pki/root/generate/internal \
+  common_name=example.com \
+  ttl=8760h
 
-# Outbound Rules
-aws ec2 authorize-security-group-egress \
-    --group-id sg-1234567890abcdef0 \
-    --protocol -1 \
-    --port -1 \
-    --cidr 0.0.0.0/0
+# Transit Operations
+vault secrets enable transit
+vault write -f transit/keys/my-key
+vault write transit/encrypt/my-key \
+  plaintext=$(base64 <<< "my secret data")
+
+# Namespace Operations
+vault namespace create engineering
+vault namespace list
+vault policy write -namespace=engineering \
+  app-policy policy.hcl
 ```
 
-### CloudWatch Metrics
-```bash
-# Get Metrics
-aws cloudwatch get-metric-statistics \
-    --namespace AWS/EC2 \
-    --metric-name CPUUtilization \
-    --dimensions Name=InstanceId,Value=i-1234567890abcdef0 \
-    --start-time 2024-04-21T00:00:00 \
-    --end-time 2024-04-21T23:59:59 \
-    --period 3600 \
-    --statistics Average
+### Grafana Configuration
+```ini
+# grafana.ini
+[server]
+http_addr = 0.0.0.0
+http_port = 3000
 
-# Create Alarm
-aws cloudwatch put-metric-alarm \
-    --alarm-name cpu-mon \
-    --alarm-description "Alarm when CPU exceeds 70%" \
-    --metric-name CPUUtilization \
-    --namespace AWS/EC2 \
-    --statistic Average \
-    --period 300 \
-    --threshold 70 \
-    --comparison-operator GreaterThanThreshold \
-    --evaluation-periods 2 \
-    --alarm-actions arn:aws:sns:region:account-id:topic-name
+[security]
+admin_user = admin
+admin_password = admin
+
+[auth.ldap]
+enabled = true
+config_file = /etc/grafana/ldap.toml
+
+[alerting]
+enabled = true
+```
+
+### Grafana Dashboard JSON
+```json
+{
+  "dashboard": {
+    "id": null,
+    "title": "Production Overview",
+    "tags": ["production", "metrics"],
+    "timezone": "browser",
+    "panels": [
+      {
+        "title": "CPU Usage",
+        "type": "graph",
+        "datasource": "Prometheus",
+        "targets": [
+          {
+            "expr": "rate(node_cpu_seconds_total{mode=\"user\"}[5m])",
+            "legendFormat": "{{instance}}"
+          }
+        ]
+      }
+    ],
+    "time": {
+      "from": "now-6h",
+      "to": "now"
+    },
+    "refresh": "5s"
+  }
+}
+```
+
+### Grafana Alert Rule
+```yaml
+# Alert rule example
+groups:
+  - name: example
+    rules:
+    - alert: HighCPUUsage
+      expr: rate(node_cpu_seconds_total{mode="user"}[5m]) > 0.8
+      for: 5m
+      labels:
+        severity: warning
+      annotations:
+        summary: High CPU usage detected
+        description: CPU usage is above 80% for 5 minutes
+```
+
+## Additional Resources
+
+- [Vault High Availability Guide](https://learn.hashicorp.com/tutorials/vault/ha-with-consul)
+- [Vault Enterprise Documentation](https://www.vaultproject.io/docs/enterprise)
+- [Grafana Documentation](https://grafana.com/docs/)
+- [Grafana Best Practices](https://grafana.com/docs/grafana/latest/best-practices/)
+- [Vault Security Model](https://www.vaultproject.io/docs/internals/security)
+- [DevOps Glossary](../../cheatsheets/devops_glossary.md)
+
+[← Previous Day](../day-08/README.md) | [Next Day →](../day-10/README.md)

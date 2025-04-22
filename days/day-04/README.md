@@ -1,5 +1,7 @@
 # Day 4 - Advanced Docker & Kubernetes Introduction
 
+[← Previous Day](../day-03/README.md) | [Next Day →](../day-05/README.md)
+
 ## Overview
 Today we'll master advanced Docker concepts and begin our journey into Kubernetes. We'll bridge the gap between container management and container orchestration.
 
@@ -161,6 +163,9 @@ graph TD
       4. Rotate secrets
       5. Manage secret access
 
+*For more Docker commands and configurations, see the [Docker Cheatsheet](../../cheatsheets/docker.md).*
+*For more Kubernetes commands and configurations, see the [Kubernetes Cheatsheet](../../cheatsheets/kubernetes.md).*
+
 ## Daily Cheatsheet
 
 ### Docker Compose
@@ -271,3 +276,15 @@ spec:
   - port: 80
     targetPort: 80
   type: ClusterIP
+```
+
+## Additional Resources
+
+- [Docker Compose Documentation](https://docs.docker.com/compose/)
+- [Kubernetes Documentation](https://kubernetes.io/docs/home/)
+- [Kubernetes Patterns](https://k8spatterns.io/)
+- [Docker Security Best Practices](https://docs.docker.com/engine/security/security/)
+- [Kubernetes Security Best Practices](https://kubernetes.io/docs/concepts/security/security-checklist/)
+- [DevOps Glossary](../../cheatsheets/devops_glossary.md)
+
+[← Previous Day](../day-03/README.md) | [Next Day →](../day-05/README.md)

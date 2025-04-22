@@ -1,5 +1,8 @@
 # Azure Cheatsheet
-# Note: Azure CLI 2.71.0 is the latest version as of April 2025
+
+*This cheatsheet provides a reference for Azure CLI commands and services.*
+
+*Note: Azure CLI 2.71.0 is the latest version as of April 2025*
 
 ## Azure CLI Configuration
 ```bash
@@ -287,3 +290,13 @@ az automation account create \
     --name myAutomationAccount \
     --resource-group myResourceGroup \
     --location eastus
+```
+
+## Additional Resources
+
+- [Azure CLI Documentation](https://docs.microsoft.com/en-us/cli/azure/)
+- [Azure Portal](https://portal.azure.com/)
+- [Azure Architecture Center](https://docs.microsoft.com/en-us/azure/architecture/)
+- [Azure Well-Architected Framework](https://docs.microsoft.com/en-us/azure/architecture/framework/)
+- [Azure Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/)
+- [DevOps Glossary](../cheatsheets/devops_glossary.md)

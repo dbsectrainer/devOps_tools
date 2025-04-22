@@ -15,16 +15,31 @@
                 <span class="home-hint">Click to return home</span>
             </a>
         </div>
-        <div class="nav-section">
-            <h2>Cheatsheets</h2>
-            <ul id="cheatsheets-list">
+        <div class="nav-section collapsible">
+            <h2 class="section-header">
+                Cheatsheets
+                <span class="toggle-icon">▼</span>
+            </h2>
+            <ul id="cheatsheets-list" class="section-content">
                 <!-- Will be populated by JavaScript -->
             </ul>
         </div>
-        <div class="nav-section">
-            <h2>Daily Progress</h2>
-            <ul id="days-list">
+        <div class="nav-section collapsible">
+            <h2 class="section-header">
+                Daily Progress
+                <span class="toggle-icon">▼</span>
+            </h2>
+            <ul id="days-list" class="section-content">
                 <!-- Will be populated by JavaScript -->
+            </ul>
+        </div>
+        <div class="nav-section collapsible">
+            <h2 class="section-header">
+                References
+                <span class="toggle-icon">▼</span>
+            </h2>
+            <ul class="section-content">
+                <li><a href="#" id="glossary-link">DevOps Glossary</a></li>
             </ul>
         </div>
     </nav>
@@ -36,11 +51,11 @@
                 
                 <div class="quick-stats">
                     <div class="stat-card">
-                        <div class="stat-number">9</div>
+                        <div class="stat-number">13</div>
                         <div class="stat-label">Cheatsheets</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">14</div>
+                        <div class="stat-number">18</div>
                         <div class="stat-label">Daily Lessons</div>
                     </div>
                     <div class="stat-card">
@@ -68,17 +83,33 @@
                             <h4>AWS</h4>
                             <p>Cloud platform services</p>
                         </a>
+                        <a href="#" class="tool-card" data-tool="ansible">
+                            <h4>Ansible</h4>
+                            <p>Configuration management</p>
+                        </a>
+                        <a href="#" class="tool-card" data-tool="devsecops">
+                            <h4>DevSecOps</h4>
+                            <p>Security integration tools</p>
+                        </a>
                     </div>
 
                     <h3>Getting Started</h3>
                     <div class="getting-started-grid">
                         <a href="#" class="getting-started-card" data-day="01">
-                            <h4>Day 1: Introduction</h4>
+                            <h4>Day 1: GitHub Basics</h4>
                             <p>Start your DevOps journey</p>
                         </a>
                         <a href="#" class="getting-started-card" data-day="02">
-                            <h4>Day 2: Basic Tools</h4>
-                            <p>Essential DevOps tools</p>
+                            <h4>Day 2: GitHub Actions</h4>
+                            <p>CI/CD fundamentals</p>
+                        </a>
+                        <a href="#" class="getting-started-card" data-day="03">
+                            <h4>Day 3: Docker</h4>
+                            <p>Containerization basics</p>
+                        </a>
+                        <a href="#" class="getting-started-card" data-day="04">
+                            <h4>Day 4: Kubernetes</h4>
+                            <p>Container orchestration</p>
                         </a>
                     </div>
                 </div>

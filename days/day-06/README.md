@@ -1,15 +1,17 @@
-# Day 6 - Kubernetes Security & Cluster Management
+# Day 6 - Advanced AWS & Azure Introduction
+
+[← Previous Day](../day-05/README.md) | [Next Day →](../day-07/README.md)
 
 ## Overview
-Today we'll focus on securing Kubernetes clusters and implementing advanced cluster management techniques. We'll cover authentication, authorization, security policies, and cluster administration.
+Today we'll explore advanced AWS services and begin our journey into Microsoft Azure. We'll bridge the gap between multiple cloud providers and understand multi-cloud strategies.
 
 ```mermaid
 graph TD
-    A[Kubernetes Security] --> B[Authentication]
-    B --> C[Authorization]
-    C --> D[Security Policies]
-    D --> E[Cluster Management]
-    E --> F[Monitoring & Logging]
+    A[Advanced AWS] --> B[S3 Storage]
+    B --> C[Lambda Functions]
+    C --> D[Azure Basics]
+    D --> E[Resource Groups]
+    E --> F[Virtual Machines]
 
     style A fill:#f9f,stroke:#333,stroke-width:2px
     style B fill:#bbf,stroke:#333,stroke-width:2px
@@ -21,278 +23,265 @@ graph TD
 
 ## Labs
 
-### Authentication & Authorization
-1. **Lab 1 - RBAC Basics**
-   - Skill Area: Kubernetes Security
+### Advanced AWS Storage
+1. **Lab 1 - S3 Basics**
+   - Skill Area: AWS Advanced
    - Steps:
-     1. Create ServiceAccount
-     2. Define Roles
-     3. Create RoleBindings
-     4. Test permissions
-     5. Audit access
+     1. Create S3 bucket
+     2. Configure bucket policies
+     3. Enable versioning
+     4. Set up lifecycle rules
+     5. Configure encryption
 
-2. **Lab 2 - ClusterRoles**
-   - Skill Area: Kubernetes Security
+2. **Lab 2 - S3 Advanced Features**
+   - Skill Area: AWS Advanced
    - Steps:
-     1. Create ClusterRole
-     2. Define cluster-wide permissions
-     3. Create ClusterRoleBinding
-     4. Test cluster access
-     5. Monitor role usage
+     1. Configure static website
+     2. Set up cross-region replication
+     3. Implement object locks
+     4. Configure event notifications
+     5. Set up access logging
 
-3. **Lab 3 - User Authentication**
-   - Skill Area: Kubernetes Security
+3. **Lab 3 - CloudFront CDN**
+   - Skill Area: AWS Advanced
    - Steps:
-     1. Create certificates
-     2. Configure kubeconfig
-     3. Set up authentication
-     4. Test user access
-     5. Manage multiple contexts
+     1. Create distribution
+     2. Configure origins
+     3. Set up behaviors
+     4. Implement SSL/TLS
+     5. Configure caching
 
-### Security Policies
-4. **Lab 4 - Pod Security Policies**
-   - Skill Area: Kubernetes Security
+### Serverless Computing
+4. **Lab 4 - Lambda Basics**
+   - Skill Area: AWS Advanced
    - Steps:
-     1. Create security policy
-     2. Define pod restrictions
-     3. Configure admission control
-     4. Test pod creation
-     5. Monitor policy violations
+     1. Create Lambda function
+     2. Configure triggers
+     3. Set up environment variables
+     4. Implement logging
+     5. Monitor execution
 
-5. **Lab 5 - Security Contexts**
-   - Skill Area: Kubernetes Security
+5. **Lab 5 - Lambda Advanced**
+   - Skill Area: AWS Advanced
    - Steps:
-     1. Configure pod security context
-     2. Set container privileges
-     3. Configure SELinux options
-     4. Set filesystem permissions
-     5. Test security settings
+     1. Use layers
+     2. Configure VPC access
+     3. Implement error handling
+     4. Set up dead letter queues
+     5. Optimize performance
 
-### Advanced Security
-6. **Lab 6 - Secrets Management**
-   - Skill Area: Kubernetes Security
+### Database Services
+6. **Lab 6 - RDS Setup**
+   - Skill Area: AWS Advanced
    - Steps:
-     1. Create encrypted secrets
-     2. Configure secret encryption
-     3. Rotate encryption keys
-     4. Manage secret access
-     5. Monitor secret usage
+     1. Create RDS instance
+     2. Configure security groups
+     3. Set up backups
+     4. Implement monitoring
+     5. Configure read replicas
 
-7. **Lab 7 - Network Security**
-   - Skill Area: Kubernetes Security
+7. **Lab 7 - DynamoDB**
+   - Skill Area: AWS Advanced
    - Steps:
-     1. Implement network policies
-     2. Configure pod-to-pod encryption
-     3. Set up TLS certificates
-     4. Configure service mesh
-     5. Monitor network traffic
+     1. Create table
+     2. Define partition keys
+     3. Configure capacity
+     4. Implement auto scaling
+     5. Set up streams
 
-### Cluster Management
-8. **Lab 8 - Node Management**
-   - Skill Area: Kubernetes Administration
+### Azure Basics
+8. **Lab 8 - Azure Account Setup**
+   - Skill Area: Azure
    - Steps:
-     1. Add/remove nodes
-     2. Configure node labels
-     3. Manage node maintenance
-     4. Handle node failures
-     5. Monitor node health
+     1. Create Azure account
+     2. Install Azure CLI
+     3. Configure credentials
+     4. Set up subscription
+     5. Configure billing alerts
 
-9. **Lab 9 - Cluster Upgrades**
-   - Skill Area: Kubernetes Administration
+9. **Lab 9 - Resource Groups**
+   - Skill Area: Azure
    - Steps:
-     1. Plan upgrade strategy
-     2. Backup cluster data
-     3. Upgrade control plane
-     4. Upgrade worker nodes
-     5. Verify cluster health
+     1. Create resource group
+     2. Apply tags
+     3. Configure access control
+     4. Set up policies
+     5. Monitor usage
 
-10. **Lab 10 - Backup & Restore**
-    - Skill Area: Kubernetes Administration
+10. **Lab 10 - Virtual Networks**
+    - Skill Area: Azure
     - Steps:
-      1. Configure backup solution
-      2. Create cluster backup
-      3. Simulate disaster
-      4. Perform restoration
-      5. Verify data integrity
+      1. Create virtual network
+      2. Configure subnets
+      3. Set up NSG rules
+      4. Configure peering
+      5. Implement routing
 
-### Monitoring & Logging
-11. **Lab 11 - Prometheus Setup**
-    - Skill Area: Kubernetes Monitoring
+### Azure Compute
+11. **Lab 11 - Virtual Machines**
+    - Skill Area: Azure
     - Steps:
-      1. Deploy Prometheus
-      2. Configure service discovery
-      3. Set up alerting rules
-      4. Configure retention
-      5. Test monitoring
+      1. Create VM
+      2. Configure networking
+      3. Set up storage
+      4. Implement monitoring
+      5. Configure backups
 
-12. **Lab 12 - Grafana Integration**
-    - Skill Area: Kubernetes Monitoring
+12. **Lab 12 - VM Scale Sets**
+    - Skill Area: Azure
     - Steps:
-      1. Deploy Grafana
-      2. Configure data sources
-      3. Import dashboards
-      4. Set up alerts
-      5. Create custom panels
+      1. Create scale set
+      2. Configure auto scaling
+      3. Set up load balancing
+      4. Implement monitoring
+      5. Configure updates
 
-13. **Lab 13 - Logging Architecture**
-    - Skill Area: Kubernetes Logging
+### Azure Storage
+13. **Lab 13 - Storage Accounts**
+    - Skill Area: Azure
     - Steps:
-      1. Deploy logging stack
-      2. Configure log aggregation
-      3. Set up log rotation
-      4. Create log filters
-      5. Monitor log storage
+      1. Create storage account
+      2. Configure blob storage
+      3. Set up file shares
+      4. Implement access control
+      5. Configure monitoring
 
-14. **Lab 14 - Audit Logging**
-    - Skill Area: Kubernetes Security
+14. **Lab 14 - Azure Backup**
+    - Skill Area: Azure
     - Steps:
-      1. Enable audit logging
-      2. Configure audit policy
-      3. Set up log collection
-      4. Create audit reports
-      5. Monitor audit events
+      1. Configure backup vault
+      2. Set up backup policies
+      3. Implement recovery
+      4. Monitor backups
+      5. Test restoration
 
-15. **Lab 15 - Troubleshooting**
-    - Skill Area: Kubernetes Administration
+15. **Lab 15 - Azure Monitor**
+    - Skill Area: Azure
     - Steps:
-      1. Debug node issues
-      2. Troubleshoot pods
-      3. Analyze system logs
-      4. Check cluster events
-      5. Generate diagnostics
+      1. Configure metrics
+      2. Set up alerts
+      3. Create dashboards
+      4. Implement log analytics
+      5. Configure action groups
+
+*For more AWS commands and configurations, see the [AWS Cheatsheet](../../cheatsheets/aws.md).*
+*For more Azure commands and configurations, see the [Azure Cheatsheet](../../cheatsheets/azure.md).*
 
 ## Daily Cheatsheet
 
-### RBAC Commands
+### AWS S3 Commands
 ```bash
-# Role Management
-kubectl create role pod-reader --verb=get,list,watch --resource=pods
-kubectl create rolebinding pod-reader-binding --role=pod-reader --user=jane
+# S3 Management
+aws s3 mb s3://my-bucket
+aws s3 cp file.txt s3://my-bucket/
+aws s3 sync . s3://my-bucket
+aws s3 ls s3://my-bucket
+aws s3 rm s3://my-bucket/file.txt
 
-# ClusterRole Management
-kubectl create clusterrole cluster-admin --verb=* --resource=*
-kubectl create clusterrolebinding cluster-admin-binding --clusterrole=cluster-admin --user=admin
+# S3 Bucket Policy
+aws s3api put-bucket-policy --bucket my-bucket --policy file://policy.json
+aws s3api get-bucket-policy --bucket my-bucket
+aws s3api delete-bucket-policy --bucket my-bucket
 
-# Authentication
-kubectl config set-credentials jane --client-certificate=jane.crt --client-key=jane.key
-kubectl config set-context jane --cluster=kubernetes --user=jane
+# S3 Website
+aws s3 website s3://my-bucket/ --index-document index.html --error-document error.html
 ```
 
-### Security Commands
+### AWS Lambda Commands
 ```bash
-# Pod Security
-kubectl create podsecuritypolicy restricted
-kubectl get podsecuritypolicy
-kubectl describe podsecuritypolicy restricted
+# Lambda Management
+aws lambda create-function \
+  --function-name my-function \
+  --runtime nodejs18.x \
+  --role arn:aws:iam::123456789012:role/lambda-role \
+  --handler index.handler \
+  --zip-file fileb://function.zip
 
-# Secret Management
-kubectl create secret generic app-secret --from-literal=password=mysecret
-kubectl get secret app-secret -o jsonpath='{.data.password}' | base64 --decode
+aws lambda update-function-code \
+  --function-name my-function \
+  --zip-file fileb://function.zip
+
+aws lambda invoke \
+  --function-name my-function \
+  --payload '{"key": "value"}' \
+  output.txt
 ```
 
-### Cluster Management
+### Azure CLI Commands
 ```bash
-# Node Management
-kubectl drain node-01
-kubectl cordon node-01
-kubectl uncordon node-01
-kubectl taint nodes node-01 key=value:NoSchedule
+# Resource Group Management
+az group create --name myResourceGroup --location eastus
+az group list
+az group delete --name myResourceGroup
 
-# Cluster Operations
-kubectl cluster-info dump
-kubectl get events --sort-by='.metadata.creationTimestamp'
+# Virtual Machine Management
+az vm create \
+  --resource-group myResourceGroup \
+  --name myVM \
+  --image UbuntuLTS \
+  --admin-username azureuser \
+  --generate-ssh-keys
+
+az vm start --resource-group myResourceGroup --name myVM
+az vm stop --resource-group myResourceGroup --name myVM
+
+# Storage Account Management
+az storage account create \
+  --name mystorageaccount \
+  --resource-group myResourceGroup \
+  --location eastus \
+  --sku Standard_LRS
+
+az storage container create \
+  --name mycontainer \
+  --account-name mystorageaccount
+
+# Network Management
+az network vnet create \
+  --resource-group myResourceGroup \
+  --name myVNet \
+  --subnet-name mySubnet
+
+az network nsg create \
+  --resource-group myResourceGroup \
+  --name myNSG
 ```
 
-### YAML Examples
-```yaml
-# Role and RoleBinding
-apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
-metadata:
-  namespace: default
-  name: pod-reader
-rules:
-- apiGroups: [""]
-  resources: ["pods"]
-  verbs: ["get", "list", "watch"]
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
-  name: pod-reader-binding
-  namespace: default
-subjects:
-- kind: User
-  name: jane
-  apiGroup: rbac.authorization.k8s.io
-roleRef:
-  kind: Role
-  name: pod-reader
-  apiGroup: rbac.authorization.k8s.io
-
-# Pod Security Policy
-apiVersion: policy/v1beta1
-kind: PodSecurityPolicy
-metadata:
-  name: restricted
-spec:
-  privileged: false
-  seLinux:
-    rule: RunAsAny
-  runAsUser:
-    rule: MustRunAsNonRoot
-  fsGroup:
-    rule: RunAsAny
-  volumes:
-  - 'configMap'
-  - 'emptyDir'
-  - 'projected'
-  - 'secret'
-  - 'downwardAPI'
-  - 'persistentVolumeClaim'
-
-# Audit Policy
-apiVersion: audit.k8s.io/v1
-kind: Policy
-rules:
-- level: Metadata
-  resources:
-  - group: ""
-    resources: ["pods"]
+### Azure ARM Template Example
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageAccountName": {
+      "type": "string",
+      "metadata": {
+        "description": "Storage Account Name"
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2021-04-01",
+      "name": "[parameters('storageAccountName')]",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "StorageV2"
+    }
+  ]
+}
 ```
 
-### Monitoring & Logging
-```yaml
-# Prometheus Configuration
-global:
-  scrape_interval: 15s
-  evaluation_interval: 15s
+## Additional Resources
 
-scrape_configs:
-  - job_name: 'kubernetes-apiservers'
-    kubernetes_sd_configs:
-    - role: endpoints
-    scheme: https
-    tls_config:
-      ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
-    bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+- [AWS S3 Documentation](https://docs.aws.amazon.com/s3/)
+- [AWS Lambda Documentation](https://docs.aws.amazon.com/lambda/)
+- [Azure Documentation](https://docs.microsoft.com/azure/)
+- [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/)
+- [Azure CLI Documentation](https://docs.microsoft.com/cli/azure/)
+- [DevOps Glossary](../../cheatsheets/devops_glossary.md)
 
-# Fluentd Configuration
-<match kubernetes.**>
-  @type elasticsearch
-  host elasticsearch-logging
-  port 9200
-  logstash_format true
-  <buffer>
-    @type file
-    path /var/log/fluentd-buffers/kubernetes.system.buffer
-    flush_mode interval
-    retry_type exponential_backoff
-    flush_interval 5s
-    retry_forever false
-    retry_max_interval 30
-    chunk_limit_size 2M
-    queue_limit_length 8
-    overflow_action block
-  </buffer>
-</match>
+[← Previous Day](../day-05/README.md) | [Next Day →](../day-07/README.md)

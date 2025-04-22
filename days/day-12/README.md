@@ -1,15 +1,17 @@
-# Day 12 - Advanced Kubernetes Security
+# Day 12 - Advanced ELK Stack & Jenkins Introduction
+
+[← Previous Day](../day-11/README.md) | [Next Day →](../day-13/README.md)
 
 ## Overview
-Today we'll focus on advanced Kubernetes security concepts and best practices. We'll cover security policies, authentication, authorization, and network security in Kubernetes environments.
+Today we'll explore advanced ELK Stack features and begin our journey into Jenkins. We'll bridge the gap between log management and continuous integration.
 
 ```mermaid
 graph TD
-    A[Security Fundamentals] --> B[Authentication]
-    B --> C[Authorization]
-    C --> D[Pod Security]
-    D --> E[Network Security]
-    E --> F[Secrets Management]
+    A[Advanced ELK] --> B[Security]
+    B --> C[Performance Tuning]
+    C --> D[Jenkins Basics]
+    D --> E[Pipeline Setup]
+    E --> F[Build Management]
 
     style A fill:#f9f,stroke:#333,stroke-width:2px
     style B fill:#bbf,stroke:#333,stroke-width:2px
@@ -21,302 +23,296 @@ graph TD
 
 ## Labs
 
-### Security Fundamentals
-1. **Lab 1 - Security Context**
-   - Skill Area: Kubernetes Security
+### Advanced ELK Security
+1. **Lab 1 - Authentication**
+   - Skill Area: ELK Advanced
    - Steps:
-     1. Configure pod security context
-     2. Set container privileges
-     3. Configure user/group settings
-     4. Set filesystem permissions
-     5. Test security constraints
+     1. Configure users
+     2. Set up roles
+     3. Implement SSO
+     4. Configure LDAP
+     5. Test access
 
-2. **Lab 2 - Pod Security Standards**
-   - Skill Area: Kubernetes Security
+2. **Lab 2 - Encryption**
+   - Skill Area: ELK Advanced
    - Steps:
-     1. Implement privileged policy
-     2. Configure baseline policy
-     3. Set up restricted policy
-     4. Test pod deployments
-     5. Monitor violations
+     1. Configure TLS
+     2. Set up certificates
+     3. Implement node encryption
+     4. Secure communications
+     5. Test security
 
-3. **Lab 3 - Security Benchmarks**
-   - Skill Area: Kubernetes Security
+3. **Lab 3 - Role-Based Access**
+   - Skill Area: ELK Advanced
    - Steps:
-     1. Run CIS benchmarks
-     2. Analyze results
-     3. Implement recommendations
-     4. Configure compliance
-     5. Monitor security posture
+     1. Define roles
+     2. Configure permissions
+     3. Set up field security
+     4. Implement audit logging
+     5. Test restrictions
 
-### Authentication & Authorization
-4. **Lab 4 - Certificate Management**
-   - Skill Area: Kubernetes Security
+### Performance Optimization
+4. **Lab 4 - Elasticsearch Tuning**
+   - Skill Area: ELK Advanced
    - Steps:
-     1. Create certificates
-     2. Configure CA
-     3. Manage certificate rotation
-     4. Set up auto-renewal
-     5. Monitor certificate expiry
+     1. Configure heap size
+     2. Optimize indexing
+     3. Configure caching
+     4. Tune search
+     5. Monitor performance
 
-5. **Lab 5 - Advanced RBAC**
-   - Skill Area: Kubernetes Security
+5. **Lab 5 - Logstash Optimization**
+   - Skill Area: ELK Advanced
    - Steps:
-     1. Create custom roles
-     2. Configure aggregated roles
-     3. Set up role bindings
-     4. Implement best practices
-     5. Audit role usage
+     1. Configure workers
+     2. Optimize pipeline
+     3. Implement batching
+     4. Tune filters
+     5. Monitor throughput
 
-### Pod Security
-6. **Lab 6 - Container Hardening**
-   - Skill Area: Kubernetes Security
+### Advanced Features
+6. **Lab 6 - Machine Learning**
+   - Skill Area: ELK Advanced
    - Steps:
-     1. Configure security profiles
-     2. Implement seccomp
-     3. Set up AppArmor
-     4. Configure SELinux
-     5. Test security measures
+     1. Configure jobs
+     2. Set up anomaly detection
+     3. Create forecasts
+     4. Implement alerts
+     5. Monitor results
 
-7. **Lab 7 - Runtime Security**
-   - Skill Area: Kubernetes Security
+7. **Lab 7 - APM Setup**
+   - Skill Area: ELK Advanced
    - Steps:
-     1. Configure runtime class
-     2. Implement sandboxing
-     3. Set up monitoring
-     4. Configure alerts
-     5. Handle violations
+     1. Install APM server
+     2. Configure agents
+     3. Set up instrumentation
+     4. Monitor transactions
+     5. Analyze performance
 
-### Network Security
-8. **Lab 8 - Network Policies**
-   - Skill Area: Kubernetes Security
+### Jenkins Basics
+8. **Lab 8 - Jenkins Installation**
+   - Skill Area: Jenkins
    - Steps:
-     1. Create default policies
-     2. Configure ingress rules
-     3. Set up egress rules
-     4. Implement microsegmentation
-     5. Monitor traffic
+     1. Install Jenkins
+     2. Configure security
+     3. Install plugins
+     4. Set up users
+     5. Test setup
 
-9. **Lab 9 - Service Mesh Security**
-   - Skill Area: Kubernetes Security
+9. **Lab 9 - Basic Jobs**
+   - Skill Area: Jenkins
    - Steps:
-     1. Install service mesh
-     2. Configure mTLS
-     3. Set up access policies
-     4. Implement authorization
-     5. Monitor connections
+     1. Create freestyle job
+     2. Configure build steps
+     3. Set up triggers
+     4. Add post-build actions
+     5. Test execution
 
-10. **Lab 10 - DNS Security**
-    - Skill Area: Kubernetes Security
+10. **Lab 10 - Pipeline Basics**
+    - Skill Area: Jenkins
     - Steps:
-      1. Configure CoreDNS
-      2. Implement DNSSEC
-      3. Set up policies
-      4. Configure monitoring
-      5. Handle DNS attacks
+      1. Create Jenkinsfile
+      2. Define stages
+      3. Add steps
+      4. Configure triggers
+      5. Test pipeline
 
-### Advanced Security
-11. **Lab 11 - Secrets Management**
-    - Skill Area: Kubernetes Security
+### Build Management
+11. **Lab 11 - Source Control**
+    - Skill Area: Jenkins
     - Steps:
-      1. Configure encryption
-      2. Implement key rotation
-      3. Set up external secrets
-      4. Manage access control
-      5. Monitor usage
+      1. Configure Git
+      2. Set up webhooks
+      3. Manage credentials
+      4. Configure branches
+      5. Test integration
 
-12. **Lab 12 - Image Security**
-    - Skill Area: Kubernetes Security
+12. **Lab 12 - Build Tools**
+    - Skill Area: Jenkins
     - Steps:
-      1. Configure registry auth
-      2. Implement scanning
-      3. Set up signing
-      4. Configure policies
-      5. Monitor compliance
+      1. Configure Maven
+      2. Set up Gradle
+      3. Install Node.js
+      4. Configure Docker
+      5. Test builds
 
-13. **Lab 13 - Audit Logging**
-    - Skill Area: Kubernetes Security
+### Jenkins Security
+13. **Lab 13 - Authentication**
+    - Skill Area: Jenkins
     - Steps:
-      1. Configure audit policy
-      2. Set up log collection
-      3. Implement analysis
-      4. Create alerts
-      5. Monitor events
+      1. Configure users
+      2. Set up roles
+      3. Implement LDAP
+      4. Configure SSO
+      5. Test access
 
-### Security Monitoring
-14. **Lab 14 - Security Monitoring**
-    - Skill Area: Kubernetes Security
+14. **Lab 14 - Authorization**
+    - Skill Area: Jenkins
     - Steps:
-      1. Set up monitoring stack
-      2. Configure alerts
-      3. Implement dashboards
-      4. Create playbooks
-      5. Handle incidents
+      1. Configure permissions
+      2. Set up project roles
+      3. Implement matrix
+      4. Configure folders
+      5. Test restrictions
 
-15. **Lab 15 - Threat Detection**
-    - Skill Area: Kubernetes Security
+15. **Lab 15 - Agents Setup**
+    - Skill Area: Jenkins
     - Steps:
-      1. Configure detection rules
-      2. Implement scanning
-      3. Set up response
-      4. Create workflows
-      5. Monitor threats
+      1. Configure agents
+      2. Set up labels
+      3. Manage connections
+      4. Configure tools
+      5. Test distribution
 
 ## Daily Cheatsheet
 
-### Security Context
+### Elasticsearch Security
 ```yaml
-# Pod Security Context
-apiVersion: v1
-kind: Pod
-metadata:
-  name: security-context-demo
-spec:
-  securityContext:
-    runAsUser: 1000
-    runAsGroup: 3000
-    fsGroup: 2000
-  containers:
-  - name: sec-ctx-demo
-    image: busybox
-    command: [ "sh", "-c", "sleep 1h" ]
-    securityContext:
-      allowPrivilegeEscalation: false
-      capabilities:
-        drop:
-          - ALL
+# elasticsearch.yml
+xpack.security.enabled: true
+xpack.security.transport.ssl.enabled: true
+xpack.security.transport.ssl.verification_mode: certificate
+xpack.security.transport.ssl.keystore.path: elastic-certificates.p12
+xpack.security.transport.ssl.truststore.path: elastic-certificates.p12
 ```
 
-### Network Policies
-```yaml
-# Default Deny Policy
-apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
-metadata:
-  name: default-deny
-spec:
-  podSelector: {}
-  policyTypes:
-  - Ingress
-  - Egress
+### Logstash Performance
+```ruby
+# logstash.conf
+input {
+  beats {
+    port => 5044
+    client_inactivity_timeout => 60
+    # Optimize worker settings
+    workers => 2
+    batch_size => 125
+  }
+}
 
-# Allow Specific Traffic
-apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
-metadata:
-  name: allow-frontend
-spec:
-  podSelector:
-    matchLabels:
-      app: backend
-  policyTypes:
-  - Ingress
-  ingress:
-  - from:
-    - podSelector:
-        matchLabels:
-          app: frontend
-    ports:
-    - protocol: TCP
-      port: 80
+filter {
+  # Use conditional processing
+  if [type] == "apache" {
+    grok {
+      match => { "message" => "%{COMBINEDAPACHELOG}" }
+      patterns_dir => ["/etc/logstash/patterns"]
+      tag_on_failure => ["_grokparsefailure"]
+    }
+  }
+}
+
+output {
+  elasticsearch {
+    hosts => ["localhost:9200"]
+    index => "logstash-%{+YYYY.MM.dd}"
+    # Optimize bulk settings
+    bulk_size => 5000
+    flush_size => 100
+  }
+}
 ```
 
-### RBAC Configuration
-```yaml
-# Custom Role
-apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
-metadata:
-  namespace: default
-  name: pod-reader
-rules:
-- apiGroups: [""]
-  resources: ["pods"]
-  verbs: ["get", "list", "watch"]
-
-# Role Binding
-apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
-  name: read-pods
-  namespace: default
-subjects:
-- kind: User
-  name: jane
-  apiGroup: rbac.authorization.k8s.io
-roleRef:
-  kind: Role
-  name: pod-reader
-  apiGroup: rbac.authorization.k8s.io
+### Jenkins Pipeline
+```groovy
+// Jenkinsfile
+pipeline {
+    agent any
+    
+    environment {
+        MAVEN_HOME = tool 'Maven 3.8.4'
+        PATH = "${MAVEN_HOME}/bin:${env.PATH}"
+    }
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/user/repo.git'
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+        
+        stage('Test') {
+            steps {
+                sh 'mvn test'
+            }
+            post {
+                always {
+                    junit '**/target/surefire-reports/*.xml'
+                }
+            }
+        }
+        
+        stage('Deploy') {
+            steps {
+                sh './deploy.sh'
+            }
+        }
+    }
+    
+    post {
+        success {
+            emailext body: 'Build successful!',
+                     subject: 'Build Status',
+                     to: 'team@example.com'
+        }
+    }
+}
 ```
 
-### Audit Policy
-```yaml
-apiVersion: audit.k8s.io/v1
-kind: Policy
-rules:
-- level: Metadata
-  resources:
-  - group: ""
-    resources: ["pods"]
-- level: RequestResponse
-  resources:
-  - group: ""
-    resources: ["secrets"]
-  namespaces: ["kube-system"]
+### Jenkins Security Configuration
+```groovy
+// security.groovy
+import jenkins.model.*
+import hudson.security.*
+import jenkins.security.s2m.AdminWhitelistRule
+
+def instance = Jenkins.getInstance()
+
+def hudsonRealm = new HudsonPrivateSecurityRealm(false)
+hudsonRealm.createAccount("admin", "password")
+instance.setSecurityRealm(hudsonRealm)
+
+def strategy = new ProjectMatrixAuthorizationStrategy()
+strategy.add(Jenkins.ADMINISTER, "admin")
+instance.setAuthorizationStrategy(strategy)
+
+instance.save()
 ```
 
-### Security Commands
-```bash
-# Certificate Management
-kubectl get csr
-kubectl certificate approve <csr-name>
-kubectl certificate deny <csr-name>
-
-# Security Context
-kubectl auth can-i create pods --as=system:serviceaccount:default:myapp
-
-# Network Policies
-kubectl get networkpolicies
-kubectl describe networkpolicy <policy-name>
-
-# Pod Security
-kubectl get psp
-kubectl describe psp restricted
-
-# Audit Logs
-kubectl logs -n kube-system kube-apiserver-master
+### ELK Machine Learning
+```json
+{
+  "job_id": "abnormal_response_time",
+  "description": "Detect abnormal response times",
+  "analysis_config": {
+    "bucket_span": "15m",
+    "detectors": [
+      {
+        "function": "mean",
+        "field_name": "response_time",
+        "detector_description": "mean response time"
+      }
+    ],
+    "influencers": ["host", "service"]
+  },
+  "data_description": {
+    "time_field": "@timestamp",
+    "time_format": "epoch_ms"
+  }
+}
 ```
 
-### Security Best Practices
-```yaml
-# Pod Security Standards
-apiVersion: pod-security.kubernetes.io/v1
-kind: Pod
-metadata:
-  name: restricted-pod
-  annotations:
-    pod-security.kubernetes.io/enforce: restricted
-spec:
-  containers:
-  - name: nginx
-    image: nginx:1.14.2
-    securityContext:
-      allowPrivilegeEscalation: false
-      runAsNonRoot: true
-      seccompProfile:
-        type: RuntimeDefault
-      capabilities:
-        drop:
-          - ALL
+## Additional Resources
 
-# Container Security
-securityContext:
-  readOnlyRootFilesystem: true
-  runAsNonRoot: true
-  runAsUser: 1000
-  capabilities:
-    drop:
-      - ALL
-    add:
-      - NET_BIND_SERVICE
+- [Elastic Security Guide](https://www.elastic.co/guide/en/elasticsearch/reference/current/secure-cluster.html)
+- [Logstash Performance Tuning](https://www.elastic.co/guide/en/logstash/current/performance-troubleshooting.html)
+- [Jenkins Pipeline Documentation](https://www.jenkins.io/doc/book/pipeline/)
+- [Jenkins Security Best Practices](https://www.jenkins.io/doc/book/security/)
+- [Elastic Machine Learning](https://www.elastic.co/guide/en/machine-learning/current/ml-overview.html)
+- [DevOps Glossary](../../cheatsheets/devops_glossary.md)
+
+[← Previous Day](../day-11/README.md) | [Next Day →](../day-13/README.md)
