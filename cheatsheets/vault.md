@@ -7,23 +7,23 @@
 ## Basic Commands
 ```bash
 # Server Operations
-vault server -dev                  # Start dev server
-vault operator init               # Initialize vault
-vault operator unseal            # Unseal vault
-vault status                     # Check vault status
+vault server -dev                  # Start development server for testing
+vault operator init               # Initialize vault and generate root keys
+vault operator unseal            # Provide key share to unseal vault
+vault status                     # Display health and seal status
 
 # Authentication
-vault login                      # Login to vault
-vault login -method=userpass username=admin  # Login with username
-vault token create              # Create new token
-vault token lookup             # Look up token info
-vault token revoke             # Revoke token
+vault login                      # Start interactive authentication
+vault login -method=userpass username=admin  # Authenticate with username/password
+vault token create              # Generate new access token
+vault token lookup             # Display token metadata and policies
+vault token revoke             # Invalidate and remove token
 
 # Secret Management
-vault kv put secret/app key=value    # Write secret
-vault kv get secret/app              # Read secret
-vault kv list secret/                # List secrets
-vault kv delete secret/app           # Delete secret
+vault kv put secret/app key=value    # Store new secret at specified path
+vault kv get secret/app              # Retrieve secret and metadata
+vault kv list secret/                # Show all secrets in path
+vault kv delete secret/app           # Remove secret from storage
 ```
 
 ## Configuration Files
@@ -54,54 +54,54 @@ path "auth/token/create" {
 ## Authentication Methods
 ```bash
 # UserPass Auth
-vault auth enable userpass
-vault write auth/userpass/users/admin \
-    password=password \
-    policies=admin
+vault auth enable userpass                    # Enable username/password authentication
+vault write auth/userpass/users/admin \       # Create admin user with password
+    password=password \                       # Set user's password
+    policies=admin                           # Assign admin policy to user
 
 # AppRole Auth
-vault auth enable approle
-vault write auth/approle/role/my-role \
-    secret_id_ttl=10m \
-    token_num_uses=10 \
-    token_ttl=20m \
-    token_max_ttl=30m \
-    secret_id_num_uses=40
+vault auth enable approle                     # Enable application authentication method
+vault write auth/approle/role/my-role \       # Configure role for application
+    secret_id_ttl=10m \                      # Secret ID expires after 10 minutes
+    token_num_uses=10 \                      # Token can be used 10 times
+    token_ttl=20m \                          # Token expires after 20 minutes
+    token_max_ttl=30m \                      # Token cannot be renewed beyond 30 minutes
+    secret_id_num_uses=40                    # Secret ID can be used 40 times
 
 # Get Role ID and Secret ID
-vault read auth/approle/role/my-role/role-id
-vault write -f auth/approle/role/my-role/secret-id
+vault read auth/approle/role/my-role/role-id    # Get static role identifier
+vault write -f auth/approle/role/my-role/secret-id  # Generate dynamic secret identifier
 ```
 
 ## Secret Engines
 ```bash
 # KV Version 2
-vault secrets enable -version=2 kv
-vault kv put kv/my-secret foo=bar
-vault kv get kv/my-secret
-vault kv metadata get kv/my-secret
+vault secrets enable -version=2 kv             # Enable versioned key-value store
+vault kv put kv/my-secret foo=bar             # Store new secret version
+vault kv get kv/my-secret                     # Retrieve latest version
+vault kv metadata get kv/my-secret            # Show version history and metadata
 
 # Database Secrets
-vault secrets enable database
-vault write database/config/my-postgresql \
-    plugin_name=postgresql-database-plugin \
-    allowed_roles="my-role" \
-    connection_url="postgresql://{{username}}:{{password}}@localhost:5432/mydb" \
-    username="root" \
-    password="rootpassword"
+vault secrets enable database                  # Enable dynamic database credentials
+vault write database/config/my-postgresql \    # Configure PostgreSQL connection
+    plugin_name=postgresql-database-plugin \   # Specify database type
+    allowed_roles="my-role" \                 # Roles allowed to generate credentials
+    connection_url="postgresql://{{username}}:{{password}}@localhost:5432/mydb" \  # Connection string
+    username="root" \                         # Admin username
+    password="rootpassword"                   # Admin password
 
 # AWS Secrets
-vault secrets enable aws
-vault write aws/config/root \
-    access_key=AKIAEXAMPLE \
-    secret_key=secret \
-    region=us-east-1
+vault secrets enable aws                      # Enable AWS credential generation
+vault write aws/config/root \                 # Configure AWS root credentials
+    access_key=AKIAEXAMPLE \                 # Root AWS access key
+    secret_key=secret \                      # Root AWS secret key
+    region=us-east-1                         # Default AWS region
 
 # PKI Secrets
-vault secrets enable pki
-vault write pki/root/generate/internal \
-    common_name=example.com \
-    ttl=8760h
+vault secrets enable pki                      # Enable certificate authority
+vault write pki/root/generate/internal \      # Generate root certificate
+    common_name=example.com \                # Domain for certificate
+    ttl=8760h                               # Valid for one year
 ```
 
 ## Policy Management
@@ -129,25 +129,29 @@ vault policy delete my-policy
 ## Response Wrapping
 ```bash
 # Create Wrapped Secret
-vault kv put -wrap-ttl=30m secret/app key=value
+vault kv put -wrap-ttl=30m secret/app key=value   # Create secret with temporary access token
+                                                 # that expires in 30 minutes
 
 # Unwrap Secret
-vault unwrap <wrapping_token>
+vault unwrap <wrapping_token>                    # Retrieve and destroy wrapped secret
+                                                # Can only be used once
 
 # Look up Wrap Info
-vault token lookup <wrapping_token>
+vault token lookup <wrapping_token>              # Check wrapping token status and metadata
 ```
 
 ## Audit Logging
 ```bash
 # Enable File Audit
-vault audit enable file file_path=/var/log/vault/audit.log
+vault audit enable file file_path=/var/log/vault/audit.log  # Log all requests to file
+                                                          # Includes authentication and data access
 
 # Enable Syslog Audit
-vault audit enable syslog
+vault audit enable syslog                                  # Send audit logs to system logger
+                                                          # Integrates with log management tools
 
 # List Audit Devices
-vault audit list
+vault audit list                                          # Show enabled audit logging methods
 ```
 
 ## Environment Variables
@@ -166,22 +170,22 @@ export VAULT_CLIENT_KEY='/etc/vault/key.pem'
 ## API Examples
 ```bash
 # Authentication
-curl \
-    --request POST \
-    --data '{"password": "password"}' \
-    http://127.0.0.1:8200/v1/auth/userpass/login/admin
+curl \                                          # Authenticate via REST API
+    --request POST \                            # Send POST request
+    --data '{"password": "password"}' \         # Provide credentials
+    http://127.0.0.1:8200/v1/auth/userpass/login/admin  # Login endpoint
 
 # Write Secret
-curl \
-    --header "X-Vault-Token: $VAULT_TOKEN" \
-    --request POST \
-    --data '{"data": {"password": "secret"}}' \
-    http://127.0.0.1:8200/v1/secret/data/app
+curl \                                          # Store secret via REST API
+    --header "X-Vault-Token: $VAULT_TOKEN" \    # Include authentication token
+    --request POST \                            # Send POST request
+    --data '{"data": {"password": "secret"}}' \ # Secret data in JSON format
+    http://127.0.0.1:8200/v1/secret/data/app   # KV v2 endpoint
 
 # Read Secret
-curl \
-    --header "X-Vault-Token: $VAULT_TOKEN" \
-    http://127.0.0.1:8200/v1/secret/data/app
+curl \                                          # Retrieve secret via REST API
+    --header "X-Vault-Token: $VAULT_TOKEN" \    # Include authentication token
+    http://127.0.0.1:8200/v1/secret/data/app   # KV v2 endpoint
 ```
 
 ## Best Practices

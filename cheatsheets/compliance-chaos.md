@@ -11,15 +11,17 @@ curl -L -o opa https://openpolicy.io/downloads/v0.57.0/opa_linux_amd64_static
 chmod 755 opa
 
 # Basic Commands
-opa eval -i input.json -d policy.rego "data.example.allow"
-opa test -v policy_test.rego
-opa build -b policy.rego
+opa eval -i input.json -d policy.rego "data.example.allow"  # Evaluate policy against input
+opa test -v policy_test.rego                               # Run policy unit tests
+opa build -b policy.rego                                   # Bundle policy files
 
 # Run OPA Server
-opa run --server --addr :8181
+opa run --server --addr :8181                             # Start OPA policy server
+                                                         # Listen on port 8181
 
 # API Requests
-curl localhost:8181/v1/data/example/allow -d @input.json -H 'Content-Type: application/json'
+curl localhost:8181/v1/data/example/allow -d @input.json \  # Query policy via HTTP API
+     -H 'Content-Type: application/json'                   # Send input as JSON
 ```
 
 ## Rego Policy Language
@@ -117,16 +119,17 @@ wget https://github.com/open-policy-agent/conftest/releases/download/v0.45.0/con
 tar xzf conftest_0.45.0_Linux_x86_64.tar.gz
 
 # Testing Configuration Files
-conftest test deployment.yaml
-conftest test --policy policy/ deployment.yaml
-conftest test --combine deployment.yaml service.yaml
+conftest test deployment.yaml                              # Test single config file
+conftest test --policy policy/ deployment.yaml             # Test against policies in directory
+conftest test --combine deployment.yaml service.yaml       # Test multiple related configs
 
 # Testing Multiple File Types
-conftest test --parser yaml deployment.yaml --parser json app.json
+conftest test --parser yaml deployment.yaml \              # Test different file formats
+              --parser json app.json                       # Specify parser for each
 
 # Output Formats
-conftest test --output json deployment.yaml
-conftest test --output table deployment.yaml
+conftest test --output json deployment.yaml                # Generate JSON results
+conftest test --output table deployment.yaml               # Display tabular format
 ```
 
 ## InSpec
@@ -170,16 +173,19 @@ inspec exec https://github.com/dev-sec/linux-baseline
 ## Chaos Toolkit
 ```bash
 # Installation
-pip install chaostoolkit
+pip install chaostoolkit                                   # Install Chaos Toolkit
 
 # Create Experiment
-chaos init experiment.json
+chaos init experiment.json                                 # Initialize new experiment
+                                                         # Creates template file
 
 # Run Experiment
-chaos run experiment.json
+chaos run experiment.json                                  # Execute chaos experiment
+                                                         # Follows defined steps
 
 # Generate Report
-chaos report --export-format=pdf experiment.json
+chaos report --export-format=pdf experiment.json           # Create PDF report
+                                                         # Documents results
 
 # Experiment Definition
 {

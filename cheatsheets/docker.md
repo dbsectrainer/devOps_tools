@@ -5,28 +5,28 @@
 ## Basic Commands
 ```bash
 # Container Management
-docker run <image>              # Run a container
-docker start <container>        # Start container
-docker stop <container>         # Stop container
-docker restart <container>      # Restart container
-docker rm <container>          # Remove container
-docker rm -f <container>       # Force remove running container
+docker run <image>              # Create and start a new container from an image with optional configuration
+docker start <container>        # Start a stopped container, preserving its configuration
+docker stop <container>         # Stop a running container gracefully (SIGTERM, then SIGKILL)
+docker restart <container>      # Stop and then start a container, useful for applying changes
+docker rm <container>          # Remove a stopped container and its writable layer
+docker rm -f <container>       # Force remove a container even if running (use with caution)
 
 # Container Inspection
-docker ps                      # List running containers
-docker ps -a                   # List all containers
-docker logs <container>        # View container logs
-docker inspect <container>     # Inspect container
-docker stats                   # View container resource usage
-docker top <container>        # View container processes
+docker ps                      # List only running containers with basic info (ID, name, status)
+docker ps -a                   # List all containers including stopped ones for troubleshooting
+docker logs <container>        # View container output and error logs for debugging
+docker inspect <container>     # Show detailed container configuration and runtime information
+docker stats                   # Display live resource usage statistics (CPU, memory, network, I/O)
+docker top <container>        # Show running processes inside a container for monitoring
 
 # Image Management
-docker images                  # List images
-docker pull <image>           # Pull image from registry
-docker push <image>           # Push image to registry
-docker rmi <image>            # Remove image
-docker build -t <name> .      # Build image from Dockerfile
-docker tag <image> <new>      # Tag image
+docker images                  # List all locally stored images with size and creation time
+docker pull <image>           # Download an image from a registry (default: Docker Hub)
+docker push <image>           # Upload an image to a registry after authentication
+docker rmi <image>            # Remove a locally stored image to free space
+docker build -t <name> .      # Build an image from a Dockerfile in current directory
+docker tag <image> <new>      # Create a new tagged reference to an image for versioning
 ```
 
 ## Dockerfile Syntax
@@ -118,63 +118,63 @@ volumes:
 ## Network Commands
 ```bash
 # Network Management
-docker network create <network>    # Create network
-docker network ls                  # List networks
-docker network inspect <network>   # Inspect network
-docker network rm <network>        # Remove network
-docker network connect <network> <container>     # Connect container to network
-docker network disconnect <network> <container>  # Disconnect container from network
+docker network create <network>    # Create a new network for container isolation
+docker network ls                  # List all networks with their drivers and scope
+docker network inspect <network>   # Show detailed network configuration and connected containers
+docker network rm <network>        # Remove an unused network
+docker network connect <network> <container>     # Add a running container to a network
+docker network disconnect <network> <container>  # Remove a container from a network
 
 # Network Drivers
-docker network create --driver bridge my-network      # Bridge network
-docker network create --driver overlay my-network     # Overlay network
-docker network create --driver host my-network        # Host network
+docker network create --driver bridge my-network      # Create isolated network for container communication
+docker network create --driver overlay my-network     # Create multi-host network for swarm services
+docker network create --driver host my-network        # Use host network stack directly (no isolation)
 ```
 
 ## Volume Commands
 ```bash
 # Volume Management
-docker volume create <volume>     # Create volume
-docker volume ls                  # List volumes
-docker volume inspect <volume>    # Inspect volume
-docker volume rm <volume>         # Remove volume
-docker volume prune              # Remove unused volumes
+docker volume create <volume>     # Create a named volume for persistent data storage
+docker volume ls                  # List all volumes with their drivers
+docker volume inspect <volume>    # Show volume details including mountpoint
+docker volume rm <volume>         # Remove a volume when data is no longer needed
+docker volume prune              # Remove all unused volumes to reclaim space
 
 # Volume Usage
-docker run -v <volume>:/path/in/container <image>    # Mount volume
-docker run -v $(pwd):/app <image>                    # Bind mount
+docker run -v <volume>:/path/in/container <image>    # Mount a named volume for persistent storage
+docker run -v $(pwd):/app <image>                    # Mount current directory for development
 ```
 
 ## Container Runtime Options
 ```bash
 # Resource Constraints
-docker run --memory="512m" <image>          # Memory limit
-docker run --cpus="1.5" <image>             # CPU limit
-docker run --pids-limit=100 <image>         # Process limit
+docker run --memory="512m" <image>          # Limit container memory usage to 512MB
+docker run --cpus="1.5" <image>             # Limit container to 1.5 CPU cores
+docker run --pids-limit=100 <image>         # Limit maximum number of processes
 
 # Port Mapping
-docker run -p 8080:80 <image>              # Port mapping
-docker run -P <image>                       # Auto port mapping
+docker run -p 8080:80 <image>              # Map host port 8080 to container port 80
+docker run -P <image>                       # Automatically map exposed ports to random host ports
 
 # Environment Variables
-docker run -e "VAR=value" <image>          # Set environment variable
-docker run --env-file=.env <image>         # Use env file
+docker run -e "VAR=value" <image>          # Set a single environment variable
+docker run --env-file=.env <image>         # Load multiple environment variables from file
 
 # Restart Policies
-docker run --restart=always <image>         # Always restart
-docker run --restart=unless-stopped <image> # Restart unless stopped
-docker run --restart=on-failure:3 <image>   # Restart on failure
+docker run --restart=always <image>         # Automatically restart container in all cases
+docker run --restart=unless-stopped <image> # Restart container unless manually stopped
+docker run --restart=on-failure:3 <image>   # Restart up to 3 times if exit code non-zero
 ```
 
 ## Docker Registry
 ```bash
 # Registry Operations
-docker login                     # Login to registry
-docker logout                    # Logout from registry
-docker search <term>             # Search registry
-docker pull registry:2           # Pull registry image
-docker tag local/app registry/app:v1   # Tag for registry
-docker push registry/app:v1            # Push to registry
+docker login                     # Authenticate with a container registry
+docker logout                    # Remove stored registry credentials
+docker search <term>             # Search Docker Hub for images
+docker pull registry:2           # Download the official registry image
+docker tag local/app registry/app:v1   # Prepare image for registry push
+docker push registry/app:v1            # Upload tagged image to registry
 ```
 
 ## Best Practices
@@ -269,15 +269,15 @@ docker push registry/app:v1            # Push to registry
 ## Troubleshooting Commands
 ```bash
 # Debugging
-docker logs --tail 100 <container>          # View last 100 log lines
-docker logs -f <container>                  # Follow log output
-docker exec -it <container> /bin/bash       # Interactive shell
-docker inspect --format='{{.State.Status}}' <container>  # Get container status
+docker logs --tail 100 <container>          # Show most recent 100 log entries for debugging
+docker logs -f <container>                  # Stream container logs in real-time
+docker exec -it <container> /bin/bash       # Start interactive shell for container inspection
+docker inspect --format='{{.State.Status}}' <container>  # Extract specific container state info
 
 # Clean Up
-docker system prune                         # Remove unused data
-docker system prune -a                      # Remove all unused data
-docker system df                            # View disk usage
+docker system prune                         # Remove unused containers, networks, and dangling images
+docker system prune -a                      # Remove all unused resources including unused images
+docker system df                            # Show docker disk usage by type (containers, images, volumes)
 ```
 
 ## Additional Resources

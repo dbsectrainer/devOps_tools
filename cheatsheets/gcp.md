@@ -7,182 +7,182 @@
 ## gcloud Configuration
 ```bash
 # Authentication
-gcloud auth login
-gcloud auth list
-gcloud config list
-gcloud auth application-default login
+gcloud auth login                                    # Start interactive login process for user account
+gcloud auth list                                     # Show all authenticated accounts
+gcloud config list                                   # Display current configuration settings
+gcloud auth application-default login                # Set up application default credentials
 
 # Project Management
-gcloud projects list
-gcloud config set project PROJECT_ID
-gcloud config set compute/region us-central1
-gcloud config set compute/zone us-central1-a
+gcloud projects list                                 # Show all accessible GCP projects
+gcloud config set project PROJECT_ID                 # Switch to specific project
+gcloud config set compute/region us-central1         # Set default region for resources
+gcloud config set compute/zone us-central1-a         # Set default zone within region
 ```
 
 ## Compute Engine
 ```bash
 # Instance Management
-gcloud compute instances create my-instance \
-    --machine-type=e2-medium \
-    --image-family=debian-10 \
-    --image-project=debian-cloud \
-    --boot-disk-size=10GB
+gcloud compute instances create my-instance \        # Create new Compute Engine VM
+    --machine-type=e2-medium \                      # VM size (CPU/memory)
+    --image-family=debian-10 \                      # OS image to use
+    --image-project=debian-cloud \                  # Project hosting the image
+    --boot-disk-size=10GB                          # Size of main disk
 
 # Instance Operations
-gcloud compute instances list
-gcloud compute instances describe my-instance
-gcloud compute instances start my-instance
-gcloud compute instances stop my-instance
-gcloud compute instances delete my-instance
+gcloud compute instances list                        # Show all VMs in project
+gcloud compute instances describe my-instance        # Get detailed VM information
+gcloud compute instances start my-instance           # Start stopped VM
+gcloud compute instances stop my-instance            # Stop running VM (still billed for disk)
+gcloud compute instances delete my-instance          # Permanently delete VM
 
 # SSH Access
-gcloud compute ssh my-instance
-gcloud compute scp local-file my-instance:~/remote-file
+gcloud compute ssh my-instance                       # Start SSH session to VM
+gcloud compute scp local-file my-instance:~/remote-file  # Copy files to/from VM
 ```
 
 ## Cloud Storage
 ```bash
 # Bucket Management
-gsutil mb gs://my-bucket
-gsutil ls
-gsutil ls gs://my-bucket
-gsutil rm gs://my-bucket/**
-gsutil rb gs://my-bucket
+gsutil mb gs://my-bucket                            # Create new storage bucket
+gsutil ls                                           # List all buckets
+gsutil ls gs://my-bucket                            # List contents of bucket
+gsutil rm gs://my-bucket/**                         # Delete all files in bucket
+gsutil rb gs://my-bucket                            # Delete empty bucket
 
 # File Operations
-gsutil cp local-file gs://my-bucket/
-gsutil cp -r local-dir gs://my-bucket/
-gsutil cp gs://my-bucket/file .
-gsutil rsync -r local-dir gs://my-bucket/dir
+gsutil cp local-file gs://my-bucket/                # Upload file to bucket
+gsutil cp -r local-dir gs://my-bucket/              # Upload directory recursively
+gsutil cp gs://my-bucket/file .                     # Download file from bucket
+gsutil rsync -r local-dir gs://my-bucket/dir        # Sync directory with bucket
 
 # Access Control
-gsutil iam ch user:john@example.com:objectViewer gs://my-bucket
-gsutil acl ch -u john@example.com:R gs://my-bucket/file
+gsutil iam ch user:john@example.com:objectViewer gs://my-bucket  # Grant read access to bucket
+gsutil acl ch -u john@example.com:R gs://my-bucket/file          # Grant read access to specific file
 ```
 
 ## Kubernetes Engine (GKE)
 ```bash
 # Cluster Management
-gcloud container clusters create my-cluster \
-    --num-nodes=3 \
-    --machine-type=e2-medium \
-    --zone=us-central1-a
+gcloud container clusters create my-cluster \        # Create new GKE cluster
+    --num-nodes=3 \                                 # Number of nodes in default pool
+    --machine-type=e2-medium \                      # Node VM size
+    --zone=us-central1-a                           # Zone for cluster nodes
 
-gcloud container clusters get-credentials my-cluster
-gcloud container clusters list
-gcloud container clusters delete my-cluster
+gcloud container clusters get-credentials my-cluster # Configure kubectl for cluster access
+gcloud container clusters list                      # Show all GKE clusters
+gcloud container clusters delete my-cluster         # Delete cluster and all its resources
 
 # Node Pool Management
-gcloud container node-pools create pool-2 \
-    --cluster my-cluster \
-    --num-nodes=2
+gcloud container node-pools create pool-2 \         # Add new group of nodes to cluster
+    --cluster my-cluster \                          # Target cluster
+    --num-nodes=2                                  # Nodes in new pool
 
-gcloud container node-pools list --cluster my-cluster
-gcloud container node-pools delete pool-2 --cluster my-cluster
+gcloud container node-pools list --cluster my-cluster    # List all node pools in cluster
+gcloud container node-pools delete pool-2 --cluster my-cluster  # Remove node pool
 ```
 
 ## Cloud Run
 ```bash
 # Service Deployment
-gcloud run deploy my-service \
-    --image gcr.io/project/image \
-    --platform managed \
-    --region us-central1 \
-    --allow-unauthenticated
+gcloud run deploy my-service \                      # Deploy container to Cloud Run
+    --image gcr.io/project/image \                 # Container image to deploy
+    --platform managed \                           # Use fully managed platform
+    --region us-central1 \                        # Region to deploy in
+    --allow-unauthenticated                      # Allow public access
 
 # Service Management
-gcloud run services list
-gcloud run services describe my-service
-gcloud run services update my-service --memory 512Mi
-gcloud run services delete my-service
+gcloud run services list                           # Show all Cloud Run services
+gcloud run services describe my-service            # Get service configuration details
+gcloud run services update my-service --memory 512Mi  # Update service resources
+gcloud run services delete my-service              # Remove service
 
 # Revision Management
-gcloud run revisions list
-gcloud run revisions delete my-service-00001
+gcloud run revisions list                          # Show all service versions
+gcloud run revisions delete my-service-00001       # Delete specific revision
 ```
 
 ## IAM & Security
 ```bash
 # IAM Management
-gcloud iam service-accounts create my-sa \
-    --display-name "My Service Account"
+gcloud iam service-accounts create my-sa \          # Create new service account
+    --display-name "My Service Account"             # Human-readable name
 
-gcloud iam service-accounts keys create key.json \
-    --iam-account my-sa@project.iam.gserviceaccount.com
+gcloud iam service-accounts keys create key.json \   # Create key for service account
+    --iam-account my-sa@project.iam.gserviceaccount.com  # Service account email
 
 # Role Management
-gcloud projects add-iam-policy-binding PROJECT_ID \
-    --member="user:john@example.com" \
-    --role="roles/editor"
+gcloud projects add-iam-policy-binding PROJECT_ID \  # Grant role to user/service account
+    --member="user:john@example.com" \              # Identity to grant role to
+    --role="roles/editor"                          # Role to grant (predefined or custom)
 
-gcloud projects get-iam-policy PROJECT_ID
+gcloud projects get-iam-policy PROJECT_ID           # View all IAM bindings for project
 ```
 
 ## Cloud SQL
 ```bash
 # Instance Creation
-gcloud sql instances create my-instance \
-    --database-version=MYSQL_8_0 \
-    --tier=db-f1-micro \
-    --region=us-central1
+gcloud sql instances create my-instance \           # Create new Cloud SQL instance
+    --database-version=MYSQL_8_0 \                 # Database engine and version
+    --tier=db-f1-micro \                          # Instance size (CPU/memory)
+    --region=us-central1                          # Region for instance
 
 # Database Management
-gcloud sql databases create my-database \
-    --instance=my-instance
+gcloud sql databases create my-database \           # Create new database
+    --instance=my-instance                         # Target SQL instance
 
-gcloud sql users create my-user \
-    --instance=my-instance \
-    --password=my-password
+gcloud sql users create my-user \                   # Create database user
+    --instance=my-instance \                       # Target SQL instance
+    --password=my-password                        # User's password
 
 # Connection
-gcloud sql connect my-instance --user=my-user
+gcloud sql connect my-instance --user=my-user       # Start interactive SQL session
 ```
 
 ## VPC Networks
 ```bash
 # Network Creation
-gcloud compute networks create my-network \
-    --subnet-mode=custom
+gcloud compute networks create my-network \         # Create new VPC network
+    --subnet-mode=custom                           # Enable custom subnet creation
 
-gcloud compute networks subnets create my-subnet \
-    --network=my-network \
-    --region=us-central1 \
-    --range=10.0.0.0/24
+gcloud compute networks subnets create my-subnet \  # Create subnet in VPC
+    --network=my-network \                         # Parent VPC network
+    --region=us-central1 \                        # Region for subnet
+    --range=10.0.0.0/24                          # IP range for subnet
 
 # Firewall Rules
-gcloud compute firewall-rules create allow-http \
-    --network=my-network \
-    --allow=tcp:80 \
-    --source-ranges=0.0.0.0/0
+gcloud compute firewall-rules create allow-http \   # Create firewall rule
+    --network=my-network \                         # Network to apply rule to
+    --allow=tcp:80 \                              # Allow HTTP traffic
+    --source-ranges=0.0.0.0/0                     # Allow from any IP
 ```
 
 ## Cloud Functions
 ```bash
 # Function Deployment
-gcloud functions deploy my-function \
-    --runtime python39 \
-    --trigger-http \
-    --entry-point function_name
+gcloud functions deploy my-function \               # Deploy new Cloud Function
+    --runtime python39 \                           # Runtime environment
+    --trigger-http \                              # HTTP trigger type
+    --entry-point function_name                   # Function to execute
 
 # Function Management
-gcloud functions list
-gcloud functions describe my-function
-gcloud functions logs read my-function
-gcloud functions delete my-function
+gcloud functions list                              # Show all Cloud Functions
+gcloud functions describe my-function              # Get function configuration
+gcloud functions logs read my-function             # View function execution logs
+gcloud functions delete my-function                # Remove function
 ```
 
 ## Monitoring & Logging
 ```bash
 # Logging
-gcloud logging read "resource.type=gce_instance"
-gcloud logging write my-log "Log entry"
+gcloud logging read "resource.type=gce_instance"    # Query logs for VM instances
+gcloud logging write my-log "Log entry"             # Write custom log entry
 
 # Monitoring
-gcloud monitoring dashboards create \
-    --config-from-file=dashboard.json
+gcloud monitoring dashboards create \               # Create monitoring dashboard
+    --config-from-file=dashboard.json              # Dashboard configuration file
 
-gcloud monitoring policies create \
-    --policy-from-file=alert-policy.json
+gcloud monitoring policies create \                 # Create alerting policy
+    --policy-from-file=alert-policy.json           # Alert policy configuration
 ```
 
 ## Best Practices

@@ -7,26 +7,26 @@
 ## Basic Commands
 ```bash
 # Cluster Information
-kubectl cluster-info                # Display cluster info
-kubectl version                     # Show version
-kubectl api-resources              # List all resources
-kubectl api-versions              # List api versions
+kubectl cluster-info                # Display detailed information about the cluster endpoints and health
+kubectl version                     # Show both client and server versions of kubectl and Kubernetes
+kubectl api-resources              # List all supported API resources (pods, services, etc.) with their shortnames and API groups
+kubectl api-versions              # List all API versions supported by the server, useful for API compatibility
 
 # Pod Management
-kubectl get pods                    # List pods
-kubectl get pods -o wide           # List pods with more details
-kubectl describe pod <pod>         # Show pod details
-kubectl logs <pod>                 # View pod logs
-kubectl exec -it <pod> -- /bin/sh  # Shell into pod
-kubectl delete pod <pod>           # Delete pod
+kubectl get pods                    # List all pods in the current namespace with basic info (name, status, age)
+kubectl get pods -o wide           # List pods with additional details like IP and node allocation
+kubectl describe pod <pod>         # Show detailed information about a pod including events and configuration
+kubectl logs <pod>                 # View container logs from pod, useful for debugging
+kubectl exec -it <pod> -- /bin/sh  # Start an interactive shell session inside the pod for debugging
+kubectl delete pod <pod>           # Delete a pod (note: if managed by deployment, it will be recreated)
 
 # Deployment Management
-kubectl get deployments            # List deployments
-kubectl create deployment <name> --image=<image>  # Create deployment
-kubectl scale deployment <name> --replicas=3      # Scale deployment
-kubectl rollout status deployment/<name>          # Check rollout status
-kubectl rollout history deployment/<name>         # View rollout history
-kubectl rollout undo deployment/<name>            # Rollback deployment
+kubectl get deployments            # List all deployments with their status and replica counts
+kubectl create deployment <name> --image=<image>  # Create a new deployment from a container image
+kubectl scale deployment <name> --replicas=3      # Scale the deployment up or down to specified number of replicas
+kubectl rollout status deployment/<name>          # Monitor the status of a deployment rollout
+kubectl rollout history deployment/<name>         # View the revision history of a deployment
+kubectl rollout undo deployment/<name>            # Rollback to the previous deployment version if issues are found
 ```
 
 ## Resource Creation
@@ -81,10 +81,10 @@ spec:
 ## Namespace Management
 ```bash
 # Namespace Operations
-kubectl get namespaces                    # List namespaces
-kubectl create namespace <name>           # Create namespace
-kubectl delete namespace <name>           # Delete namespace
-kubectl config set-context --current --namespace=<name>  # Switch namespace
+kubectl get namespaces                    # List all namespaces in the cluster for resource isolation
+kubectl create namespace <name>           # Create a new namespace for grouping resources
+kubectl delete namespace <name>           # Delete a namespace and all its resources
+kubectl config set-context --current --namespace=<name>  # Switch to a different namespace in current context
 
 # Resource Quotas
 apiVersion: v1
@@ -312,18 +312,18 @@ spec:
 ## Monitoring & Debugging
 ```bash
 # Resource Monitoring
-kubectl top nodes                  # Show node resource usage
-kubectl top pods                   # Show pod resource usage
+kubectl top nodes                  # Display CPU and memory usage metrics for all nodes
+kubectl top pods                   # Show resource consumption for pods (requires metrics-server)
 
 # Debugging
-kubectl describe pod <pod>         # Detailed pod info
-kubectl logs <pod> -c <container>  # Container logs
-kubectl exec -it <pod> -- /bin/sh  # Interactive shell
-kubectl port-forward <pod> 8080:80 # Port forwarding
+kubectl describe pod <pod>         # Show detailed pod information including events and status
+kubectl logs <pod> -c <container>  # View logs from a specific container in a pod
+kubectl exec -it <pod> -- /bin/sh  # Get an interactive shell in the pod for live debugging
+kubectl port-forward <pod> 8080:80 # Forward local port 8080 to port 80 in the pod for testing
 
 # Events & Auditing
-kubectl get events                 # View cluster events
-kubectl get events --sort-by=.metadata.creationTimestamp  # Sorted events
+kubectl get events                 # View all events in the cluster for troubleshooting
+kubectl get events --sort-by=.metadata.creationTimestamp  # View events sorted by time for chronological analysis
 ```
 
 ## Best Practices

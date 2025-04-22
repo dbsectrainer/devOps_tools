@@ -7,17 +7,17 @@
 ## Basic Commands
 ```bash
 # Installation
-pip install ansible
+pip install ansible                               # Install Ansible using Python package manager
 
 # Version Check
-ansible --version
+ansible --version                                 # Display Ansible version and configuration info
 
 # Ad-hoc Commands
-ansible all -m ping                                # Ping all hosts
-ansible webservers -m command -a "uptime"          # Run command on group
-ansible db -m shell -a "ps aux | grep mysql"       # Run shell command
-ansible all -m setup                              # Gather facts
-ansible all -m apt -a "name=nginx state=present"  # Install package
+ansible all -m ping                               # Test connectivity to all inventory hosts
+ansible webservers -m command -a "uptime"         # Execute uptime command on webserver group
+ansible db -m shell -a "ps aux | grep mysql"      # Run shell command to check MySQL processes
+ansible all -m setup                              # Collect detailed system information from hosts
+ansible all -m apt -a "name=nginx state=present"  # Ensure nginx package is installed on all hosts
 ```
 
 ## Inventory Management
@@ -40,9 +40,9 @@ http_port=80
 proxy_timeout=5
 
 # Command Line
-ansible-inventory --list                          # List all inventory
-ansible-inventory --graph                         # Show inventory hierarchy
-ansible-inventory --host=web1.example.com         # Show host variables
+ansible-inventory --list                          # Display all inventory data in JSON format
+ansible-inventory --graph                         # Show hierarchical inventory structure
+ansible-inventory --host=web1.example.com         # Show variables for specific host
 ```
 
 ## Playbook Syntax
@@ -275,16 +275,16 @@ roles/
 ## Vault
 ```bash
 # Vault Operations
-ansible-vault create secret.yml                   # Create encrypted file
-ansible-vault edit secret.yml                     # Edit encrypted file
-ansible-vault encrypt existing.yml                # Encrypt existing file
-ansible-vault decrypt secret.yml                  # Decrypt file
-ansible-vault view secret.yml                     # View encrypted file
-ansible-vault rekey secret.yml                    # Change encryption key
+ansible-vault create secret.yml                   # Create new encrypted file for sensitive data
+ansible-vault edit secret.yml                     # Securely edit encrypted file contents
+ansible-vault encrypt existing.yml                # Encrypt an existing plaintext file
+ansible-vault decrypt secret.yml                  # Convert encrypted file to plaintext
+ansible-vault view secret.yml                     # Display encrypted file contents
+ansible-vault rekey secret.yml                    # Change encryption password
 
 # Running with Vault
-ansible-playbook --ask-vault-pass playbook.yml    # Prompt for password
-ansible-playbook --vault-password-file=vault.key playbook.yml  # Use password file
+ansible-playbook --ask-vault-pass playbook.yml    # Run playbook with password prompt
+ansible-playbook --vault-password-file=vault.key playbook.yml  # Run using password file
 ```
 
 ## Best Practices

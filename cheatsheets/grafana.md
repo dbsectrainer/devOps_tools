@@ -57,17 +57,17 @@ password = your-password
 ## PromQL Query Examples
 ```sql
 # Basic Metrics
-rate(http_requests_total[5m])              # Request rate
-sum by (status_code) (http_requests_total) # Requests by status
-histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket[5m])) by (le)) # 95th percentile latency
+rate(http_requests_total[5m])              # Calculate request rate over 5-minute window
+sum by (status_code) (http_requests_total) # Group total requests by HTTP status code
+histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket[5m])) by (le)) # Calculate 95th percentile of request latency
 
 # Container Metrics
-sum(rate(container_cpu_usage_seconds_total{container!=""}[5m])) by (pod)  # CPU usage by pod
-sum(container_memory_usage_bytes) by (pod) # Memory usage by pod
+sum(rate(container_cpu_usage_seconds_total{container!=""}[5m])) by (pod)  # Average CPU usage per pod
+sum(container_memory_usage_bytes) by (pod) # Total memory consumption per pod
 
 # Application Metrics
-rate(application_requests_total{handler="/api/v1/users"}[5m])  # API endpoint rate
-sum(rate(application_errors_total[5m])) by (type)              # Error rate by type
+rate(application_requests_total{handler="/api/v1/users"}[5m])  # Request rate for specific API endpoint
+sum(rate(application_errors_total[5m])) by (type)              # Error frequency grouped by error type
 ```
 
 ## Alert Rules
@@ -162,19 +162,19 @@ panels:
 ## API Examples
 ```bash
 # Authentication
-curl -H "Authorization: Bearer YOUR_API_KEY" \
-     http://localhost:3000/api/dashboards/home
+curl -H "Authorization: Bearer YOUR_API_KEY" \      # Access Grafana API with API key
+     http://localhost:3000/api/dashboards/home      # Get home dashboard info
 
 # Create Dashboard
-curl -X POST \
-     -H "Content-Type: application/json" \
-     -H "Authorization: Bearer YOUR_API_KEY" \
-     http://localhost:3000/api/dashboards/db \
-     -d @dashboard.json
+curl -X POST \                                      # Create new dashboard via API
+     -H "Content-Type: application/json" \          # Specify JSON content type
+     -H "Authorization: Bearer YOUR_API_KEY" \      # Authenticate request
+     http://localhost:3000/api/dashboards/db \      # Dashboard endpoint
+     -d @dashboard.json                            # Dashboard configuration file
 
 # Get Data Source
-curl -H "Authorization: Bearer YOUR_API_KEY" \
-     http://localhost:3000/api/datasources/name/prometheus
+curl -H "Authorization: Bearer YOUR_API_KEY" \      # Get data source configuration
+     http://localhost:3000/api/datasources/name/prometheus  # Query Prometheus data source
 ```
 
 ## Best Practices
@@ -214,14 +214,14 @@ Large panels: 24 units wide (double width)
 3. **Query Optimization**
 ```sql
 # Use Recording Rules
-record: job:request_latency_seconds:rate5m
-expr: rate(request_latency_seconds_count[5m])
+record: job:request_latency_seconds:rate5m          # Pre-compute expensive queries
+expr: rate(request_latency_seconds_count[5m])       # Store results for faster access
 
 # Use Labels Efficiently
-sum without (instance) (rate(http_requests_total{job="api"}[5m]))
+sum without (instance) (rate(http_requests_total{job="api"}[5m]))  # Remove unnecessary labels
 
 # Aggregate Where Possible
-sum by (status_code) (rate(http_requests_total[5m]))
+sum by (status_code) (rate(http_requests_total[5m]))  # Group metrics to reduce data points
 ```
 
 4. **Alert Configuration**

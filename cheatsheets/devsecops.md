@@ -7,26 +7,27 @@
 ## SonarQube
 ```bash
 # Installation (Docker)
-docker run -d --name sonarqube -p 9000:9000 sonarqube:latest
+docker run -d --name sonarqube -p 9000:9000 sonarqube:latest   # Start SonarQube server in container
+                                                              # Expose on port 9000
 
 # Scanner CLI
-sonar-scanner \
-  -Dsonar.projectKey=my-project \
-  -Dsonar.sources=. \
-  -Dsonar.host.url=http://localhost:9000 \
-  -Dsonar.login=myauthtoken
+sonar-scanner \                                               # Run standalone scanner
+  -Dsonar.projectKey=my-project \                            # Unique project identifier
+  -Dsonar.sources=. \                                        # Source code location
+  -Dsonar.host.url=http://localhost:9000 \                   # SonarQube server URL
+  -Dsonar.login=myauthtoken                                  # Authentication token
 
 # Maven Integration
-mvn clean verify sonar:sonar \
-  -Dsonar.projectKey=my-project \
-  -Dsonar.host.url=http://localhost:9000 \
-  -Dsonar.login=myauthtoken
+mvn clean verify sonar:sonar \                               # Run analysis during Maven build
+  -Dsonar.projectKey=my-project \                           # Project identifier
+  -Dsonar.host.url=http://localhost:9000 \                  # Server URL
+  -Dsonar.login=myauthtoken                                 # Authentication token
 
 # Gradle Integration
-./gradlew sonarqube \
-  -Dsonar.projectKey=my-project \
-  -Dsonar.host.url=http://localhost:9000 \
-  -Dsonar.login=myauthtoken
+./gradlew sonarqube \                                        # Run analysis during Gradle build
+  -Dsonar.projectKey=my-project \                           # Project identifier
+  -Dsonar.host.url=http://localhost:9000 \                  # Server URL
+  -Dsonar.login=myauthtoken                                 # Authentication token
 ```
 
 ## OWASP ZAP
@@ -35,20 +36,20 @@ mvn clean verify sonar:sonar \
 docker pull owasp/zap2docker-stable
 
 # Baseline Scan
-docker run -t owasp/zap2docker-stable zap-baseline.py \
-  -t https://example.com -g gen.conf -r report.html
+docker run -t owasp/zap2docker-stable zap-baseline.py \      # Quick security assessment
+  -t https://example.com -g gen.conf -r report.html          # Generate HTML report
 
 # Full Scan
-docker run -t owasp/zap2docker-stable zap-full-scan.py \
-  -t https://example.com -g gen.conf -r report.html
+docker run -t owasp/zap2docker-stable zap-full-scan.py \     # Comprehensive security scan
+  -t https://example.com -g gen.conf -r report.html          # Including active attacks
 
 # API Scan
-docker run -t owasp/zap2docker-stable zap-api-scan.py \
-  -t https://example.com/api/v1/swagger.json -f openapi \
-  -r api-report.html
+docker run -t owasp/zap2docker-stable zap-api-scan.py \      # Test API endpoints
+  -t https://example.com/api/v1/swagger.json -f openapi \    # Using OpenAPI/Swagger spec
+  -r api-report.html                                         # Generate API scan report
 
 # Desktop UI
-docker run -u zap -p 8080:8080 -p 8090:8090 -i owasp/zap2docker-stable zap-webswing.sh
+docker run -u zap -p 8080:8080 -p 8090:8090 -i owasp/zap2docker-stable zap-webswing.sh  # Launch web interface
 ```
 
 ## Trivy
@@ -58,21 +59,24 @@ brew install aquasecurity/trivy/trivy  # macOS
 apt-get install trivy                  # Debian/Ubuntu
 
 # Image Scanning
-trivy image nginx:latest
-trivy image --severity HIGH,CRITICAL nginx:latest
-trivy image --format json --output results.json nginx:latest
+trivy image nginx:latest                                     # Scan container image for vulnerabilities
+trivy image --severity HIGH,CRITICAL nginx:latest            # Only show high and critical issues
+trivy image --format json --output results.json nginx:latest # Export results in JSON format
 
 # Filesystem Scanning
-trivy fs --security-checks vuln,config /path/to/project
+trivy fs --security-checks vuln,config /path/to/project      # Scan local files for vulnerabilities
+                                                           # and misconfigurations
 
 # Git Repository Scanning
-trivy repo https://github.com/user/repo
+trivy repo https://github.com/user/repo                      # Scan remote Git repository
 
 # Container Scanning
-trivy container --rm -t high nginx:latest
+trivy container --rm -t high nginx:latest                    # Scan running container
+                                                           # Remove after scanning
 
 # Kubernetes Scanning
-trivy k8s --report summary cluster
+trivy k8s --report summary cluster                           # Scan Kubernetes cluster
+                                                           # Generate summary report
 ```
 
 ## Clair
@@ -113,60 +117,60 @@ npm install -g snyk
 snyk auth
 
 # Vulnerability Scanning
-snyk test                           # Test current project
-snyk test --all-projects           # Test all projects
-snyk test --docker nginx:latest    # Test Docker image
-snyk test --file=requirements.txt  # Test specific file
+snyk test                           # Check current directory for vulnerabilities
+snyk test --all-projects           # Scan all projects in workspace
+snyk test --docker nginx:latest    # Analyze Docker image for security issues
+snyk test --file=requirements.txt  # Check specific dependency file
 
 # Monitoring
-snyk monitor                       # Monitor current project
-snyk monitor --docker nginx:latest # Monitor Docker image
+snyk monitor                       # Track project for new vulnerabilities
+snyk monitor --docker nginx:latest # Continuously monitor Docker image
 
 # Fix Vulnerabilities
-snyk wizard                        # Interactive wizard
-snyk fix                          # Auto-fix vulnerabilities
+snyk wizard                        # Interactive vulnerability remediation
+snyk fix                          # Automatically apply security patches
 
 # Reporting
-snyk test --json > report.json     # Generate JSON report
-snyk test --sarif > report.sarif   # Generate SARIF report
+snyk test --json > report.json     # Export results in JSON format
+snyk test --sarif > report.sarif   # Generate SARIF for code scanning tools
 ```
 
 ## GitHub Security Features
 ```yaml
 # CodeQL Analysis
-name: "CodeQL"
+name: "CodeQL"                     # Static analysis security testing
 on:
-  push:
+  push:                           # Run on push to main
     branches: [ main ]
-  pull_request:
+  pull_request:                   # Run on PRs to main
     branches: [ main ]
-  schedule:
-    - cron: '0 0 * * 0'
+  schedule:                       # Weekly scheduled scan
+    - cron: '0 0 * * 0'          # Run at midnight on Sundays
 
 jobs:
   analyze:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout repository
+    - name: Checkout repository    # Get source code
       uses: actions/checkout@v4
-    - name: Initialize CodeQL
+    - name: Initialize CodeQL      # Set up analysis tools
       uses: github/codeql-action/init@v2
       with:
-        languages: javascript, python
-    - name: Perform CodeQL Analysis
+        languages: javascript, python  # Languages to analyze
+    - name: Perform CodeQL Analysis   # Run security scan
       uses: github/codeql-action/analyze@v2
 
 # Dependency Scanning
-name: "Dependency Review"
-on: [pull_request]
+name: "Dependency Review"          # Check dependencies for vulnerabilities
+on: [pull_request]                # Run on all pull requests
 
 jobs:
   dependency-review:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
+      - name: Checkout Repository  # Get source code
         uses: actions/checkout@v4
-      - name: Dependency Review
+      - name: Dependency Review    # Analyze dependencies
         uses: actions/dependency-review-action@v3
 ```
 

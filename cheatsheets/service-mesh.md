@@ -7,33 +7,36 @@
 ## Istio Installation
 ```bash
 # Download Istio
-curl -L https://istio.io/downloadIstio | sh -
-cd istio-1.20.0
-export PATH=$PWD/bin:$PATH
+curl -L https://istio.io/downloadIstio | sh -     # Download latest Istio release
+cd istio-1.20.0                                   # Enter Istio directory
+export PATH=$PWD/bin:$PATH                        # Add istioctl to PATH
 
 # Install Istio Core
-istioctl install --set profile=demo -y
+istioctl install --set profile=demo -y            # Install Istio with demo profile
+                                                 # Includes core components and addons
 
 # Enable Automatic Sidecar Injection
-kubectl label namespace default istio-injection=enabled
+kubectl label namespace default istio-injection=enabled  # Auto-inject Envoy proxy
+                                                       # into all pods in namespace
 
 # Verify Installation
-istioctl verify-install
-kubectl get pods -n istio-system
+istioctl verify-install                           # Check installation status
+kubectl get pods -n istio-system                  # View Istio components
 ```
 
 ## Istio Components
 ```bash
 # Control Plane Components
-kubectl get pods -n istio-system
-kubectl get svc -n istio-system
+kubectl get pods -n istio-system                  # List all Istio control plane pods
+kubectl get svc -n istio-system                   # Show Istio-related services
 
 # Istiod (Pilot, Citadel, Galley combined)
-kubectl describe deployment istiod -n istio-system
+kubectl describe deployment istiod -n istio-system  # View Istio control plane details
+                                                  # Manages configuration, certs, discovery
 
 # Ingress/Egress Gateways
-kubectl get pods -l app=istio-ingressgateway -n istio-system
-kubectl get pods -l app=istio-egressgateway -n istio-system
+kubectl get pods -l app=istio-ingressgateway -n istio-system  # Check ingress gateway status
+kubectl get pods -l app=istio-egressgateway -n istio-system   # Check egress gateway status
 ```
 
 ## Traffic Management
@@ -405,24 +408,24 @@ spec:
 ## Istio CLI Commands
 ```bash
 # Istio Status
-istioctl proxy-status
-istioctl analyze
+istioctl proxy-status                             # Show sync status of all Envoy proxies
+istioctl analyze                                  # Analyze mesh for potential issues
 
 # Debugging
-istioctl proxy-config clusters <pod-name>
-istioctl proxy-config routes <pod-name>
-istioctl proxy-config endpoints <pod-name>
-istioctl proxy-config listeners <pod-name>
+istioctl proxy-config clusters <pod-name>         # View service clusters config
+istioctl proxy-config routes <pod-name>           # Inspect routing configuration
+istioctl proxy-config endpoints <pod-name>        # Check endpoint discovery
+istioctl proxy-config listeners <pod-name>        # View network listeners
 
 # Validation
-istioctl validate -f virtual-service.yaml
-istioctl experimental describe service <service-name>
+istioctl validate -f virtual-service.yaml         # Validate configuration file
+istioctl experimental describe service <service-name>  # Show service configuration
 
 # Dashboard Access
-istioctl dashboard kiali
-istioctl dashboard jaeger
-istioctl dashboard grafana
-istioctl dashboard prometheus
+istioctl dashboard kiali                          # Open service mesh visualization
+istioctl dashboard jaeger                         # Access distributed tracing
+istioctl dashboard grafana                        # View metrics and dashboards
+istioctl dashboard prometheus                     # Query metrics and alerts
 ```
 
 ## Resource Hooks

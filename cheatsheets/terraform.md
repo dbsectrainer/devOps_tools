@@ -5,28 +5,28 @@
 ## Basic Commands
 ```bash
 # Initialization and Setup
-terraform init              # Initialize working directory
-terraform get              # Download/update modules
-terraform fmt              # Format configuration files
-terraform validate        # Validate configuration files
+terraform init              # Initialize a working directory, download providers and modules
+terraform get              # Download and update modules mentioned in root module
+terraform fmt              # Rewrite config files to canonical format and style
+terraform validate        # Check whether configuration is syntactically valid and internally consistent
 
 # Planning and Applying
-terraform plan            # Show execution plan
-terraform apply           # Apply changes
-terraform destroy         # Destroy infrastructure
+terraform plan            # Create an execution plan to preview infrastructure changes
+terraform apply           # Apply changes required to reach desired state of configuration
+terraform destroy         # Destroy all remote objects managed by this configuration
 
 # State Management
-terraform show            # Show current state
-terraform state list     # List resources in state
-terraform state mv       # Move item in state
-terraform state rm       # Remove item from state
-terraform import         # Import existing resource
+terraform show            # Show human-readable output of current state or saved plan
+terraform state list     # List all resources tracked in state file
+terraform state mv       # Move resource to different state location (rename/refactor)
+terraform state rm       # Remove resource from state (without destroying real resource)
+terraform import         # Import existing infrastructure into Terraform state
 
 # Workspace Management
-terraform workspace new    # Create new workspace
-terraform workspace list  # List workspaces
-terraform workspace select # Switch workspace
-terraform workspace delete # Delete workspace
+terraform workspace new    # Create a new workspace for managing separate states
+terraform workspace list  # Show all workspaces with current workspace marked
+terraform workspace select # Switch to a different workspace for operations
+terraform workspace delete # Delete a workspace and its stored state
 ```
 
 ## Configuration Syntax

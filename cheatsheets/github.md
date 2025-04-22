@@ -5,32 +5,32 @@
 ## Git Basic Commands
 ```bash
 # Repository Operations
-git init                           # Initialize a new repository
-git clone <url>                    # Clone a repository
-git remote add origin <url>        # Add remote repository
-git remote -v                      # View remote repositories
+git init                           # Create new Git repository in current directory
+git clone <url>                    # Download remote repository to local machine
+git remote add origin <url>        # Connect local repository to remote GitHub repo
+git remote -v                      # List all configured remote repositories
 
 # Basic Operations
-git add <file>                     # Stage changes
-git add .                          # Stage all changes
-git commit -m "message"            # Commit changes
-git push origin <branch>           # Push changes
-git pull origin <branch>           # Pull changes
+git add <file>                     # Stage specific file for commit
+git add .                          # Stage all modified and new files
+git commit -m "message"            # Create commit with staged changes
+git push origin <branch>           # Upload local commits to remote repository
+git pull origin <branch>           # Download and merge remote changes
 
 # Branch Operations
-git branch                         # List branches
-git branch <name>                  # Create branch
-git checkout <branch>              # Switch branch
-git checkout -b <branch>           # Create and switch branch
-git merge <branch>                 # Merge branch
-git branch -d <branch>             # Delete branch
-git push origin --delete <branch>  # Delete remote branch
+git branch                         # Show all local branches
+git branch <name>                  # Create new branch from current position
+git checkout <branch>              # Switch to different branch
+git checkout -b <branch>           # Create new branch and switch to it
+git merge <branch>                 # Combine specified branch into current branch
+git branch -d <branch>             # Remove local branch
+git push origin --delete <branch>  # Remove remote branch
 
 # Status & History
-git status                         # Check repository status
-git log                           # View commit history
-git diff                          # View changes
-git blame <file>                  # View file changes history
+git status                         # Show working tree status and staged changes
+git log                           # Display commit history with details
+git diff                          # Show changes between working directory and last commit
+git blame <file>                  # Show who changed each line of a file
 ```
 
 ## GitHub Actions Workflow Syntax
@@ -168,31 +168,31 @@ jobs:
 ## GitHub CLI Commands
 ```bash
 # Authentication
-gh auth login                      # Login to GitHub
-gh auth status                     # Check auth status
+gh auth login                      # Start interactive GitHub authentication
+gh auth status                     # Display current authentication state
 
 # Repository Management
-gh repo create                     # Create repository
-gh repo clone <repository>         # Clone repository
-gh repo view                       # View repository details
+gh repo create                     # Create new GitHub repository
+gh repo clone <repository>         # Clone repository to local machine
+gh repo view                       # Show repository information and metadata
 
 # Pull Request Management
-gh pr create                       # Create PR
-gh pr checkout <number>            # Checkout PR
-gh pr review                       # Review PR
-gh pr merge                        # Merge PR
+gh pr create                       # Create new pull request
+gh pr checkout <number>            # Switch to PR's branch locally
+gh pr review                       # Add review comments to PR
+gh pr merge                        # Merge pull request into base branch
 
 # Issue Management
-gh issue create                    # Create issue
-gh issue list                      # List issues
-gh issue view <number>            # View issue
-gh issue close <number>           # Close issue
+gh issue create                    # Create new GitHub issue
+gh issue list                      # Show all repository issues
+gh issue view <number>            # Display issue details
+gh issue close <number>           # Close specified issue
 
 # Workflow Management
-gh workflow list                   # List workflows
-gh workflow run                    # Run workflow
-gh workflow view                   # View workflow
-gh run list                       # List workflow runs
+gh workflow list                   # Show all GitHub Actions workflows
+gh workflow run                    # Manually trigger workflow
+gh workflow view                   # Display workflow details
+gh run list                       # Show recent workflow runs
 ```
 
 ## Best Practices
