@@ -133,38 +133,47 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function convertMarkdownToHTML(markdown) {
-        let html = markdown;
-        
-        // Store mermaid diagrams to prevent them from being processed by other rules
-        const mermaidDiagrams = [];
-        html = html.replace(/```mermaid([\s\S]*?)```/g, (match, code) => {
-            const id = `mermaid-${mermaidDiagrams.length}`;
-            mermaidDiagrams.push({ id, code: code.trim() });
-            return `MERMAID_PLACEHOLDER_${id}`;
-        });
-
-        // Process regular markdown
-        html = html
-            // Headers
-            .replace(/^# (.*$)/gm, '<h1>$1</h1>')
-            .replace(/^## (.*$)/gm, '<h2>$1</h2>')
-            .replace(/^### (.*$)/gm, '<h3>$1</h3>')
-            // Bold
-            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-            // Italic
-            .replace(/\*(.*?)\*/g, '<em>$1</em>')
-            // Regular code blocks
-            .replace(/```([^m][\s\S]*?)```/g, '<pre><code>$1</code></pre>')
-            // Inline code
-            .replace(/`(.*?)`/g, '<code>$1</code>')
-            // Lists
-            .replace(/^\s*[-*+]\s+(.*)/gm, '<li>$1</li>')
-            // Links
-            .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2">$1</a>')
-            // Paragraphs
-            .replace(/^\s*(\n)?(.+)/gm, function(m) {
-                return /\<(\/)?(h\d|ul|ol|li|blockquote|pre|img)/.test(m) ? m : '<p>'+m+'</p>';
+            let html = markdown;
+            
+            // Store mermaid diagrams to prevent them from being processed by other rules
+            const mermaidDiagrams = [];
+            html = html.replace(/```mermaid([\s\S]*?)```/g, (match, code) => {
+                const id = `mermaid-${mermaidDiagrams.length}`;
+                mermaidDiagrams.push({ id, code: code.trim() });
+                return `MERMAID_PLACEHOLDER_${id}`;
             });
+    
+            // Process regular markdown
+            html = html
+                // Headers
+                .replace(/^# (.*$)/gm, '<h1>$1</h1>')
+                .replace(/^## (.*$)/gm, '<h2>$1</h2>')
+                .replace(/^### (.*$)/gm, '<h3>$1</h3>')
+                // Bold
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                // Italic
+                .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                // Regular code blocks
+                .replace(/```([^m][\s\S]*?)```/g, '<pre><code>$1</code></pre>')
+                // Inline code
+                .replace(/`(.*?)`/g, '<code>$1</code>')
+                // Lists
+                .replace(/^\s*[-*+]\s+(.*)/gm, '<li>$1</li>')
+                // Special handling for day navigation links
+                .replace(/\[(←|←\s+)Previous Day\]\((\.\.\/day-\d+\/README\.md)\)/g, function(match, arrow, path) {
+                    const dayNum = path.match(/day-(\d+)/)[1];
+                    return `<a href="#day-${dayNum}" class="day-nav prev-day" data-path="days/day-${dayNum}/README.md">${arrow} Previous Day</a>`;
+                })
+                .replace(/\[(Next Day\s+→|Next Day→)\]\((\.\.\/day-\d+\/README\.md)\)/g, function(match, text, path) {
+                    const dayNum = path.match(/day-(\d+)/)[1];
+                    return `<a href="#day-${dayNum}" class="day-nav next-day" data-path="days/day-${dayNum}/README.md">${text}</a>`;
+                })
+                // Regular links (after special handling for day navigation)
+                .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2">$1</a>')
+                // Paragraphs
+                .replace(/^\s*(\n)?(.+)/gm, function(m) {
+                    return /\<(\/)?(h\d|ul|ol|li|blockquote|pre|img)/.test(m) ? m : '<p>'+m+'</p>';
+                });
 
         // Restore mermaid diagrams
         mermaidDiagrams.forEach(({ id, code }) => {
@@ -181,4 +190,17 @@ document.addEventListener('DOMContentLoaded', () => {
         
         return html;
     }
+    
+    // Add event delegation for day navigation links
+    contentArea.addEventListener('click', (e) => {
+        // Check if the clicked element is a day navigation link
+        if (e.target.classList.contains('day-nav') || e.target.parentElement.classList.contains('day-nav')) {
+            e.preventDefault();
+            const link = e.target.classList.contains('day-nav') ? e.target : e.target.parentElement;
+            const path = link.getAttribute('data-path');
+            if (path) {
+                loadContent(path);
+            }
+        }
+    });
 });
