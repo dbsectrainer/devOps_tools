@@ -85,6 +85,91 @@ document.addEventListener('DOMContentLoaded', () => {
             loadContent(`days/day-${day}/README.md`);
         });
     });
+    
+    // Define day topics data
+    const dayTopics = [
+        { day: "01", title: "GitHub Basics", level: "beginner", topics: ["Repository Management", "Branch Operations", "Pull Requests", "GitHub Actions Intro"] },
+        { day: "02", title: "Advanced GitHub Actions", level: "intermediate", topics: ["Composite Actions", "Workflow Templates", "Multi-environment Deployment", "Terraform Introduction"] },
+        { day: "03", title: "Terraform & Docker", level: "intermediate", topics: ["Terraform Modules & Workspaces", "Docker Installation", "Container Lifecycle", "Image Building"] },
+        { day: "04", title: "Kubernetes Basics", level: "intermediate", topics: ["Kubernetes Architecture", "Pod Management", "Deployments & Services", "ConfigMaps & Secrets"] },
+        { day: "05", title: "Advanced Kubernetes", level: "advanced", topics: ["StatefulSets", "Persistent Volumes", "Helm Charts", "Custom Resources"] },
+        { day: "06", title: "AWS Essentials", level: "intermediate", topics: ["IAM", "EC2", "S3", "RDS"] },
+        { day: "07", title: "AWS Advanced", level: "advanced", topics: ["Lambda", "CloudFormation", "EKS", "CloudWatch"] },
+        { day: "08", title: "Azure Fundamentals", level: "intermediate", topics: ["Resource Groups", "Virtual Machines", "Storage", "App Service"] },
+        { day: "09", title: "GCP Essentials", level: "intermediate", topics: ["Projects", "Compute Engine", "Cloud Storage", "Cloud SQL"] },
+        { day: "10", title: "Ansible Basics", level: "beginner", topics: ["Inventory", "Playbooks", "Roles", "Variables"] },
+        { day: "11", title: "Advanced Ansible", level: "intermediate", topics: ["Dynamic Inventory", "Vault", "Custom Modules", "AWX/Tower"] },
+        { day: "12", title: "CI/CD Pipelines", level: "intermediate", topics: ["Jenkins", "GitLab CI", "CircleCI", "ArgoCD"] },
+        { day: "13", title: "Monitoring & Logging", level: "intermediate", topics: ["Prometheus", "Grafana", "ELK Stack", "Loki"] },
+        { day: "14", title: "Service Mesh", level: "advanced", topics: ["Istio", "Linkerd", "Traffic Management", "Security"] },
+        { day: "15", title: "DevSecOps", level: "advanced", topics: ["SAST/DAST", "Container Security", "Secret Management", "Compliance"] },
+        { day: "16", title: "Chaos Engineering", level: "advanced", topics: ["Chaos Toolkit", "Chaos Mesh", "Game Days", "Resilience Testing"] },
+        { day: "17", title: "GitOps", level: "intermediate", topics: ["Flux", "ArgoCD", "Declarative Deployments", "Drift Detection"] },
+        { day: "18", title: "Cloud Native Architecture", level: "advanced", topics: ["Microservices", "Serverless", "Event-Driven Design", "Multi-Cloud Strategy"] }
+    ];
+    
+    // Function to create a day card
+    function createDayCard(dayInfo) {
+        const card = document.createElement('a');
+        card.href = "#";
+        card.className = "getting-started-card";
+        card.setAttribute("data-day", dayInfo.day);
+        
+        card.innerHTML = `
+            <div class="card-header">
+                <h4>Day ${dayInfo.day}: ${dayInfo.title}</h4>
+                <span class="skill-level ${dayInfo.level}">${dayInfo.level}</span>
+            </div>
+            <div class="key-topics">
+                <h5>Key Topics:</h5>
+                <ul>
+                    ${dayInfo.topics.map(topic => `<li>${topic}</li>`).join('')}
+                </ul>
+            </div>
+        `;
+        
+        // Add click event listener
+        card.addEventListener('click', (e) => {
+            e.preventDefault();
+            loadContent(`days/day-${dayInfo.day}/README.md`);
+        });
+        
+        return card;
+    }
+    
+    // Handle "View All 18 Days" button with toggle functionality
+    const viewAllButton = document.getElementById('view-all-days');
+    if (viewAllButton) {
+        let isExpanded = false;
+        
+        viewAllButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Get the grid container
+            const gridContainer = document.querySelector('.getting-started-grid');
+            
+            // Toggle between expanded and collapsed views
+            isExpanded = !isExpanded;
+            
+            // Update button text
+            viewAllButton.textContent = isExpanded ? "Show Less" : "View All 18 Days";
+            
+            // Clear existing cards
+            gridContainer.innerHTML = '';
+            
+            if (isExpanded) {
+                // Show all 18 days
+                dayTopics.forEach(dayInfo => {
+                    gridContainer.appendChild(createDayCard(dayInfo));
+                });
+            } else {
+                // Show only the first 4 days
+                dayTopics.slice(0, 4).forEach(dayInfo => {
+                    gridContainer.appendChild(createDayCard(dayInfo));
+                });
+            }
+        });
+    }
 
     // Handle glossary link click
     document.getElementById('glossary-link').addEventListener('click', (e) => {
