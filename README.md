@@ -1,5 +1,8 @@
 # DevOps Certification Labs - 18 Day Training Plan
 
+[![CI](https://github.com/dbsectrainer/devOps_tools/actions/workflows/ci.yml/badge.svg)](https://github.com/dbsectrainer/devOps_tools/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 ## Project Overview
 This project covers a wide range of DevOps and DevSecOps skills, including:
 
